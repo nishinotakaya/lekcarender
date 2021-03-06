@@ -1,0 +1,33 @@
+<h1>レクカレンダー全体編集</h1>
+<%= form_with(model: @blogs, url: all_blogs_update_blog_path(@blogs), local: true, method: :patch) do |f| %>
+  <table class= "table table-bordered table-condensed table-hover" id="table-attendances">
+    <thead>
+      <tr>
+        <th>月</th>
+        <th>曜日</th>
+        <th>レク内容</th>
+        <th>誕生日の利用者を祝う日</th>
+      </tr>  
+    </thead>
+    <tbody>
+      <% @blogs.each do |blog| %>
+        <%= f.fields_for "blogs[]", blog do |b| %>
+        <tr>
+          <% css_class = 
+              case %w{日 月 火 水 木 金 土}[blog.start_time.wday]
+              when '土'
+                'text-primary'
+              when '日'
+                'text-danger'
+              end %>
+            <td><%= l(blog.start_time, format: :short) %></td>
+            <td class="<%= css_class %>"><%= %w{日 月 火 水 木 金 土}[blog.start_time.wday] %></td>
+            <td><%= b.text_field :title, class: "form-control" %></td>
+            <td><%= b.text_field :content, class: "form-control" %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+  <%= f.submit '送信' %>
+<% end %>
