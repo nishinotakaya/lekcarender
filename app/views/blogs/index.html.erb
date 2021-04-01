@@ -11,6 +11,7 @@
 
   <%= month_calendar(events: @blogs) do |date, blogs| %>
     <%= date.day %>
+    
 
     <% blogs.each do |blog| %>
       <% if blog.title.present? %>
