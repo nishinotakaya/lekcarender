@@ -32,11 +32,5 @@
       <% end %>
     </tbody>
   </table>
-  <p>備考</p>
-    <%= f.text_area :not_content_birthday_people, class: "form-control", id: "ex3" %>
-  <%= f.submit '送信' %>
+  <%= f.submit '送信', class: "btn btn-primary" %>
 <% end %>
-
-<script>
-  $('#ex3').val('Blog.find(1).not_content_birthday_people');
-</script>
