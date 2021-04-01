@@ -1,12 +1,15 @@
 <h1>レクカレンダー全体編集</h1>
+<%= link_to "⇦ ",  all_blogs_edit_blog_path(date:  @last_day.last_month.all_month), class: "btn btn-info" %>
+<%= @first_day.strftime("%-m") %>月
+<%= link_to " ⇨",  all_blogs_edit_blog_path(date: @first_day.next_month), class: "btn btn-info" %>
 <%= form_with(model: @blogs, url: all_blogs_update_blog_path(@blogs), local: true, method: :patch) do |f| %>
   <table class= "table table-bordered table-condensed table-hover" id="table-attendances">
     <thead>
       <tr>
-        <th>月</th>
+        <th>月日</th>
         <th>曜日</th>
         <th>レク内容</th>
-        <th>誕生日の利用者を祝う日</th>
+        <th>誕生日の利用者にプレゼント渡す日</th>
       </tr>  
     </thead>
     <tbody>
@@ -20,7 +23,7 @@
               when '日'
                 'text-danger'
               end %>
-            <td><%= l(blog.start_time, format: :short) %></td>
+            <td><%= blog.start_time.strftime("%-m/%-d") %></td>
             <td class="<%= css_class %>"><%= %w{日 月 火 水 木 金 土}[blog.start_time.wday] %></td>
             <td><%= b.text_field :title, class: "form-control" %></td>
             <td><%= b.text_field :content, class: "form-control" %></td>
@@ -29,5 +32,11 @@
       <% end %>
     </tbody>
   </table>
+  <p>備考</p>
+    <%= f.text_area :not_content_birthday_people, class: "form-control", id: "ex3" %>
   <%= f.submit '送信' %>
 <% end %>
+
+<script>
+  $('#ex3').val('Blog.find(1).not_content_birthday_people');
+</script>
