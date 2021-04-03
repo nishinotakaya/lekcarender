@@ -17,6 +17,7 @@
 
   .title_content_div{
     height: 100px;
+    width: 150px;
   }
 
   .simple-calendar{
@@ -43,10 +44,11 @@
 
   #text_preparation_space{
     position: relative;
-    top: 660px;
-    height: 100px;
+    top: 400px;
+    height: 300px;
     width: 1300px;
-    font-size: 25px;
+    font-size: 40px;
+    font-weight: 600;
   }
 
 }
@@ -76,6 +78,11 @@
   margin-left: 590px;
   font-size: 30px;
   font-weight: 600;
+}
+
+.title_content_div{
+  height: 100px;
+  width: 200px;
 }
 
 .blog_delete{
