@@ -45,18 +45,10 @@ class BlogsController < ApplicationController
   end
 
   def all_blogs_edit
-    @first_day = params[:date].nil? ? 
-    Date.current.next_month.beginning_of_month : params[:date].to_date
-    @last_day = @first_day.end_of_month
-    now = Time.current 
-    one_month = [*@first_day..@last_day]
-     @blogs = Blog.where(start_time: @first_day..@last_day).group(:start_time).order(:start_time)
-     unless one_month.count == @blogs.count
-       ActiveRecord::Base.transaction do 
-         one_month.each { |day| @blogs.create!(start_time: day) }
-       end
-       @blogs = Blog.where(start_time: @first_day..@last_day).group(:start_time)
-     end
+    @first_day =  params[:date].nil? ? 
+		Date.current.next_month.beginning_of_month : params[:date].to_date
+		@last_day = @first_day.end_of_month
+    @blogs = Blog.where(start_time: @first_day..@last_day).group(:start_time)
    end  
  
    def all_blogs_update
