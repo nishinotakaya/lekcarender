@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2021_03_06_090316) do
     t.text "content_1"
     t.text "content_2"
     t.text "content_3"
-    t.datetime "start_time"
+    t.date "start_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
