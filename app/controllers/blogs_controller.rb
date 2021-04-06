@@ -1,4 +1,5 @@
 class BlogsController < ApplicationController
+  before_action :authenticate_user!
   def index
     @user = User.find_by(id: params[:user_id])
     start_date = params.fetch(:start_date, Date.today).to_date
@@ -57,7 +58,7 @@ class BlogsController < ApplicationController
             one_month.each { |day| @blogs.create!(start_time: day) }
           end
         end
-    @blogs =  current_user.blogs.where(start_time: @first_day..@last_day).group(:start_time).order(:start_time)
+    @blogs = current_user.blogs.where(start_time: @first_day..@last_day).group(:start_time).order(:start_time)
    end  
  
    def all_blogs_update
