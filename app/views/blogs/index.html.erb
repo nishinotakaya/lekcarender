@@ -2,7 +2,7 @@
   <p id="notice"><%= notice %></p>
 
   <div class="edit_carendar_link_prace">
-    <%= link_to 'カレンダー全体編集', all_blogs_edit_blog_path(@blogs) %>
+    <%= link_to 'カレンダー全体編集', all_blogs_edit_blog_path(@blogs, @user) %>
     <%= link_to 'カレンダー個別編集', new_blog_path, class: "btn btn-solid individual_edit" %>
     <%= link_to '利用者一覧' "#" %>
   </div>

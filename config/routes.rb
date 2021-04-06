@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
-  root to: 'blogs#index'
+  devise_scope :user do
+    root "users/sessions#new"
+  end
+  devise_for :users, :controllers => {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
+  }
+  resources :users
+
   resources :blogs do
     get 'all_blogs_edit', on: :member
     patch 'all_blogs_update', on: :member
