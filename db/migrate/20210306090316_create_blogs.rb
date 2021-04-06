@@ -7,6 +7,7 @@ class CreateBlogs < ActiveRecord::Migration[6.0]
       t.text :content_2
       t.text :content_3
       t.date :start_time
+      t.integer :user_id
       t.timestamps
     end
   end
