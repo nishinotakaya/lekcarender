@@ -55,12 +55,12 @@ class BlogsController < ApplicationController
 		@last_day = @first_day.end_of_month
     one_month = [*@first_day..@last_day]
       @blogs = current_user.blogs.where(start_time: @first_day..@last_day)
-        unless one_month.count == @blogs.count
+        if one_month.count == 0
           ActiveRecord::Base.transaction do 
             one_month.each { |day| @blogs.create!(start_time: day) }
           end
         end
-      @blogs = current_user.blogs.where(start_time: @first_day..@last_day).select("blogs.id", "start_time", "title", "content").group(:start_time)
+      @blogs = current_user.blogs.where(start_time: @first_day..@last_day).select("blogs.id", "start_time", "title", "content").group("blogs.id", :start_time)
    end  
  
    def all_blogs_update
