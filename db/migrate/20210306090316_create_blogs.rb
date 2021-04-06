@@ -8,7 +8,6 @@ class CreateBlogs < ActiveRecord::Migration[6.0]
       t.text :content_3
       t.date :start_time
 
-      t.references :user, foreign_key: true
       t.timestamps
     end
   end
