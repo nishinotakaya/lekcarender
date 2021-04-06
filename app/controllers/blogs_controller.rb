@@ -45,17 +45,20 @@ class BlogsController < ApplicationController
   end
 
   def all_blogs_edit
-    @first_day =  params[:date].nil? ? 
-		Date.current.next_month.beginning_of_month : params[:date].to_date
-		@last_day = @first_day.end_of_month
-    one_month = [*@first_day..@last_day]
-        @blogs = Blog.where(start_time: @first_day..@last_day).group(:start_time).order(:start_time)
+    if params[:date].nil?
+      @first_day = Date.current.next_month.beginning_of_month
+      @blogs = Blog.where(start_time: Date.current.next_month.beginning_of_month..Date.current.next_month.beginning_of_month.end_of_month).group(:start_time).order(:start_time)
+    else
+      @first_day = params[:date].to_date
+      @blogs = Blog.where(start_time: params[:date].to_date..params[:date].to_date.end_of_month).group(:start_time).order(:start_time)
+    end
+    one_month = [*Date.current.next_month.beginning_of_month..Date.current.next_month.beginning_of_month.end_of_month]
         unless one_month.count == @blogs.count
           ActiveRecord::Base.transaction do 
             one_month.each { |day| @blogs.create!(start_time: day) }
           end
         end
-    @blogs = Blog.where(start_time: @first_day..@last_day).group(:start_time).order(:start_time)
+        @blogs = Blog.where(start_time: Date.current.next_month.beginning_of_month..params[:date].to_date.end_of_month).group(:start_time).order(:start_time)
    end  
  
    def all_blogs_update
@@ -68,7 +71,7 @@ class BlogsController < ApplicationController
        end
      end
      flash[:success] = "レクカレンダーを更新しました"
-     redirect_to blogs_url      
+     redirect_to blogs_url
    end  
 
    def blogs_birthday
