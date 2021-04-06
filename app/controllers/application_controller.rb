@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    blogs_path(resource)
+    all_blogs_edit_blog_path(resource)
   end
 
   private
