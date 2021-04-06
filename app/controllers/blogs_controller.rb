@@ -1,10 +1,9 @@
 class BlogsController < ApplicationController
   def index
-    # start_date = params.fetch(:start_date, Date.today).to_date
-    # @blogs = Blog.where(start_time: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week) 
     @first_day =  params[:date].nil? ? 
 		Date.current.next_month.beginning_of_month : params[:date].to_date
 		@last_day = @first_day.end_of_month
+    start_date = params.fetch(:start_date, Date.today).to_date
     @blogs = Blog.where(start_time: @first_day..@last_day).group(:start_time)
   end
 
@@ -97,8 +96,8 @@ class BlogsController < ApplicationController
     @current_blog ||= Blog.find_by(id: session[:id])
   end
 
-  def start_time
-    self.my_related_model.start ##Where 'start' is a attribute of type 'Date' accessible through MyModel's relationship
-  end
+  # def start_time
+  #   self.my_related_model.start ##Where 'start' is a attribute of type 'Date' accessible through MyModel's relationship
+  # end
  
 end
