@@ -46,16 +46,16 @@ class BlogsController < ApplicationController
 
   def all_blogs_edit
     @first_day =  params[:date].nil? ? 
-		Date.current.next_month.beginning_of_month : params[:date].to_date.beginning_of_month
+		Date.current.next_month.beginning_of_month : params[:date].to_date
 		@last_day = @first_day.end_of_month
     one_month = [*@first_day..@last_day]
-        @blogs = Blog.where(start_time: @first_day..@last_day).group(:start_time).order(:start_time, :id).group_by(&:id)
+        @blogs = Blog.where(start_time: @first_day..@last_day).group(:start_time).order(:start_time)
         unless one_month.count == @blogs.count
           ActiveRecord::Base.transaction do 
             one_month.each { |day| @blogs.create!(start_time: day) }
           end
         end
-    @blogs = Blog.where(start_time: @first_day..@last_day).group(:start_time).order(:start_time, :id).group_by(&:id)
+    @blogs = Blog.where(start_time: @first_day..@last_day).group(:start_time).order(:start_time)
    end  
  
    def all_blogs_update
@@ -82,11 +82,11 @@ class BlogsController < ApplicationController
    end
 
   def not_content_birthday_people
-    params.permit(:not_content_birthday_people)
+    params.require(:blog).permit(:not_content_birthday_people)
   end
  
    def all_blogs_parameter
-     params.permit(blogs: [:title, :content, :start_time, :not_content_birthday_people])[:blogs]
+     params.require(:blog).permit(blogs: [:title, :content, :start_time, :not_content_birthday_people])[:blogs]
    end
 
    def current_blog
