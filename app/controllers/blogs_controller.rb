@@ -1,8 +1,11 @@
 class BlogsController < ApplicationController
   def index
-    start_date = params.fetch(:start_date, Date.today).to_date
-    @blogs = Blog.where(start_time: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week) 
-    @blog = Blog.find_by(id: params[:id])
+    # start_date = params.fetch(:start_date, Date.today).to_date
+    # @blogs = Blog.where(start_time: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week) 
+    @first_day =  params[:date].nil? ? 
+		Date.current.next_month.beginning_of_month : params[:date].to_date
+		@last_day = @first_day.end_of_month
+    @blogs = Blog.where(start_time: @first_day..@last_day).group(:start_time)
   end
 
   def carendar_top
@@ -47,18 +50,16 @@ class BlogsController < ApplicationController
 
   def all_blogs_edit
     @first_day =  params[:date].nil? ? 
-		Date.current.next_month.beginning_of_month : params[:date].to_date.beginning_of_month
+		Date.current.next_month.beginning_of_month : params[:date].to_date
 		@last_day = @first_day.end_of_month
     one_month = [*@first_day..@last_day]
-    start_date = params.fetch(:start_date, Date.today).to_date
-    @blogs = Blog.where(start_time: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week) 
+        @blogs = Blog.where(start_time: @first_day..@last_day).group(:start_time)
         unless one_month.count == @blogs.count
           ActiveRecord::Base.transaction do 
             one_month.each { |day| @blogs.create!(start_time: day) }
           end
         end
-        start_date = params.fetch(:start_date, Date.today).to_date
-        @blogs = Blog.where(start_time: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week) 
+    @blogs = Blog.where(start_time: @first_day..@last_day).group(:start_time)
    end  
  
    def all_blogs_update
