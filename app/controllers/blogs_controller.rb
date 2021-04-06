@@ -60,7 +60,7 @@ class BlogsController < ApplicationController
             one_month.each { |day| @blogs.create!(start_time: day) }
           end
         end
-      @blogs = current_user.blogs.where(start_time: @first_day..@last_day).select("blogs.id", "start_time", "title", "content").group(:start_time).order(:one_month)
+      @blogs = current_user.blogs.where(start_time: @first_day..@last_day).select("blogs.id", "start_time", "title", "content").group(:start_time)
    end  
  
    def all_blogs_update
