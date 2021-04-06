@@ -1,7 +1,5 @@
 <h1>レクカレンダー全体編集</h1>
-<%= link_to "⇦ ",  all_blogs_edit_blog_path(date: @first_day.prev_month), class: "btn btn-info" %>
-<%= @first_day.strftime("%-m") %>月
-<%= link_to " ⇨",  all_blogs_edit_blog_path(date: @first_day.next_month), class: "btn btn-info" %>
+
 <%= form_with(model: @blogs, url: all_blogs_update_blog_path(@blogs), local: true, method: :patch) do |f| %>
   <table class= "table table-bordered table-condensed table-hover" id="table-attendances">
     <thead>
