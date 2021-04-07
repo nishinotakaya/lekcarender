@@ -1,0 +1,36 @@
+<h1>レクカレンダー全体編集</h1>
+<%= link_to "⇦ ",  all_blogs_edit_blogs_path(date: @first_day.prev_month), class: "btn btn-info" %>
+<%= @first_day.strftime("%-m") %>月
+<%= link_to " ⇨",  all_blogs_edit_blogs_path(date: @first_day.next_month), class: "btn btn-info" %>
+<%= form_with(model: @blogs, url: all_blogs_update_blogs_path(@blogs), local: true, method: :patch) do |f| %>
+  <table class= "table table-bordered table-condensed table-hover" id="table-attendances">
+    <thead>
+      <tr>
+        <th>月日</th>
+        <th>曜日</th>
+        <th>レク内容</th>
+        <th>誕生日の利用者にプレゼント渡す日</th>
+      </tr>  
+    </thead>
+    <tbody>
+      <% @blogs.each do |day| %>
+        <%= f.fields_for "blogs[]", day do |b| %>
+        <tr>
+          <% css_class = 
+              case %w{日 月 火 水 木 金 土}[day.start_time.wday]
+              when '土'
+                'text-primary'
+              when '日'
+                'text-danger'
+              end %>
+            <td><%= day.start_time.strftime("%-m/%-d") %></td>
+            <td class="<%= css_class %>"><%= %w{日 月 火 水 木 金 土}[day.start_time.wday] %></td>
+            <td><%= b.text_field :title, class: "form-control" %></td>
+            <td><%= b.text_field :content, class: "form-control" %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+  <%= f.submit '送信', class: "btn btn-primary" %>
+<% end %>

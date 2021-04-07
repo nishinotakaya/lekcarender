@@ -1,0 +1,97 @@
+// Place all the styles related to the blogs controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+@media print{
+  .carender_all{
+    width: 1350px;
+    height: 800px;
+    padding-left: 16px;
+    padding-right: 16px;
+    font-size: 30px;
+    font-weight: 600;
+  }
+
+  .edit_carendar_link_prace{
+    display: none;
+  }
+
+  .title_content_div{
+    height: 100px;
+    width: 150px;
+  }
+
+  .simple-calendar{
+    height: 1000px;
+  }
+
+  .blog_delete{
+  display: none;
+  }
+
+  .simple-calendar .day {
+    height: 250px;
+  }
+
+  .calendar-previous-next{
+    display: none;
+  }
+
+  .calendar-heading{
+    margin-left: 510px;
+    font-size: 40px;
+    font-weight: 600;
+  }
+
+  #text_preparation_space{
+    position: relative;
+    top: 630px;
+    height: 150px;
+    width: 1300px;
+    font-size: 40px;
+    font-weight: 600;
+  }
+
+}
+
+@media screen and (min-width:750px) {
+.carender_all{
+  width: 1520px;
+  height: 900px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.edit_carendar_link_prace{
+  margin-left: 580px;
+}
+
+.h1_title{
+  margin-left: 650px;
+}
+
+.simple-calendar .day {
+  height: 110px;
+}
+
+.calendar-heading{
+  margin-left: 590px;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.title_content_div{
+  height: 100px;
+  width: 200px;
+}
+
+.blog_delete{
+  display: inline;
+ }
+
+ #text_preparation_space{
+   height: 80px;
+   width: 1500px;
+   font-size: 20px;
+ }
+
+}

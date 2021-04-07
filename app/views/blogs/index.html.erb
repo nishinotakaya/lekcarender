@@ -1,0 +1,30 @@
+<div class ="carender_all">
+  <p id="notice"><%= notice %></p>
+
+  <div class="edit_carendar_link_prace">
+    <%= link_to 'カレンダー全体編集', all_blogs_edit_blogs_path(@blogs) %>
+    <%= link_to 'カレンダー個別編集', new_blog_path, class: "btn btn-solid individual_edit" %>
+    <%= link_to '利用者一覧' "#" %>
+  </div>
+    <h1 class="h1_title">レクカレンダー</h1>
+  <br>
+
+  <%= month_calendar(events: @blogs) do |date, blogs| %>
+    <%= date.day %>
+
+    <% blogs.each do |blog| %>
+      <% if blog.title.present? %>
+        <div class= "title_content_div">
+          <div><%= blog.title %></div>
+          <div><%= blog.content %></div>
+        </div>
+        <div>
+          <%= link_to "消去", blog, method: :delete,
+          data: { confirm: "削除してよろしいですか？" },
+          class: "btn btn-danger btn-sm blog_delete" %>
+        </div>
+      <% end %>
+    <% end %>  
+  <% end %>
+  <textarea id="text_preparation_space" name="kanso" cols="40" rows="4" maxlength="1000" placeholder="誕生日者記入"></textarea>
+</div>
