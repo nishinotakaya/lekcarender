@@ -2,6 +2,16 @@ class BlogsController < ApplicationController
   before_action :authenticate_user!
   def index
     @user = User.find_by(id: params[:user_id])
+    @first_day =  params[:date].nil? ? 
+		Date.current.beginning_of_month : params[:date].to_date
+		@last_day = @first_day.end_of_month
+    one_month = [*@first_day..@last_day]
+      @blogs = current_user.blogs.where(start_time: @first_day..@last_day).order(:start_time)
+      unless one_month.count == @blogs.count
+          ActiveRecord::Base.transaction do 
+            one_month.each { |day| @blogs.create!(start_time: day) }
+          end
+        end
     start_date = params.fetch(:start_date, Date.today).to_date
     @blog = Blog.find_by(id: params[:id])
     @blogs =  current_user.blogs.where(start_time: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week) 
