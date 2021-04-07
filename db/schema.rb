@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 2021_04_06_080609) do
     t.text "content_2"
     t.text "content_3"
     t.date "start_time"
-    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

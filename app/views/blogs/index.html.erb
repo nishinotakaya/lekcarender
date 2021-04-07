@@ -5,8 +5,8 @@
     <%= link_to 'カレンダー全体編集', all_blogs_edit_blogs_path(date: @first_day) %>
     <%= link_to 'カレンダー個別編集', new_blog_path, class: "btn btn-solid individual_edit" %>
     <%= link_to '利用者一覧' "#" %>
-  </div>
     <h1 class="h1_title">レクカレンダー</h1>
+  </div>
   <br>
 
   <%= month_calendar(events: @blogs) do |date, blogs| %>
@@ -16,7 +16,9 @@
       <% if blog.title.present? %>
         <div class= "title_content_div">
           <div><%= blog.title %></div>
-          <div><%= blog.content %></div>
+          <div><%= blog.content_1 %></div>
+          <div><%= blog.content_2 %></div>
+          <div><%= blog.content_3 %></div>
         </div>
         <div>
           <%= link_to "消去", blog, method: :delete,
