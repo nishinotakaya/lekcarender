@@ -62,19 +62,20 @@
   }
 
   .table-striped{
-    width: 1600px;
-    position: relative;
-    left: 200px;
-  }
-
-  .h1_title{
-    position: relative;
-    right: 330px;
+    width: 1300px;
   }
 
   .calendar-heading{
     position: relative;
-    right: 110px;
+    right: 98px;
+  }
+
+  .h1_title{
+    position: relative;
+  }
+
+  .calendar-heading{
+    position: relative;
   }
 
   .edit_carendar_link_prace{
@@ -85,12 +86,22 @@
   #text_preparation_space{
     position: relative;
     width: 1500px;
-    left: 200px;
+  }
+
+  .calendar-heading{
+    font-size: 30px;
+    font-weight: 600;
+  }
+
+  #text_preparation_space{
+    height: 80px;
+    width: 1500px;
+    font-size: 20px;
   }
 
 }
 
-@media screen and (min-width:750px) {
+@media screen and (min-width:750px) and (max-width: 1600px){
 .carender_all{
   width: 1520px;
   height: 900px;
@@ -100,11 +111,9 @@
 }
 
 .edit_carendar_link_prace{
-  margin-left: 580px;
 }
 
 .h1_title{
-  margin-left: 650px;
 }
 
 .simple-calendar .day {
@@ -112,7 +121,6 @@
 }
 
 .calendar-heading{
-  margin-left: 590px;
   font-size: 30px;
   font-weight: 600;
 }
