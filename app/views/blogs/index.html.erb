@@ -3,7 +3,6 @@
 
   <div class="edit_carendar_link_prace">
     <%= link_to 'カレンダー全体編集', all_blogs_edit_blogs_path(date: @first_day), class: "btn btn-primary" %>
-    <%= link_to 'カレンダー個別編集' %>
     <!--%= link_to '利用者一覧' "#" %-->
     <h1 class="h1_title">レクカレンダー</h1>
   </div>
@@ -15,10 +14,10 @@
     <% blogs.each do |blog| %>
       <% if blog.title.present? %>
         <div class= "title_content_div">
-          <div><%= link_to blog.title, edit_blog_path(blog) %></div>
-          <div><%= link_to blog.content_1, edit_blog_path(blog) %></div>
-          <div><%= link_to blog.content_2, edit_blog_path(blog) %></div>
-          <div><%= link_to blog.content_3, edit_blog_path(blog) %></div>
+          <div><%= link_to blog.title, edit_blog_path(blog), class: "carender_lek_class" %></div>
+          <div><%= link_to blog.content_1, edit_blog_path(blog), class: "carender_lek_class" %></div>
+          <div><%= link_to blog.content_2, edit_blog_path(blog), class: "carender_lek_class" %></div>
+          <div><%= link_to blog.content_3, edit_blog_path(blog, class: "carender_lek_class") %></div>
         </div>
         <div>
           <!-- %= link_to "消去", blog, method: :delete,

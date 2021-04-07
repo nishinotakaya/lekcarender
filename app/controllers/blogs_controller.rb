@@ -67,7 +67,7 @@ class BlogsController < ApplicationController
        end
      end
      flash[:success] = "レクカレンダーを更新しました"
-     redirect_to blogs_url
+     redirect_to blogs_url(date: Date.today.next_month)
    end  
 
    def blogs_birthday
