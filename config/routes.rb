@@ -1,11 +1,5 @@
 Rails.application.routes.draw do
     root "blogs/#index"
-  devise_for :users, :controllers => {
-    sessions:      'users/sessions',
-    passwords:     'users/passwords',
-    registrations: 'users/registrations'
-  }
-  resources :users
 
   resources :blogs do
     get 'all_blogs_edit', on: :collection
