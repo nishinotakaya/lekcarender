@@ -11,6 +11,12 @@
     font-weight: 600;
   }
 
+  .cake{
+    width: 20px;
+    position: relative;
+    bottom: 2.5px;
+  }
+
   .edit_carendar_link_prace{
     display: none;
   }
@@ -116,6 +122,7 @@
   padding-right: 16px;
   text-align: center;
 }
+
 
 .modal-dialog-center {
   padding-top: 10%;

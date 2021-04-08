@@ -18,8 +18,8 @@
           <% if blog.content_1.present? %>
             <div>
               <%= link_to edit_blog_path(blog), class: "carender_lek_class" do %>
-              <% if blog.content_1.include? "様" %>
-                <img src="https://img.icons8.com/wired/15/000000/birthday-cake.png"/>
+              <% if blog.content_1.include? ("様") %>
+                <img src="https://img.icons8.com/wired/15/000000/birthday-cake.png", class="cake"/>
               <% end %>  
                 <%= blog.content_1 %>
               <% end %>
@@ -28,7 +28,7 @@
           <% if blog.content_2.present? %>
             <div>
               <%= link_to edit_blog_path(blog), class: "carender_lek_class" do %>
-                <img src="https://img.icons8.com/wired/15/000000/birthday-cake.png"/>
+                <img src="https://img.icons8.com/wired/15/000000/birthday-cake.png", class="cake"/>
                 <%= blog.content_2 %>
               <% end %>
             </div>
@@ -36,7 +36,7 @@
           <% if blog.content_3.present? %>
             <div>
               <%= link_to edit_blog_path(blog), class: "carender_lek_class" do %>
-                <img src="https://img.icons8.com/wired/15/000000/birthday-cake.png"/>
+                <img src="https://img.icons8.com/wired/15/000000/birthday-cake.png" , class="cake"/>
                 <%= blog.content_3 %>
               <% end %>
             </div>
