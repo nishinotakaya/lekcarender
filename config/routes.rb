@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-    root "blogs/#index"
-
+  root "blogs#index"
   resources :blogs do
     get 'all_blogs_edit', on: :collection
     patch 'all_blogs_update', on: :collection
