@@ -106,10 +106,35 @@
     font-weight: 600;
   }
 
+  //編集
+
   #text_preparation_space{
     height: 80px;
     width: 1500px;
     font-size: 20px;
+    padding-left: 16px;
+    padding-right: 16px;
+
+  }
+
+  .edit_carender{
+    position: relative;
+    top: 250px;
+    text-align: center;
+    display: block;
+  }
+ 
+  .text-center{
+    position: relative;
+    left: 490px;
+  }
+ 
+  .content{
+    margin-top: 10px;
+  }
+ 
+  .submit{
+   margin-top: 10px;
   }
 
 }
