@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :clients
   root "blogs#index"
   resources :blogs do
     get 'all_blogs_edit', on: :collection

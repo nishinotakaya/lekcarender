@@ -3,6 +3,7 @@
 
   <div class="edit_carendar_link_prace">
     <%= link_to 'カレンダー全体編集', all_blogs_edit_blogs_path(date: @first_day), class: "btn btn-primary" %>
+    <%= link_to '利用者誕生日一覧', clients_path, class:  "btn btn-primary" %>
     <!--%= link_to '利用者一覧' "#" %-->
     <h1 class="h1_title">レクカレンダー</h1>
   </div>
@@ -28,7 +29,9 @@
           <% if blog.content_2.present? %>
             <div>
               <%= link_to edit_blog_path(blog), class: "carender_lek_class" do %>
+              <% if blog.content_2.include? ("様") %>
                 <img src="https://img.icons8.com/wired/15/000000/birthday-cake.png", class="cake"/>
+              <% end %>  
                 <%= blog.content_2 %>
               <% end %>
             </div>
@@ -36,16 +39,13 @@
           <% if blog.content_3.present? %>
             <div>
               <%= link_to edit_blog_path(blog), class: "carender_lek_class" do %>
-                <img src="https://img.icons8.com/wired/15/000000/birthday-cake.png" , class="cake"/>
+                <% if blog.content_3.include? ("様") %>
+                  <img src="https://img.icons8.com/wired/15/000000/birthday-cake.png", class="cake"/>
+                <% end %>  
                 <%= blog.content_3 %>
               <% end %>
             </div>
           <% end %>
-        </div>
-        <div>
-          <!-- %= link_to "消去", blog, method: :delete,
-          data: { confirm: "削除してよろしいですか？" },
-          class: "btn btn-danger btn-sm blog_delete" % -->
         </div>
       <% end %>
     <% end %>  

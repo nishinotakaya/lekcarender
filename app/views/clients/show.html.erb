@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @client.name %>
+</p>
+
+<p>
+  <strong>Birthday:</strong>
+  <%= @client.birthday %>
+</p>
+
+<p>
+  <strong>Use day:</strong>
+  <%= @client.use_day %>
+</p>
+
+<p>
+  <strong>String:</strong>
+  <%= @client.string %>
+</p>
+
+<%= link_to 'Edit', edit_client_path(@client) %> |
+<%= link_to 'Back', clients_path %>
