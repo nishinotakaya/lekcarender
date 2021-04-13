@@ -49,5 +49,10 @@
       <% end %>
     <% end %>  
   <% end %>
-  <textarea id="text_preparation_space" name="kanso" cols="40" rows="4" maxlength="1000" placeholder="誕生日者記入(すみません誕生日の方は保存できません。これから機能追加します)"></textarea>
+  <% @clients.each do |client| %>
+    <% if @start_date.month == client.birthday.month %>
+      <div class="carender_birthday"><%= client.name %>
+      <%= client.birthday.strftime("%Je%Jg年%m月%d日") %>【<%= age(client.birthday) %>歳】</div>
+    <% end %>
+  <% end %>
 </div>

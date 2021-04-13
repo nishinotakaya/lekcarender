@@ -12,17 +12,17 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %>
+    <%= f.label :名前 %>
     <%= f.text_field :name %>
   </div>
 
   <div class="field">
-    <%= f.label :birthday %>
+    <%= f.label :誕生日 %>
     <%= date_select_ja(f.date_select(:birthday, use_month_numbers: true, start_year: 1910, end_year: Time.now.year, prompt:"--")) %>
   </div>
 
   <div class="field">
-    <%= f.label :use_day, class: "label-#{yield(:class_text)}" %>
+    <%= f.label :利用曜日, class: "label-#{yield(:class_text)}" %>
     <%= f.check_box :use_day, {multiple: true}, "月", nil %>月
     <%= f.check_box :use_day, {multiple: true}, "火", nil %>火
     <%= f.check_box :use_day, {multiple: true}, "水", nil %>水
@@ -32,12 +32,7 @@
     <%= f.check_box :use_day, {multiple: true}, "日", nil %>日
   </div>
 
-  <div class="field">
-    <%= f.label :string %>
-    <%= f.text_field :string %>
-  </div>
-
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "登録", class: "btn btn-primary" %>
   </div>
 <% end %>

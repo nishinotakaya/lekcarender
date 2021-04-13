@@ -1,8 +1,9 @@
 class BlogsController < ApplicationController
 
   def index
-    start_date = params.fetch(:start_date, Date.today).to_date
-    @blogs =  Blog.where(start_time: start_date.beginning_of_month..start_date.end_of_month)
+    @start_date = params.fetch(:start_date, Date.today).to_date
+    @blogs =  Blog.where(start_time: @start_date.beginning_of_month..@start_date.end_of_month)
+    @clients = Client.where(birthday: @start_date.beginning_of_month.ago(150.years)..@start_date.end_of_month)
   end
 
   def carendar_top
@@ -93,6 +94,10 @@ class BlogsController < ApplicationController
   end
 
   def start_time
+    self.my_related_model.start ##Where 'start' is a attribute of type 'Date' accessible through MyModel's relationship
+  end
+
+  def birthday
     self.my_related_model.start ##Where 'start' is a attribute of type 'Date' accessible through MyModel's relationship
   end
  
