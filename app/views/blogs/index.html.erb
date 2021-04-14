@@ -49,10 +49,12 @@
       <% end %>
     <% end %>  
   <% end %>
-  <% @clients.each do |client| %>
-    <% if @start_date.month == client.birthday.month %>
-      <div class="carender_birthday"><%= client.name %>
-      <%= client.birthday.strftime("%Je%Jg年%m月%d日") %>【<%= age(client.birthday) %>歳】</div>
+  <div class ="copy_place">
+    <% @clients.each do |client| %>
+      <% if @start_date.month == client.birthday.month &&  @start_date.day >= client.birthday.day %>
+        <div class="carender_birthday"><%= client.name %>様
+        <%= client.birthday.strftime("%Je%Jg年%m月%d日") %>で【<%= age_1_ago(client.birthday) %>歳】</div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>

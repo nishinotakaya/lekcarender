@@ -27,4 +27,8 @@ module ClientsHelper
     (Date.today.strftime('%Y%m%d').to_i - birthday.strftime('%Y%m%d').to_i) / 10000
   end
 
+  def age_1_ago(birthday)
+    ((Date.today.strftime('%Y%m%d').to_i - birthday.strftime('%Y%m%d').to_i) / 10000) + 1
+  end
+
 end
