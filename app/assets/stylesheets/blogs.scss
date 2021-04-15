@@ -93,43 +93,42 @@
 
 @media screen and (min-width: 1601px) and (max-width: 2000px){
 
-  .carender_all{
+  .carender_all {
     padding-left: 16px;
     padding-right: 16px;
     text-align: center;
   }
 
-  .table-striped{
+  .table-striped {
     width: 1300px;
   }
 
-  .calendar-heading{
+  .calendar-heading {
     position: relative;
     right: 98px;
   }
 
-  .h1_title{
+  .h1_title {
     position: relative;
   }
 
-  .calendar-heading{
+  .calendar-heading {
     position: relative;
   }
 
-  .edit_carendar_link_prace{
+  .edit_carendar_link_prace {
     position: relative;
     right: 100px;
   }
 
 
-  .calendar-heading{
+  .calendar-heading {
     font-size: 30px;
     font-weight: 600;
   }
 
   //編集
-
-  #text_preparation_space{
+  #text_preparation_space {
     height: 80px;
     width: 1500px;
     font-size: 20px;
@@ -138,27 +137,27 @@
 
   }
 
-  .edit_carender{
+  .edit_carender {
     position: relative;
     top: 250px;
     text-align: center;
     display: block;
   }
  
-  .text-center{
+  .text-center {
     position: relative;
     left: 490px;
   }
  
-  .content{
+  .content {
     margin-top: 10px;
   }
  
-  .submit{
+  .submit {
    margin-top: 10px;
   }
 
-  .client_show{
+  .client_show {
     padding-left: 16px;
     padding-right: 16px;
     margin-left: auto;
@@ -168,7 +167,7 @@
 }
 
 @media screen and (min-width:750px) and (max-width: 1600px){
-.carender_all{
+.carender_all {
   width: 1520px;
   height: 900px;
   padding-left: 16px;
@@ -200,62 +199,62 @@
   height: 110px;
 }
 
-.calendar-heading{
+.calendar-heading {
   font-size: 30px;
   font-weight: 600;
 }
 
-.title_content_div{
+.title_content_div {
   height: 100px;
   width: 200px;
 }
 
-.blog_delete{
+.blog_delete {
   display: inline;
  }
 
- #text_preparation_space{
+ #text_preparation_space {
    height: 80px;
    width: 1500px;
    font-size: 20px;
  }
 
  //編集
- .edit_carender{
+ .edit_carender {
    position: relative;
    top: 100px;
    text-align: center;
    display: block;
  }
 
- .text-center{
+ .text-center {
    position: relative;
    left: 350px;
  }
 
- .content{
+ .content {
    margin-top: 10px;
  }
 
- .submit{
+ .submit {
   margin-top: 10px;
  }
 
- .carender_birthday{
+ .carender_birthday {
    position: relative;
    right: 100px;
    display: inline-block;
    margin-right: 17px;
  }
 
- .client_show{
-  padding-left: 16px;
-  padding-right: 16px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 150px;
-  font-size: 26px;
-  text-align: center;
-}
+  .client_show {
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 150px;
+    font-size: 26px;
+    text-align: center;
+  }
 
 }
