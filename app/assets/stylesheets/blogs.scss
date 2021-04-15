@@ -66,8 +66,27 @@
 
   .copy_place{
     position: relative;
-    margin-top: 550px;
+    margin-top: 650px;
     display: inline-block;
+  }
+
+  .copy_place_30{
+    position: relative;
+    margin-top: 400px;
+    display: inline-block;
+  }
+
+  .carender_birthday{
+    display: inline-block;
+  }
+
+  //利用者データ(show)
+  .client_show{
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
   }
 
 }
@@ -102,10 +121,6 @@
     right: 100px;
   }
 
-  #text_preparation_space{
-    position: relative;
-    width: 1500px;
-  }
 
   .calendar-heading{
     font-size: 30px;
@@ -141,6 +156,13 @@
  
   .submit{
    margin-top: 10px;
+  }
+
+  .client_show{
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
 }
@@ -225,5 +247,15 @@
    display: inline-block;
    margin-right: 17px;
  }
+
+ .client_show{
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 150px;
+  font-size: 26px;
+  text-align: center;
+}
 
 }
