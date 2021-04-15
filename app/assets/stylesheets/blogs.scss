@@ -168,10 +168,12 @@
 
 @media screen and (min-width:750px) and (max-width: 1600px){
 .carender_all {
-  width: 1520px;
+  width: 1320px;
   height: 900px;
   padding-left: 16px;
   padding-right: 16px;
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
 }
 
@@ -215,7 +217,7 @@
 
  #text_preparation_space {
    height: 80px;
-   width: 1500px;
+   width: 1300px;
    font-size: 20px;
  }
 
@@ -242,9 +244,8 @@
 
  .carender_birthday {
    position: relative;
-   right: 100px;
    display: inline-block;
-   margin-right: 17px;
+   text-align: center;
  }
 
   .client_show {
