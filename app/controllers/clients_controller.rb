@@ -36,14 +36,11 @@ class ClientsController < ApplicationController
 
   # PATCH/PUT /clients/1 or /clients/1.json
   def update
-    respond_to do |format|
+    @client = Client.find(params[:id])
       if @client.update(client_params)
-        format.html { redirect_to @client, notice: "Client was successfully updated." }
-        format.json { render :show, status: :ok, location: @client }
+        redirect_to clients_path, notice: "編集しました"
       else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @client.errors, status: :unprocessable_entity }
-      end
+        render 'edit'
     end
   end
 
