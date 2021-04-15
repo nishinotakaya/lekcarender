@@ -208,12 +208,18 @@
 
 .title_content_div {
   height: 100px;
-  width: 200px;
+  width: 180px;
+  position: relative;
 }
 
 .blog_delete {
   display: inline;
  }
+
+ .simple-calendar .day {
+  height: 150px;
+  width: 180px;
+}
 
  #text_preparation_space {
    height: 80px;
