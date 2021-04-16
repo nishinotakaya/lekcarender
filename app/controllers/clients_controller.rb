@@ -3,7 +3,8 @@ class ClientsController < ApplicationController
 
   # GET /clients or /clients.json
   def index
-    @clients = Client.all
+    @search_params = client_search_params
+    @clients = Client.search(@search_params)
   end
 
   # GET /clients/1 or /clients/1.json
@@ -62,5 +63,9 @@ class ClientsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def client_params
       params.require(:client).permit(:name, :birthday, use_day: [])
+    end
+
+    def client_search_params
+      params.fetch(:search, {}).permit(:name, :birthday, :use_day)
     end
 end

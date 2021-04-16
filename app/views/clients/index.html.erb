@@ -2,7 +2,14 @@
   <p id="notice"><%= notice %></p>
 
   <h2>利用者一覧</h2>
-
+ <%= form_with(scope: :search, url: clients_path, method: :get, local: true) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, value: @search_params[:name] %>
+  <%= f.select :use_day, [[""],["月"],["火"],["水"],["木"],["金"],["土"],["日"]], value: @search_params[:use_day] %>
+  <%= f.label :birthday %>
+  <%= f.date_select :birthday, {discard_year: true, discard_day: true, prompt:"--"}, value: @search_params[:birthday] %>
+  <%= f.submit %>
+ <% end %>
   <table class= "table-clients">
     <thead>
       <tr>
@@ -21,15 +28,15 @@
           <td><%= client.birthday.strftime("%Je%Jg年%m月%d日") %>【<%= age(client.birthday) %>歳】</td>
           <% end %>
           <td><%= client.use_day %></td>
-          <td><%= link_to '詳細', client %></td>
-          <td><%= link_to '編集', edit_client_path(client) %></td>
-          <td><%= link_to '削除', client, method: :delete, data: { confirm: '削除しますか?' } %></td>
+          <td><%= link_to '詳細', client, class: "btn btn-primary" %></td>
+          <td><%= link_to '編集', edit_client_path(client), class: "btn btn-success" %></td>
+          <td><%= link_to '削除', client, method: :delete, data: { confirm: '削除しますか?' }, class: "btn btn-danger" %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
 
   <br>
-  <div><%= link_to 'カレンダーに戻る', blogs_path %></div>
-  <div><%= link_to '利用者追加', new_client_path %></div>
+  <%= link_to 'カレンダーに戻る', blogs_path,  class: "btn btn-primary" %>
+  <%= link_to '利用者追加', new_client_path , class: "btn btn-success" %>
 </div>

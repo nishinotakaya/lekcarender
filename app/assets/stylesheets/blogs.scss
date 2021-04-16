@@ -4,12 +4,16 @@
 @media print{
   .carender_all{
     width: 1350px;
-    height: 800px;
+    height: 1000px;
     padding-left: 16px;
     padding-right: 16px;
     font-size: 30px;
     font-weight: 600;
     text-align: center;
+  }
+
+  .carender_data{
+   height: 1440px;
   }
 
   .cake{
@@ -71,13 +75,12 @@
 
   .copy_place{
     position: relative;
-    margin-top: 650px;
     display: inline-block;
   }
 
   .copy_place_30{
     position: relative;
-    margin-top: 400px;
+    top: 230px;
     display: inline-block;
   }
 
