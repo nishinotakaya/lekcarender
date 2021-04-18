@@ -156,6 +156,15 @@
     display: inline-block;
     margin-left: 10px;
   }
+
+  //利用者詳細
+  .client_show{
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
 }
 
 @media screen and (min-width: 750px) and (max-width: 1600px) {
@@ -268,6 +277,15 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 150px;
+    text-align: center;
+  }
+
+   //利用者詳細
+   .client_show{
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
   }
 
