@@ -6,5 +6,7 @@ Rails.application.routes.draw do
     patch 'all_blogs_update', on: :collection
   end  
 
+  post "/search" => "clients#search"
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

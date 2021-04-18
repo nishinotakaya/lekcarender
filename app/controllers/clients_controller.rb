@@ -3,8 +3,13 @@ class ClientsController < ApplicationController
 
   # GET /clients or /clients.json
   def index
-    @search_params = client_search_params
-    @clients = Client.search(@search_params)
+    # @search_params = client_search_params
+    @clients = Client.where('birthday like ?', "%#{params[:birthday]}%")
+  end
+
+  def search
+    @clients = Client.where('birthday like ?', "%#{params[:birthday]}%")
+    render 'index'
   end
 
   # GET /clients/1 or /clients/1.json
