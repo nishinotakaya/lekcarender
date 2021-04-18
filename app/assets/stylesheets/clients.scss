@@ -132,20 +132,20 @@
     margin-top: 10px;
   }
 
-  .client_all_h2{
+  .client_all_h2 {
     margin-bottom: 20px;
   }
 
-  .use_day_class{
+  .use_day_class {
     margin-top: 10px;
   }
 
   .search_name {
-   text-align: center !important;
-   margin-left: auto;
-   margin-right: auto;
-   width: 200px;
-   margin-top: 50px;
+    text-align: center !important;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+    margin-top: 50px;
   }
 
   .name_search_btn {
@@ -164,28 +164,27 @@
     padding-right: 16px;
     margin-left: auto;
     margin-right: auto;
-    text-align: right;
-    width: 1150px;
-  }
-
-  body {
-    width: 100%;
+    text-align: center;
+    width: 1450px;
   }
 
   h2 {
     text-align: center;
   }
 
+  body {
+    width: 100%;
+  }
+
   .table-clients {
     border-collapse: collapse;
-    margin: auto;
+    margin: 0 auto;
     padding: 0;
     width: 1200px;
+    margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
     box-shadow: 0 0 15px -6px #00000073;
-    position: relative;
-    right: 35px;
   }
 
   .table-clients tr {
@@ -217,6 +216,49 @@
 
   .table-clients tr:hover {
     background-color: #d4faff;
+  }
+
+  .new_client {
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 180px;
+    text-align: center;
+  }
+
+  .field {
+    margin-top: 10px;
+  }
+
+  .client_all_h2 {
+    margin-bottom: 20px;
+  }
+
+  .use_day_class {
+    margin-top: 10px;
+  }
+
+  .search_name {
+    text-align: center !important;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+    margin-top: 50px;
+  }
+
+  .name_search_btn {
+    margin-top: 15px;
+  }
+
+  .form-search {
+    display: inline-block;
+    margin-left: 10px;
+  }
+
+  .new_client_btn {
+    margin-bottom: 20px;
+    margin-left: 30px;
   }
 
   //新規利用者
