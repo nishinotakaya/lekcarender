@@ -1,30 +1,72 @@
 <div class ="carender_all">
-  <p id="notice"><%= notice %></p>
+  <div class ="carender_data">
+    <p id="notice"><%= notice %></p>
 
-  <div class="edit_carendar_link_prace">
-    <%= link_to 'カレンダー全体編集', all_blogs_edit_blogs_path(@blogs) %>
-    <%= link_to 'カレンダー個別編集', new_blog_path, class: "btn btn-solid individual_edit" %>
-    <%= link_to '利用者一覧' "#" %>
+    <div class="edit_carendar_link_prace">
+      <%= link_to 'カレンダー全体編集', all_blogs_edit_blogs_path(date: @first_day), class: "btn btn-primary" %>
+      <%= link_to '利用者誕生日一覧', clients_path, class: "btn btn-success" %>
+      <!--%= link_to '利用者一覧' "#" %-->
+      <h1 class="h1_title">レクカレンダー</h1>
+    </div>
+    <br>
+
+    <%= month_calendar(events: @blogs) do |date, blogs| %>
+      <%= date.day %>
+      <% blogs.each do |blog| %>
+        <% if blog.title.present? %>
+          <div class= "title_content_div">
+            <div><%= link_to blog.title, edit_blog_path(blog), class: "carender_lek_class" %></div>
+            <% if blog.content_1.present? %>
+              <div>
+                <%= link_to edit_blog_path(blog), class: "carender_lek_class" do %>
+                <% if blog.content_1.include? ("様") %>
+                  <img src="https://img.icons8.com/wired/15/000000/birthday-cake.png", class="cake"/>
+                <% end %>  
+                  <%= blog.content_1 %>
+                <% end %>
+              </div>
+            <% end %>
+            <% if blog.content_2.present? %>
+              <div>
+                <%= link_to edit_blog_path(blog), class: "carender_lek_class" do %>
+                <% if blog.content_2.include? ("様") %>
+                  <img src="https://img.icons8.com/wired/15/000000/birthday-cake.png", class="cake"/>
+                <% end %>  
+                  <%= blog.content_2 %>
+                <% end %>
+              </div>
+            <% end %>
+            <% if blog.content_3.present? %>
+              <div>
+                <%= link_to edit_blog_path(blog), class: "carender_lek_class" do %>
+                  <% if blog.content_3.include? ("様") %>
+                    <img src="https://img.icons8.com/wired/15/000000/birthday-cake.png", class="cake"/>
+                  <% end %>  
+                  <%= blog.content_3 %>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>  
+    <% end %>
   </div>
-    <h1 class="h1_title">レクカレンダー</h1>
-  <br>
-
-  <%= month_calendar(events: @blogs) do |date, blogs| %>
-    <%= date.day %>
-
-    <% blogs.each do |blog| %>
-      <% if blog.title.present? %>
-        <div class= "title_content_div">
-          <div><%= blog.title %></div>
-          <div><%= blog.content %></div>
-        </div>
-        <div>
-          <%= link_to "消去", blog, method: :delete,
-          data: { confirm: "削除してよろしいですか？" },
-          class: "btn btn-danger btn-sm blog_delete" %>
-        </div>
-      <% end %>
-    <% end %>  
+  <% if @start_date.beginning_of_month.wday == 1..5 || @start_date.beginning_of_month.wday == 6 && 30 >= @start_date.end_of_month.day %>
+  <div class ="copy_place">
+  <% elsif @start_date.beginning_of_month.wday == 0 || @start_date.beginning_of_month.wday == 6 && @start_date.end_of_month.day >= 31 %>
+  <div class ="copy_place_30">
   <% end %>
-  <textarea id="text_preparation_space" name="kanso" cols="40" rows="4" maxlength="1000" placeholder="誕生日者記入"></textarea>
+    <% @clients.each do |client| %>
+      <% if @start_date.month == client.birthday.month && client.birthday.day > Date.today.day && client.birthday.month == Date.today.month ||  @start_date.month == client.birthday.month && client.birthday.month > Date.today.month %>
+        <div class="carender_birthday"><%= client.name %>様
+        <%= client.birthday.strftime("%Je%Jg年%m月%d日") %> 【<%= age_1_ago(client.birthday) %>歳】</div>
+        <% elsif @start_date.month == client.birthday.month && Date.today.day >= client.birthday.day && client.birthday.month == Date.today.month %>
+        <div class="carender_birthday"><%= client.name %>様
+        <%= client.birthday.strftime("%Je%Jg年%m月%d日") %> 【<%= age(client.birthday) %>歳】</div>
+      <% elsif @start_date.month == client.birthday.month && Date.today.day >= client.birthday.day &&  Date.today.month > client.birthday.month %>
+      <div class="carender_birthday"><%= client.name %>様
+        <%= client.birthday.strftime("%Je%Jg年%m月%d日") %> 【<%= age(client.birthday) %>歳】</div>
+      <% end %>
+    <% end %>
+  </div>
 </div>

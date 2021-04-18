@@ -1,0 +1,22 @@
+<div class="client_show">
+  <p id="notice"><%= notice %></p>
+
+  <p>
+    <strong>名前</strong>
+    <br><%= @client.name %>
+  </p>
+
+  <p>
+    <strong>誕生日</strong>
+    <br><%= @client.birthday.strftime("%Je%Jg年%m月%d日") %>
+  </p>
+
+  <p>
+    <strong>利用曜日</strong>
+    <br><%= @client.use_day %>
+  </p>
+
+
+  <%= link_to '編集する', edit_client_path(@client), class: "btn btn-primary" %> |
+  <%= link_to '戻る', clients_path, class: "btn btn-secondary" %>
+</div>

@@ -1,0 +1,212 @@
+// Place all the styles related to the clients controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+@media print{
+  .clinets_all{
+    padding-left: 16px;
+    padding-right: 16px;
+    text-align: center;
+  }
+
+  body {
+    width: 100%;
+  }
+  
+  h2 {
+      text-align: center;
+  }
+  
+  .table-clients {
+    border-collapse: collapse;
+    margin: 0 auto;
+    padding: 0;
+    width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 0 15px -6px #00000073;
+  }
+  
+  .table-clients tr {
+    background-color: #fff;
+  }
+  
+.table-clients th,
+.table-clients td {
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .table-clients  th {
+    width: 20%;
+    padding: 10px 0;
+    font-size: 14px;
+    padding: 15px;
+    background-color: #FFC107;
+    color:#fff;
+  }
+  
+  .table-clients tr{
+    text-align: center;
+    width: 20%;
+    padding: 20px 0;
+    background-color: #fff;
+    color:#3a3a3a;
+  }
+  
+  .table-clients tr:hover{
+    background-color: #d4faff;
+  }
+
+}
+
+@media screen and (min-width: 1601px) and (max-width: 2000px){
+  .clinets_all{
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 1200px;
+  }
+
+  body {
+    width: 100%;
+  }
+  
+  h2 {
+      text-align: center;
+  }
+  
+  .table-clients {
+    border-collapse: collapse;
+    margin: 0 auto;
+    padding: 0;
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 0 15px -6px #00000073;
+  }
+  
+  .table-clients tr {
+    background-color: #fff;
+  }
+  
+.table-clients th,
+.table-clients td {
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .table-clients  th {
+    width: 20%;
+    padding: 10px 0;
+    font-size: 14px;
+    padding: 15px;
+    background-color: #FFC107;
+    color:#fff;
+  }
+  
+  .table-clients tr{
+    text-align: center;
+    width: 20%;
+    padding: 20px 0;
+    background-color: #fff;
+    color:#3a3a3a;
+  }
+  
+  .table-clients tr:hover{
+    background-color: #d4faff;
+  }
+
+  .new_client{
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 180px;;
+    text-align: center;
+  }
+
+  .field{
+    margin-top: 10px;
+  }
+
+}
+
+@media screen and (min-width:750px) and (max-width: 1600px){
+  .clinets_all{
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 1150px;
+  }
+
+  body {
+    width: 100%;
+  }
+  
+  h2 {
+      text-align: center;
+  }
+  
+  .table-clients {
+    border-collapse: collapse;
+    margin: auto;
+    padding: 0;
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 0 15px -6px #00000073;
+    position: relative;
+    right: 35px;
+  }
+  
+  .table-clients tr {
+    background-color: #fff;
+  }
+  
+.table-clients th,
+.table-clients td {
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .table-clients  th {
+    width: 20%;
+    padding: 10px 0;
+    font-size: 14px;
+    padding: 15px;
+    background-color: #FFC107;
+    color:#fff;
+  }
+  
+  .table-clients tr{
+    text-align: center;
+    width: 20%;
+    padding: 20px 0;
+    background-color: #fff;
+    color:#3a3a3a;
+  }
+  
+  .table-clients tr:hover{
+    background-color: #d4faff;
+  }
+
+  //新規利用者
+  .new_client{
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 150px;;
+    text-align: center;
+  }
+
+  .field{
+    margin-top: 10px;
+  }
+
+}

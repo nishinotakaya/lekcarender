@@ -4,11 +4,22 @@
 @media print{
   .carender_all{
     width: 1350px;
-    height: 800px;
+    height: 1000px;
     padding-left: 16px;
     padding-right: 16px;
     font-size: 30px;
     font-weight: 600;
+    text-align: center;
+  }
+
+  .carender_data{
+   height: 1440px;
+  }
+
+  .cake{
+    width: 20px;
+    position: relative;
+    bottom: 2.5px;
   }
 
   .edit_carendar_link_prace{
@@ -37,7 +48,6 @@
   }
 
   .calendar-heading{
-    margin-left: 510px;
     font-size: 40px;
     font-weight: 600;
   }
@@ -47,51 +57,219 @@
     top: 630px;
     height: 150px;
     width: 1300px;
-    font-size: 40px;
-    font-weight: 600;
+    font-size: 26px;
+    font-weight: 800;
+  }
+
+  .title_content_div{
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .carender_lek_class{
+    font-size: 20px;
+    font-weight: 800;
+    color: black;
+    text-decoration: none;
+  }
+
+  .copy_place{
+    position: relative;
+    display: inline-block;
+  }
+
+  .copy_place_30{
+    position: relative;
+    top: 230px;
+    display: inline-block;
+  }
+
+  .carender_birthday{
+    display: inline-block;
+  }
+
+  //利用者データ(show)
+  .client_show{
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
   }
 
 }
 
-@media screen and (min-width:750px) {
-.carender_all{
-  width: 1520px;
+@media screen and (min-width: 1601px) and (max-width: 2000px){
+
+  .carender_all {
+    padding-left: 16px;
+    padding-right: 16px;
+    text-align: center;
+  }
+
+  .table-striped {
+    width: 1300px;
+  }
+
+  .calendar-heading {
+    position: relative;
+    right: 98px;
+  }
+
+  .h1_title {
+    position: relative;
+  }
+
+  .calendar-heading {
+    position: relative;
+  }
+
+  .edit_carendar_link_prace {
+    position: relative;
+    right: 100px;
+  }
+
+
+  .calendar-heading {
+    font-size: 30px;
+    font-weight: 600;
+  }
+
+  //編集
+  #text_preparation_space {
+    height: 80px;
+    width: 1500px;
+    font-size: 20px;
+    padding-left: 16px;
+    padding-right: 16px;
+
+  }
+
+  .edit_carender {
+    position: relative;
+    top: 250px;
+    text-align: center;
+    display: block;
+  }
+ 
+  .text-center {
+    position: relative;
+    left: 490px;
+  }
+ 
+  .content {
+    margin-top: 10px;
+  }
+ 
+  .submit {
+   margin-top: 10px;
+  }
+
+  .client_show {
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+}
+
+@media screen and (min-width:750px) and (max-width: 1600px){
+.carender_all {
+  width: 1320px;
   height: 900px;
   padding-left: 16px;
   padding-right: 16px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+
+.modal-dialog-center {
+  padding-top: 10%;
+}
+
+.label-basic-info {
+  margin-top: 5px;
+}
+
+.btn-basic-info {
+  margin: 15px 0;
+  width: 30%;
 }
 
 .edit_carendar_link_prace{
-  margin-left: 580px;
 }
 
 .h1_title{
-  margin-left: 650px;
 }
 
 .simple-calendar .day {
   height: 110px;
 }
 
-.calendar-heading{
-  margin-left: 590px;
+.calendar-heading {
   font-size: 30px;
   font-weight: 600;
 }
 
-.title_content_div{
+.title_content_div {
   height: 100px;
-  width: 200px;
+  width: 180px;
+  position: relative;
 }
 
-.blog_delete{
+.blog_delete {
   display: inline;
  }
 
- #text_preparation_space{
+ .simple-calendar .day {
+  height: 150px;
+  width: 180px;
+}
+
+ #text_preparation_space {
    height: 80px;
-   width: 1500px;
+   width: 1300px;
    font-size: 20px;
  }
+
+ //編集
+ .edit_carender {
+   position: relative;
+   top: 100px;
+   text-align: center;
+   display: block;
+ }
+
+ .text-center {
+   position: relative;
+   left: 350px;
+ }
+
+ .content {
+   margin-top: 10px;
+ }
+
+ .submit {
+  margin-top: 10px;
+ }
+
+ .carender_birthday {
+   position: relative;
+   display: inline-block;
+   text-align: center;
+ }
+
+  .client_show {
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 150px;
+    font-size: 26px;
+    text-align: center;
+  }
 
 }

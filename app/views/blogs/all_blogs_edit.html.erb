@@ -8,8 +8,10 @@
       <tr>
         <th>月日</th>
         <th>曜日</th>
-        <th>レク内容</th>
-        <th>誕生日の利用者にプレゼント渡す日</th>
+        <th>レク内容(散髪の場合は散髪記入)</th>
+        <th>誕生日プレゼント渡す人（散髪日の場合はレク記入）</th>
+        <th>誕生日プレゼント渡す人</th>
+        <th>誕生日プレゼント渡す人</th>
       </tr>  
     </thead>
     <tbody>
@@ -26,7 +28,9 @@
             <td><%= day.start_time.strftime("%-m/%-d") %></td>
             <td class="<%= css_class %>"><%= %w{日 月 火 水 木 金 土}[day.start_time.wday] %></td>
             <td><%= b.text_field :title, class: "form-control" %></td>
-            <td><%= b.text_field :content, class: "form-control" %></td>
+            <td><%= b.text_field :content_1, class: "form-control" %></td>
+            <td><%= b.text_field :content_2, class: "form-control" %></td>
+            <td><%= b.text_field :content_3, class: "form-control" %></td>
           </tr>
         <% end %>
       <% end %>
