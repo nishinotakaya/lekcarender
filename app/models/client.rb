@@ -18,7 +18,7 @@ class Client < ApplicationRecord
       .use_like(search_params[:use_day])
   end
   scope :name_like, -> (name) { where('name LIKE ?', "%#{name}%") if name.present? }
-  scope :birthday_like, -> (birthday) { where('birthday like ?', "%#{birthday}%") if birthday.present?  }
+  scope :birthday_like, -> (birthday) { where('cast(birthday as text) LIKE ?', "%#{birthday}%") if birthday.present?  }
   scope :use_like, -> (use_day) { where('use_day LIKE ?', "%#{use_day}%") if use_day.present? }
  
 
