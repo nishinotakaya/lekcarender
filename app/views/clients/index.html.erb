@@ -1,30 +1,19 @@
 <div class="clinets_all">
   <p id="notice"><%= notice %></p>
 
-  <h2>利用者一覧</h2>
-  <div class="contents">
-    <p>誕生日検索</p>
-    <%= form_tag('/search')do %>
-    <div class="form-group">
-      <select name="birthday">
-        <option>- 月 -</option>
-        <option value="-01-">1月</option>
-        <option value="-02-">2月</option>
-        <option value="-03-">3月</option>
-        <option value="-04-">4月</option>
-        <option value="-05-">5月</option>
-        <option value="-06-">6月</option>
-        <option value="-07-">7月</option>
-        <option value="-08-">8月</option>
-        <option value="-09-">9月</option>
-        <option value="-10-">10月</option>
-        <option value="-11-">11月</option>
-        <option value="-12-">12月</option>
-      </select>
-    </div>
-    <input type="submit" value="検索" class="btn btn-primary" )>
+  <div class="search_name">
+    <h2 class="client_all_h2">利用者一覧</h2>
+    <%= form_with(scope: :search, url: clients_path, method: :get, local: true) do |f| %>
+    <%= f.label :名前 %>
+    <%= f.text_field :name, value: @search_params[:name] %>
+    <br><%= f.label :利用曜日 , class: "use_day_class" %>
+    <%= f.select :use_day, [[""],["月"],["火"],["水"],["木"],["金"],["土"],["日"]], value: @search_params[:use_day], class: "use_day_class" %>
+    <br><%= f.label :誕生日 , class: "use_day_class" %>
+    <%= f.select :birthday, [[""], ["1月", "-01-"],["2月","-02-"],["3月","-03-" ],["4月","-04-" ],["5月","-05-" ],["6月","-06-" ],["7月","-07-" ],["8月","-08-"], ["9月", "-09-"],["10月","-10-"],["11月","-11-" ],["12月","-12-" ]], value: @search_params[:birthday] %>
+    <br><%= f.submit "検索" ,class: "btn btn-primary name_search_btn" %>
     <% end %>
   </div>
+
 
   <table class="table-clients">
     <thead>

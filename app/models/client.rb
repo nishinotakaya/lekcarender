@@ -10,17 +10,16 @@ class Client < ApplicationRecord
     self.use_day.gsub!(/[\[\]\"]/, "") if attribute_present?("use_day")
   end
 
-  # scope :search, -> (search_params) do
-  #   return if search_params.blank?
+  scope :search, -> (search_params) do
+    return if search_params.blank?
 
-  #     name_like(search_params[:name])
-  #     .birthday_like(search_params["birthday(2i)"].to_i)
-  #     .use_like(search_params[:use_day])
-  # end
-  # scope :name_like, -> (name) { where('name LIKE ?', "%#{name}%") if name.present? }
-  # scope :birthday_like, -> (birthday) { where('birthday LIKE ?',  "%#{params[:birthday]}%") if birthday.present?  }
-  # debugger
-  # scope :use_like, -> (use_day) { where('use_day LIKE ?', "%#{use_day}%") if use_day.present? }
+      name_like(search_params[:name])
+      .birthday_like(search_params[:birthday])
+      .use_like(search_params[:use_day])
+  end
+  scope :name_like, -> (name) { where('name LIKE ?', "%#{name}%") if name.present? }
+  scope :birthday_like, -> (birthday) { where('birthday like ?', "%#{birthday}%") if birthday.present?  }
+  scope :use_like, -> (use_day) { where('use_day LIKE ?', "%#{use_day}%") if use_day.present? }
  
 
 end
