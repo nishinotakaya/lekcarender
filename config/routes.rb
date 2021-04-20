@@ -7,7 +7,11 @@ Rails.application.routes.draw do
   devise_scope :user do
     root :to => "users/sessions#new"
   end
-  resources :clients
+
+  resources :clients do
+    get 'text_index', on: :collection
+  end
+
   resources :blogs do
     get 'all_blogs_edit', on: :collection
     patch 'all_blogs_update', on: :collection
