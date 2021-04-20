@@ -17,4 +17,22 @@
   @import "bootstrap";
   @import "blogs";
   @import "clients";
-  
+  @import "users";
+
+  header.navbar-inverse{
+    background-color: #CFF;
+    width: auto !important;
+    height: 70px;
+    ul.nav{
+      li{
+        position: absolute;
+        right: 0;
+        top: 16px;
+        float: left;
+        min-width: 160px;
+        text-align: left; // Ensures proper alignment if parent has it changed (e.g., modal footer)
+        list-style: none;
+        background-clip: padding-box;
+      }
+    }
+  }
