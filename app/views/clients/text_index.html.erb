@@ -1,1 +1,47 @@
 <h1>メモ用利用者一覧</h1>
+<table class="table-clients">
+    <thead>
+      <tr>
+        <th>名前</th>
+        <th>誕生日</th>
+        <th>利用日</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @clients.each do |client| %>
+      <tr class="clients">
+        <td><%= client.name %></td>
+        <% if client.birthday.present? %>
+        <td><%= client.birthday.strftime("%Je%Jg年%m月%d日") %>【<%= age(client.birthday) %>歳】</td>
+        <% end %>
+        <td><%= client.use_day %></td>
+        <td><%= link_to '詳細', client, class: "btn btn-primary" %></td>
+        <td><%= link_to '編集', edit_client_path(client), class: "btn btn-success" %></td>
+        <td><%= link_to '削除', client, method: :delete, data: { confirm: '削除しますか?' }, class: "btn btn-danger" %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <script>
+  var autosaveOn = false;
+function myAutosavedTextbox_onTextChanged()
+{
+    if (!autosaveOn)
+    {
+        autosaveOn = true;
+
+        $('#myAutosavedTextbox').everyTime("300000", function(){
+             $.ajax({
+                 type: "POST",
+                 url: "autosavecallbackurl",
+                 data: " client_id: questionList",
+                 success: function(msg) {
+                     $('#autosavenotify').text(msg);
+                 }
+             });
+        }); //closing tag
+    }
+}
+  </script>

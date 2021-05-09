@@ -1,19 +1,45 @@
 //ログイン画面
-.user_login {
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  margin-top: 360px;
+div.user_login {
+  height: 500px;
+  position: relative;
+h2{
+  position: relative;
+  top: 65%; 
 }
 form.user {
+  position: absolute;
+  top: 85%; /*親要素を起点に上から50%*/
+  left: 50%;  /*親要素を起点に左から50%*/
+  transform: translateY(-50%) translateX(-50%); /*要素の大きさの半分ずつを戻す*/
+  -webkit-transform: translateY(-50%) translateX(-50%);
   .field{
     font-size: 26px;
     text-align: center;
   }
 
+}
+
   .form-control {
     width: 300px;
     margin-left: auto;
     margin-right: auto;
+    border-radius:20px 20px 20px 20px;
   }
+
 }
+
+  .btn--yellow {
+    color: #000;
+    font-weight: 700;
+    font-size: 26px;
+    background-color: #fff100 !important;
+    border-bottom: 5px solid #ccc100 !important;
+  }
+  
+  .btn--yellow:hover {
+    margin-top: 3px;
+    color: #000;
+    background: #fff20a !important;
+    border-bottom: 2px solid #ccc100 !important;
+  }
+

@@ -57,13 +57,13 @@
   <div class ="copy_place_30">
   <% end %>
     <% @clients.each do |client| %>
-      <% if @start_date.month == client.birthday.month && client.birthday.day > Date.today.day && client.birthday.month == Date.today.month ||  @start_date.month == client.birthday.month && client.birthday.month > Date.today.month %>
+      <% if @start_date.month == client.birthday.month && client.birthday.day > Date.today.day && client.birthday.month == Date.today.month || @start_date.month == client.birthday.month && client.birthday.month > Date.today.month %>
         <div class="carender_birthday"><%= client.name %>様
         <%= client.birthday.strftime("%Je%Jg年%m月%d日") %> 【<%= age_1_ago(client.birthday) %>歳】</div>
-        <% elsif @start_date.month == client.birthday.month && Date.today.day >= client.birthday.day && client.birthday.month == Date.today.month %>
+      <% elsif @start_date.month == client.birthday.month && Date.today.day >= client.birthday.day && client.birthday.month == Date.today.month %>
         <div class="carender_birthday"><%= client.name %>様
         <%= client.birthday.strftime("%Je%Jg年%m月%d日") %> 【<%= age(client.birthday) %>歳】</div>
-      <% elsif @start_date.month == client.birthday.month && Date.today.day >= client.birthday.day &&  Date.today.month > client.birthday.month %>
+      <% elsif @start_date.month == client.birthday.month && Date.today.month > client.birthday.month  %>
       <div class="carender_birthday"><%= client.name %>様
         <%= client.birthday.strftime("%Je%Jg年%m月%d日") %> 【<%= age(client.birthday) %>歳】</div>
       <% end %>

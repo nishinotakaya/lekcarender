@@ -56,8 +56,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'wareki'
 gem 'rails-i18n'
 gem 'devise'
-group :production do
-  gem 'pg', '0.20.0'
-end
+# group :production do
+#   gem 'pg', '0.20.0'
+# end
 
 gem 'seed_dump'
+gem 'active_decorator'

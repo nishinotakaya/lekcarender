@@ -41,6 +41,11 @@ ActiveRecord::Schema.define(version: 2021_04_20_041014) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
+    t.json "t_json"
+    t.string "text_memo_2"
+    t.string "text_memo_3"
+    t.string "text_memo_4"
+    t.boolean "text_check"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

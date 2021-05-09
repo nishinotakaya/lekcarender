@@ -38,3 +38,25 @@
 </table>
 <%= f.submit '送信', class: "btn btn-primary" %>
 <% end %>
+
+<script>
+  var autosaveOn = false;
+function myAutosavedTextbox_onTextChanged()
+{
+    if (!autosaveOn)
+    {
+        autosaveOn = true;
+
+        $('#myAutosavedTextbox').everyTime("300000", function(){
+             $.ajax({
+                 type: "POST",
+                 url: "all_blogs_edit_blogs_url",
+                 data: "blog_id: autosaveOn",
+                 success: function(msg) {
+                     $('#autosavenotify').text(msg);
+                 }
+             });
+        }); //closing tag
+    }
+}
+  </script>

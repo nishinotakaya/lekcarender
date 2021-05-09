@@ -7,6 +7,10 @@ class ClientsController < ApplicationController
     @clients = Client.search(@search_params) 
   end
 
+  def text_index
+    @clients = Client.all
+  end  
+
   # GET /clients/1 or /clients/1.json
   def show
   end
