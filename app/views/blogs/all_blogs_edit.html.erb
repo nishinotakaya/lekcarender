@@ -6,7 +6,7 @@
 </div>
   <%= form_with(model: @blogs, url: all_blogs_update_blogs_path(@blogs), local: true, method: :patch) do |f| %>
 <div class="up-supmit">  
-  <%= f.submit '送信', class: "btn btn-primary blog-submit-btn" %>
+  <%= f.submit 'カレンダー更新', class: "btn btn-primary blog-submit-btn" %>
 </div>
 <table class="edit-calender table table-bordered table-condensed table-hover" id="table-attendances">
   <thead>
@@ -42,7 +42,7 @@
   </tbody>
 </table>
 <div class="down-submit">
-<%= f.submit '送信', class: "btn btn-primary blog-submit-btn" %>
+<%= f.submit 'カレンダー更新', class: "btn btn-primary blog-submit-btn" %>
 </div>
 <% end %>
 

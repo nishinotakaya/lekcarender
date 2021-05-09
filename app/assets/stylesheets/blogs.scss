@@ -322,6 +322,13 @@
       .btn {
         width: 200px;
       }
-    }  
+      .form-control {
+        font-weight: 700;
+      }
+      .form-control::placeholder {
+        color: rgba(0,0,0,0.2);
+      }
+    }
+    
   }
 
