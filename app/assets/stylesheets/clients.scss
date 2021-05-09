@@ -154,7 +154,8 @@
   }
 }
 
-@media screen and (min-width: 750px) and (max-width: 1600px) {
+@media screen and (min-width: 750px) and (max-width: 2000px) {
+
   .clinets_all {
     padding-left: 16px;
     padding-right: 16px;
@@ -281,5 +282,149 @@
 
   .field {
     margin-top: 10px;
+  }
+  .phone_thead {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 550px)  {
+  div.clinets_all {
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 330px;
+    height: auto;
+    display: block;
+  }
+
+  h2 {
+    text-align: center;
+  }
+
+  body {
+    width: 100%;
+  }
+
+  table.table-clients {
+    border-collapse: collapse;
+    margin: 30px;
+    padding: 0;
+    width: 300px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 0 15px -6px #00000073;
+    th.phone_thead{
+      display: block;
+    }
+    td {
+      width: 300px;
+      display: block;
+    }
+    .thead_pc {
+      display: none;
+    }
+    .btn {
+      width: 200px;
+    }
+  }
+
+  .table-clients tr {
+    background-color: #fff;
+  }
+
+  .table-clients th,
+  .table-clients td {
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+  }
+
+  .table-clients th {
+    width: 20%;
+    padding: 10px 0;
+    font-size: 14px;
+    padding: 15px;
+    background-color: #ffc107;
+    color: #fff;
+  }
+
+  .table-clients tr {
+    text-align: center;
+    width: 20%;
+    padding: 20px 0;
+    background-color: #fff;
+    color: #3a3a3a;
+  }
+
+  .table-clients tr:hover {
+    background-color: #d4faff;
+  }
+
+
+  .field {
+    margin-top: 10px;
+  }
+
+  .client_all_h2 {
+    margin-bottom: 20px;
+  }
+
+  .use_day_class {
+    margin-top: 10px;
+  }
+
+  .search_name {
+    text-align: center !important;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+    margin-top: 50px;
+  }
+
+  .name_search_btn {
+    margin-top: 15px;
+  }
+
+  .form-search {
+    display: inline-block;
+    margin-left: 10px;
+  }
+
+  .new_client_btn {
+    margin-bottom: 20px;
+    margin-left: 10px;
+  }
+
+  //新規利用者
+  .new_client {
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 150px;
+    text-align: center;
+  }
+
+   //利用者詳細
+   .client_show {
+    width: 300px;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 150px;
+    font-size: 26px;
+    text-align: center;
+  }
+
+  .field {
+    margin-top: 10px;
+  }
+  
+  .btn--cubic {
+    display: none;
   }
 }

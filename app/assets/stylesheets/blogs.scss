@@ -152,6 +152,26 @@
     margin-right: auto;
     width: 1300px;
   }
+
+  .form-control::placeholder {
+    color: transparent;
+  }
+
+  div.up-supmit {
+    text-align: center;
+    margin-bottom: 10px;
+    .btn {
+      width: 600px;
+    }
+  }
+
+  div.down-submit {
+    text-align: center;
+    .btn {
+      width: 600px;
+    }
+  }
+
 }
 
 @media screen and (min-width: 750px) and (max-width: 1600px) {
@@ -254,4 +274,54 @@
     font-size: 26px;
     text-align: center;
   }
+
+  .form-control::placeholder {
+    color: transparent;
+  }
+
 }
+
+  @media screen and (max-width: 550px) {
+
+    .blog-edit-day {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
+    .up-supmit{
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .blog-submit-btn {
+      width: 300px;
+    }
+
+    .down-submit {
+      text-align: center;
+    }
+
+    table.edit-calender {
+      padding: 0;
+      width: 300px;
+      margin-top: 10px;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 0 15px -6px #00000073;
+      display: block;
+      th {
+        display: none;
+      }
+      td {
+        text-align: center;
+        vertical-align: top;
+        width: 300px;
+        display: block;
+      }
+      .btn {
+        width: 200px;
+      }
+    }  
+  }
+

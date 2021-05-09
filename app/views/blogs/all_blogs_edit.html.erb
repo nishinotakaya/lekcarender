@@ -1,9 +1,14 @@
+<div class ="blog-edit-day">
 <h1>レクカレンダー全体編集</h1>
-<%= link_to "⇦ ",  all_blogs_edit_blogs_path(date: @first_day.prev_month), class: "btn btn-info" %>
-<%= @first_day.strftime("%-m") %>月
-<%= link_to " ⇨",  all_blogs_edit_blogs_path(date: @first_day.next_month), class: "btn btn-info" %>
-<%= form_with(model: @blogs, url: all_blogs_update_blogs_path(@blogs), local: true, method: :patch) do |f| %>
-<table class="table table-bordered table-condensed table-hover" id="table-attendances">
+  <%= link_to "⇦ ",  all_blogs_edit_blogs_path(date: @first_day.prev_month), class: "btn btn-info" %>
+  <%= @first_day.strftime("%-m") %>月
+  <%= link_to " ⇨",  all_blogs_edit_blogs_path(date: @first_day.next_month), class: "btn btn-info" %>
+</div>
+  <%= form_with(model: @blogs, url: all_blogs_update_blogs_path(@blogs), local: true, method: :patch) do |f| %>
+<div class="up-supmit">  
+  <%= f.submit '送信', class: "btn btn-primary blog-submit-btn" %>
+</div>
+<table class="edit-calender table table-bordered table-condensed table-hover" id="table-attendances">
   <thead>
     <tr>
       <th>月日</th>
@@ -27,16 +32,18 @@
               end %>
       <td><%= day.start_time.strftime("%-m/%-d") %></td>
       <td class="<%= css_class %>"><%= %w{日 月 火 水 木 金 土}[day.start_time.wday] %></td>
-      <td><%= b.text_field :title, class: "form-control" %></td>
-      <td><%= b.text_field :content_1, class: "form-control" %></td>
-      <td><%= b.text_field :content_2, class: "form-control" %></td>
-      <td><%= b.text_field :content_3, class: "form-control" %></td>
+      <td><%= b.text_field :title, class: "form-control", placeholder: "レクの内容を又は散髪入力" %></td>
+      <td><%= b.text_field :content_1, class: "form-control", placeholder: "レクの内容又は利用者の誕生日を入力" %></td>
+      <td><%= b.text_field :content_2, class: "form-control", placeholder: "利用者の誕生日を入力"  %></td>
+      <td class="td_content_3"><%= b.text_field :content_3, class: "form-control", placeholder: "利用者の誕生日を入力" %></td>
     </tr>
     <% end %>
     <% end %>
   </tbody>
 </table>
-<%= f.submit '送信', class: "btn btn-primary" %>
+<div class="down-submit">
+<%= f.submit '送信', class: "btn btn-primary blog-submit-btn" %>
+</div>
 <% end %>
 
 <script>
