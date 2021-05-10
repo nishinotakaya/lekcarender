@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :blogs do
     get 'all_blogs_edit', on: :collection
     patch 'all_blogs_update', on: :collection
+    patch 'blogs_month_update', on: :collection
   end  
 
   post "/search-birthday" => "clients#search-birthday"

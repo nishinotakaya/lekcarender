@@ -61,18 +61,29 @@ class BlogsController < ApplicationController
     @blogs = Blog.where(start_time: @first_day..@last_day).order(:start_time)
   end  
  
-   def all_blogs_update
-     ActiveRecord::Base.transaction do # トランザクションを開始します。
-       all_blogs_parameter.each do |id, item|
-         blog = Blog.find(id)
-         blog.update_attributes!(item)
-       end
-     end
-     flash[:success] = "レクカレンダーを更新しました"
-     redirect_to blogs_url(date: Date.today.next_month)
-   end  
+  def all_blogs_update
+    ActiveRecord::Base.transaction do # トランザクションを開始します。
+      all_blogs_parameter.each do |id, item|
+        blog = Blog.find(id)
+        blog.update_attributes!(item)
+      end
+    end
+    flash[:success] = "レクカレンダーを更新しました"
+    redirect_to blogs_url(date: Date.today.next_month)
+  end
+   
+  def blogs_month_update
+    ActiveRecord::Base.transaction do # トランザクションを開始します。
+      all_blogs_parameter.each do |id, item|
+        blog = Blog.find(id)
+        blog.update_attributes!(item)
+      end
+    end
+    flash[:success] = "月を移動しました"
+    redirect_to all_blogs_edit_blogs_url(date: Date.today.next_month)
+  end  
 
-   def blogs_birthday
+   def blogs_month_update
    end
 
  
