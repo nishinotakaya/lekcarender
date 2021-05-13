@@ -14,17 +14,31 @@
     text-align: center;
     div.name_h_font_size {
     position: relative;
+    top: 10px;
     left: 6px;
     font-size: 13px;
     text-align: center;
     }
+    div.client_birthday {
+      position: relative;
+      top: 10px;
+    }
+  }
+
+  .s_name {
+    margin-left: 8px;
   }
 
   th{
     div.name_h_font_size {
     position: relative;
+    left: 5px;
     font-size: 13px;
     text-align: center;
+    }
+    div.name {
+      position: relative;
+      left: 5px;
     }
   }
 }

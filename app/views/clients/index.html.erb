@@ -18,7 +18,7 @@
     <thead class= "thead_pc">
       <tr>
         <th><div class="name_h_font_size">ふりがな</div>
-            <div>名前</div></th>
+        <div class="name">名前</div></th>
         <th>性別</th>
         <th>誕生日</th>
         <th>利用日</th>
@@ -39,12 +39,12 @@
         <% end %>
         <div><input type="checkbox" id="horns" name="horns" class="copy_check_box"><span class="s_name"><%= client.name %></span></div></td>
         <% if client.birthday.present? %>
-        <td><%= client.birthday.strftime("%Je%Jg年%m月%d日") %>【<%= age(client.birthday) %>歳】</td>
+        <td><div class="client_birthday"><%= client.birthday.strftime("%Je%Jg年%m月%d日") %>【<%= age(client.birthday) %>歳】</div></td>
         <% end %>
         <% if client.sex.present? %>
-          <td><%= client.sex %></td>
+          <td><div class="client_birthday"><%= client.sex %></div></td>
         <% end %>
-        <td><%= client.use_day %></td>
+        <td><div class="client_birthday"><%= client.use_day %></div></td>
         <td><%= link_to '詳細', client, class: "btn btn-primary" %></td>
         <td><%= link_to '編集', edit_client_path(client), class: "btn btn-success" %></td>
         <td><%= link_to '削除', client, method: :delete, data: { confirm: '削除しますか?' }, class: "btn btn-danger" %></td>
