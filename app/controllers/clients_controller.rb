@@ -4,7 +4,7 @@ class ClientsController < ApplicationController
   # GET /clients or /clients.json
   def index
     @search_params = client_search_params
-    @clients = Client.search(@search_params).order(:name_h)
+    @clients = Client.search(@search_params)
   end
 
   def text_index
