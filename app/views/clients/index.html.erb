@@ -34,7 +34,7 @@
     <tbody>
       <tr>
         <td><div class="name_h_font_size"><%= client.name_h %></div>
-            <div><%= client.name %></div></td>
+            <div><input type="checkbox" id="horns" name="horns" class="copy_check_box"><%= client.name %></div></td>
         <% if client.birthday.present? %>
         <td><%= client.birthday.strftime("%Je%Jg年%m月%d日") %>【<%= age(client.birthday) %>歳】</td>
         <% end %>

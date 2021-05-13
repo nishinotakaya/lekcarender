@@ -9,14 +9,32 @@
     text-align: center;
   }
 
-  .name_h_font_size {
+  td{
+    div.name_h_font_size {
+    position: relative;
+    left: 6px;
     font-size: 13px;
+    text-align: center;
+    }
+  }
+
+  th{
+    div.name_h_font_size {
+    position: relative;
+    font-size: 13px;
+    text-align: center;
+    }
+  }
+
+  .copy_check_box {
+    position: relative;
+    right: 8px;
   }
 
   .copy_none {
     display: none;
   }
-  
+
   body {
     width: 100%;
   }
@@ -160,6 +178,11 @@
     font-size: 26px;
     text-align: center;
   }
+
+  .copy_check_box {
+    display: none;
+  }
+
 }
 
 @media screen and (min-width: 750px) and (max-width: 2000px) {
@@ -294,6 +317,15 @@
   .phone_thead {
     display: none;
   }
+
+  .copy_check_box {
+    display: none;
+  }
+
+  .name_h_font_size {
+    font-size: 13px;
+  }
+
 }
 
 @media screen and (max-width: 550px)  {
@@ -435,4 +467,9 @@
   .btn--cubic {
     display: none;
   }
+
+  .copy_check_box {
+    display: none;
+  }
+
 }
