@@ -9,7 +9,9 @@
     text-align: center;
   }
 
+  table.table-clients {
   td{
+    text-align: center;
     div.name_h_font_size {
     position: relative;
     left: 6px;
@@ -25,10 +27,14 @@
     text-align: center;
     }
   }
+}
 
   .copy_check_box {
     position: relative;
-    right: 8px;
+    top: 26px;
+    left: 4px;
+    display: flex;
+    justify-content: space-between;
   }
 
   .copy_none {
