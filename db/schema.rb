@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 2021_04_20_041014) do
 
   create_table "clients", force: :cascade do |t|
     t.string "name"
+    t.string "name_h"
+    t.string "sex"
     t.date "birthday"
     t.string "use_day"
     t.string "string"

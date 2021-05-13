@@ -11,9 +11,20 @@
   <% end %>
 
   <div class="field">
-<div><%= f.label :名前 %></div>
-<div><%= f.text_field :name %></div>
+    <div><%= f.label :ふりがな %></div>
+    <div><%= f.text_field :name_h %></div>
   </div>
+
+  <div class="field">
+    <div><%= f.label :名前 %></div>
+    <div><%= f.text_field :name %></div>
+  </div>
+
+   <br><%= f.label :性別, class: "label-#{yield(:class_text)}" %>
+   <br><%= f.radio_button :sex, :男性, checked: "checked" %>
+      <%= f.label "男性", class: "label-#{yield(:class_text)}" %>
+      <%= f.radio_button :sex, :女性 %>
+      <%= f.label "女性", class: "label-#{yield(:class_text)}" %>
 
   <div class="field">
     <%= f.label :誕生日 %>

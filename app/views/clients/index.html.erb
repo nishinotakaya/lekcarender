@@ -17,7 +17,9 @@
   <table class="table-clients">
     <thead class= "thead_pc">
       <tr>
-        <th>名前</th>
+        <th><div class="name_h_font_size">ふりがな</div>
+            <div>名前</div></th>
+        <th>性別</th>
         <th>誕生日</th>
         <th>利用日</th>
         <th colspan="3"></th>
@@ -26,15 +28,17 @@
       <% @clients.each do |client| %>
        <thead class="phone_thead">
         <tr>
-          <th>利用者</th>
+          <th class="copy_none">利用者</th>
         </tr>
       </thead>
     <tbody>
       <tr>
-        <td><%= client.name %></td>
+        <td><div class="name_h_font_size"><%= client.name_h %></div>
+            <div><%= client.name %></div></td>
         <% if client.birthday.present? %>
         <td><%= client.birthday.strftime("%Je%Jg年%m月%d日") %>【<%= age(client.birthday) %>歳】</td>
         <% end %>
+        <td><%= client.sex %></td>
         <td><%= client.use_day %></td>
         <td><%= link_to '詳細', client, class: "btn btn-primary" %></td>
         <td><%= link_to '編集', edit_client_path(client), class: "btn btn-success" %></td>
