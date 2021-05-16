@@ -1,6 +1,10 @@
 <div class="clinets_all">
   <p id="notice"><%= notice %></p>
-  <%= link_to "利用者一覧メモ用", text_index_clients_path, class: "btn btn--yellow btn--cubic" %>
+  <%
+=begin%>
+ <%= link_to "利用者一覧メモ用", text_index_clients_path, class: "btn btn--yellow btn--cubic" %> 
+<%
+=end%>
   <div class="search_name">
     <h2 class="client_all_h2">利用者一覧</h2>
     <%= form_with(scope: :search, url: clients_path, method: :get, local: true) do |f| %>
@@ -13,7 +17,10 @@
     <br><%= f.submit "検索" ,class: "btn btn-primary name_search_btn" %>
     <% end %>
   </div>
-
+  <br><div>
+    <%= link_to 'カレンダーに戻る', blogs_path,  class: "btn btn-primary new_client_btn" %>
+    <%= link_to '利用者追加', new_client_path , class: "btn btn-success new_client_btn" %>
+  </div>
   <table class="table-clients">
     <thead class= "thead_pc">
       <tr>
