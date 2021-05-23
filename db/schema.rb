@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_13_184636) do
+ActiveRecord::Schema.define(version: 2021_05_20_173619) do
 
   create_table "blogs", force: :cascade do |t|
     t.string "title"
@@ -31,6 +31,24 @@ ActiveRecord::Schema.define(version: 2021_05_13_184636) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "name_h"
     t.string "sex"
+  end
+
+  create_table "planning_papers", force: :cascade do |t|
+    t.string "plannning_name"
+    t.string "plannning_point"
+    t.date "plannning_day"
+    t.string "plannning_day_2"
+    t.string "plannning_day_3"
+    t.string "plannning_place"
+    t.string "plannning_people_count"
+    t.string "plannning_preparation_object"
+    t.datetime "plannning_time"
+    t.string "planning_note"
+    t.string "planning_severe"
+    t.string "planning_palace_picture"
+    t.string "planning_person"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|

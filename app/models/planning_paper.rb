@@ -1,0 +1,3 @@
+class PlanningPaper < ApplicationRecord
+  
+end

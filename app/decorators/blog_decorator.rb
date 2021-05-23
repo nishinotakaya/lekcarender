@@ -6,6 +6,9 @@ module BlogDecorator
   end
 
   def link
-    link_to title, edit_blog_path(blog)
+    link_to blog_title, edit_blog_path(self), class: "carender_lek_class" 
+  end
+
+  def blog_content_all
   end
 end
