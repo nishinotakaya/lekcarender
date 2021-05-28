@@ -11,4 +11,4 @@ User.create!(name: "A",
               password_confirmation: "6688"
             )
 
-            puts "all_user"
+puts "all_user"

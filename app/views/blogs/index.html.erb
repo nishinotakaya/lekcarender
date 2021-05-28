@@ -9,7 +9,6 @@
       <h1 class="h1_title">レクカレンダー</h1>
     </div>
     <br>
-
     <%= month_calendar(events: @blogs) do |date, blogs| %>
       <%= date.day %>
       <% blogs.each do |blog| %>

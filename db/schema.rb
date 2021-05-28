@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 2021_05_20_173619) do
     t.date "start_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_blogs_on_user_id"
   end
 
   create_table "clients", force: :cascade do |t|
@@ -69,4 +71,5 @@ ActiveRecord::Schema.define(version: 2021_05_20_173619) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "blogs", "users"
 end

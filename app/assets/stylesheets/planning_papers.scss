@@ -1,3 +1,26 @@
 // Place all the styles related to the planning_papers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+table.plan_table{
+  border: solid 1px #000000;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1300px;
+  th {
+    border: solid 1px #000000;
+    width: 400px;
+    text-align: center;
+  }
+  td {
+    border: solid 1px #000000;
+    width: 900px;
+    text-align: left;
+  }
+}
+
+div.plan_all {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}

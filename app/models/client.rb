@@ -1,6 +1,5 @@
 class Client < ApplicationRecord
 
-
   validates :name, presence: true
   validates :birthday, presence: true
   validates :use_day, presence: true
