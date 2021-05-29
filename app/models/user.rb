@@ -7,5 +7,6 @@ class User < ApplicationRecord
         #  :validatable
   
   has_many :blogs
+  has_many :clients
   # accepts_nested_attributes_for :blogs
 end

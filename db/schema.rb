@@ -31,8 +31,10 @@ ActiveRecord::Schema.define(version: 2021_05_28_111347) do
     t.string "use_day"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
     t.string "name_h"
     t.string "sex"
+    t.index ["user_id"], name: "index_clients_on_user_id"
   end
 
   create_table "planning_papers", force: :cascade do |t|
@@ -72,4 +74,5 @@ ActiveRecord::Schema.define(version: 2021_05_28_111347) do
   end
 
   add_foreign_key "blogs", "users"
+  add_foreign_key "clients", "users"
 end

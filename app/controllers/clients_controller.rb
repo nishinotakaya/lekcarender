@@ -4,12 +4,12 @@ class ClientsController < ApplicationController
   # GET /clients or /clients.json
   def index
     @search_params = client_search_params
-    @clients = Client.search(@search_params).order(:name_h)
+    @clients = current_user.clients.search(@search_params).order(:name_h)
   end
 
-  def text_index
-    @clients = Client.all
-  end  
+  # def text_index
+  #   @clients = Client.all
+  # end  
 
   # GET /clients/1 or /clients/1.json
   def show
@@ -17,7 +17,7 @@ class ClientsController < ApplicationController
 
   # GET /clients/new
   def new
-    @client = Client.new
+    @client = current_user.clients.new
   end
 
   # GET /clients/1/edit
@@ -26,7 +26,7 @@ class ClientsController < ApplicationController
 
   # POST /clients or /clients.json
   def create
-    @client = Client.new(client_params)
+    @client = current_user.clients.new(client_params)
 
     respond_to do |format|
       if @client.save
@@ -61,7 +61,7 @@ class ClientsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_client
-      @client = Client.find(params[:id])
+      @client = current_user.clients.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
