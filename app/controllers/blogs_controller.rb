@@ -3,7 +3,7 @@ class BlogsController < ApplicationController
   
   def index
     @start_date = params.fetch(:start_date, Date.today).to_date
-    @blogs =  current_user.blogs.where(start_time: @start_date.beginning_of_month..@start_date.end_of_month)
+    @blogs =  current_user.blogs.where(start_time: @start_date.beginning_of_month..@start_date.end_of_month)  
     @clients = Client.all
   end
 
@@ -81,7 +81,7 @@ class BlogsController < ApplicationController
     end
     flash[:success] = "月を移動しました"
     redirect_to all_blogs_edit_blogs_url(date: Date.today.next_month)
-  end  
+  end
 
    def blogs_month_update
    end

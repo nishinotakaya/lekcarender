@@ -9,14 +9,9 @@ class PlanningPapersController < ApplicationController
   end
 
   def create
-    ActiveRecord::Base.transaction do
-      planinng_parameter.each do |id, item|
-        plan =  PlanningPaper.find(id)
-        plan.create(item)
-      end  
+    @plan = PlanningPaper.create(planinng_parameter)
       flash[:success] = "企画書を作成しました！"
       redirect_to blogs_path
-    end 
   end
 
   def destroy
@@ -41,7 +36,7 @@ class PlanningPapersController < ApplicationController
   private
 
   def planinng_parameter
-    params.permit(:plannning_time, :plannning_point, :plannning_day_2, :plannning_day_3, :plannning_place, :plannning_people_count, :plannning_preparation_object)
+    params.require(:planning_paper).permit(:plannning_name, :planning_severe, :plannning_point, :plannning_place, :plannning_people_count, :plannning_preparation_object, :planning_person, :plannning_time,:planning_note, :planning_palace_picture)
   end
 
 end

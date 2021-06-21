@@ -84,8 +84,12 @@
     display: inline-block;
   }
 
-  .carender_birthday {
+  div.carender_birthday {
     display: inline-block;
+
+    span {
+      display: none;
+    }
   }
 }
 
