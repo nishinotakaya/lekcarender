@@ -27,7 +27,6 @@ class ClientsController < ApplicationController
   # POST /clients or /clients.json
   def create
     @client = current_user.clients.new(client_params)
-    debugger
     respond_to do |format|
       if @client.save
         format.html { redirect_to @client, notice: "Client was successfully created." }
