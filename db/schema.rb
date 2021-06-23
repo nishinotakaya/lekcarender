@@ -13,25 +13,25 @@
 ActiveRecord::Schema.define(version: 2021_05_28_111347) do
 
   create_table "blogs", force: :cascade do |t|
+    t.integer "user_id"
     t.string "title"
     t.text "content"
     t.text "content_1"
     t.text "content_2"
     t.text "content_3"
     t.date "start_time"
-    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_blogs_on_user_id"
   end
 
   create_table "clients", force: :cascade do |t|
+    t.integer "user_id"
     t.string "name"
     t.date "birthday"
     t.string "use_day"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id", null: false
     t.string "name_h"
     t.string "sex"
     t.index ["user_id"], name: "index_clients_on_user_id"
