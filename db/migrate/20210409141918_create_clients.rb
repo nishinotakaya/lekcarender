@@ -5,7 +5,6 @@ class CreateClients < ActiveRecord::Migration[6.0]
       t.date :birthday
       t.string :use_day
       t.timestamps
-      t.references :user, foreign_key: true
-    end
+      t.belongs_to :user_id, null: false, foreign_key: {to_table: :users}    end
   end
 end

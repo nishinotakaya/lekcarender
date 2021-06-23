@@ -6,7 +6,7 @@ class User < ApplicationRecord
         #  :authentication_keys => [];
         #  :validatable
   
-  has_many :blogs
-  has_many :clients
+  has_many :blogs, dependent: :destroy
+  has_many :clients, dependent: :destroy
   # accepts_nested_attributes_for :blogs
 end
