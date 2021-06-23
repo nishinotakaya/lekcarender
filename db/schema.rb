@@ -26,12 +26,12 @@ ActiveRecord::Schema.define(version: 2021_05_28_111347) do
   end
 
   create_table "clients", force: :cascade do |t|
-    t.integer "user_id"
     t.string "name"
     t.date "birthday"
     t.string "use_day"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id", null: false
     t.string "name_h"
     t.string "sex"
     t.index ["user_id"], name: "index_clients_on_user_id"

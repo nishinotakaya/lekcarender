@@ -2,7 +2,6 @@ class ClientsController < ApplicationController
   before_action :set_client, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
   # GET /clients or /clients.json
-  
   def index
     @search_params = client_search_params
     @clients = current_user.clients.where(user_id: current_user.id).search(@search_params).order(:name_h)
