@@ -39,7 +39,7 @@ class BlogsController < ApplicationController
   end
 
   def update
-    @blog = Blogs.find(params[:id])
+    @blog = Blog.find(params[:id])
     if @blog.update(blog_parameter)
       redirect_to blogs_path, notice: "編集しました"
     else
