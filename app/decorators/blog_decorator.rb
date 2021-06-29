@@ -11,4 +11,5 @@ module BlogDecorator
 
   def blog_content_all
   end
+  
 end
