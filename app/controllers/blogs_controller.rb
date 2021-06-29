@@ -24,12 +24,12 @@ class BlogsController < ApplicationController
   end
 
   def create
-    current_user.blogs.create(blog_parameter)
+    Blog.create(blog_parameter)
     redirect_to blogs_path
   end
 
   def destroy
-    @blog = Blogs.find(params[:id])
+    @blog = Blog.find(params[:id])
     @blog.delete
     redirect_to blogs_path, notice:"削除しました"
   end
