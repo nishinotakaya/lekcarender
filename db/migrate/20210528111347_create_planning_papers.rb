@@ -15,6 +15,7 @@ class CreatePlanningPapers < ActiveRecord::Migration[6.0]
       t.string :planning_palace_picture
       t.string :planning_person
       t.timestamps
+      t.references :blog, null: false,  foreign_key: { to_table: :blogs }
     end
   end
 end

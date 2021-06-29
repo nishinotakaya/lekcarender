@@ -53,6 +53,8 @@ ActiveRecord::Schema.define(version: 2021_05_28_111347) do
     t.string "planning_person"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "blog_id", null: false
+    t.index ["blog_id"], name: "index_planning_papers_on_blog_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -75,4 +77,5 @@ ActiveRecord::Schema.define(version: 2021_05_28_111347) do
 
   add_foreign_key "blogs", "users"
   add_foreign_key "clients", "users"
+  add_foreign_key "planning_papers", "blogs"
 end
