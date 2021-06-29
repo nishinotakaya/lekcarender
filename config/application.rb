@@ -17,5 +17,6 @@ module LekCarenderEnviroment
     # the framework and any gems in your application.
     config.i18n.default_locale = :ja
     config.assets.initialize_on_precompile = false
+    config.beginning_of_week = :sunday
   end
 end
