@@ -14,7 +14,7 @@
       <% blogs.each do |blog| %>
         <% if blog.title.present? %>
           <div class= "title_content_div">
-            <div><%= blog.link %></div>
+              <%= blog.link %>
             <% if blog.content_1.present? %>
               <div>
                 <%= link_to edit_blog_path(blog), class: "carender_lek_class" do %>
