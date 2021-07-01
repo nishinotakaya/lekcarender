@@ -64,7 +64,6 @@ class BlogsController < ApplicationController
   def all_blogs_update
     ActiveRecord::Base.transaction do # トランザクションを開始します。
       all_blogs_parameter.each do |id, item|
-        debugger
         blog = Blog.find(id)
         blog.update_attributes!(item)
       end
