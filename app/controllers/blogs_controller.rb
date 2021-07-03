@@ -3,8 +3,9 @@ class BlogsController < ApplicationController
   
   def index
     @start_date = params.fetch(:start_date, Date.today).to_date
-    @blogs =  current_user.blogs.where(start_time: @start_date.beginning_of_month..@start_date.end_of_month)  
+    @blogs =  current_user.blogs.where(start_time: @start_date.beginning_of_month..@start_date.end_of_month)
     @clients = Client.all
+    debugger
   end
 
   def carendar_top
@@ -40,15 +41,17 @@ class BlogsController < ApplicationController
 
   def update
     @blog = current_user.blogs.find(params[:id])
+    @start_date = @blog.start_time.beginning_of_month
+    @start_date_end = @blog.start_time.end_of_month
     if @blog.update(blog_parameter)
-      redirect_to blogs_path, notice: "編集しました"
+      redirect_to blogs_path(date), notice: "編集しました"
     else
       render 'edit'
     end
   end
 
   def all_blogs_edit
-    @first_day =  params[:date].nil? ? 
+    @first_day =  params[:date].nil? ?
     Date.current.next_month.beginning_of_month : params[:date].to_date
 		@last_day = @first_day.end_of_month
     one_month = [*@first_day..@last_day]
@@ -83,25 +86,25 @@ class BlogsController < ApplicationController
     redirect_to all_blogs_edit_blogs_url(date: Date.today.next_month)
   end
 
-   def blogs_month_update
-   end
+  def blogs_month_update
+  end
 
  
-   private
+  private
  
-   def blog_parameter
-     params.require(:blog).permit(:title, :content_1, :content_2, :content_3, :start_time)
-   end
+  def blog_parameter
+    params.require(:blog).permit(:title, :content_1, :content_2, :content_3, :start_time)
+  end
 
   def blog_destroy_parameter
     params.permit(:title, :content_1, :content_2, :content_3)
   end
  
-   def all_blogs_parameter
-     params.require(:blog).permit(blogs: [:title, :content_1, :content_2, :content_3, :start_time])[:blogs]
-   end
+  def all_blogs_parameter
+    params.require(:blog).permit(blogs: [:title, :content_1, :content_2, :content_3, :start_time])[:blogs]
+  end
 
-   def current_blog
+  def current_blog
     @current_blog ||= Blog.find_by(id: session[:id])
   end
 
@@ -114,3 +117,4 @@ class BlogsController < ApplicationController
   end
  
 end
+
