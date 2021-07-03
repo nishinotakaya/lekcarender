@@ -21,28 +21,28 @@
   </thead>
   <tbody>
     <% @blogs.each do |day| %>
-    <%= f.fields_for "blogs[]", day do |b| %>
-    <tr>
-      <% css_class = 
-              case %w{日 月 火 水 木 金 土}[day.start_time.wday]
-              when '土'
-                'text-primary'
-              when '日'
-                'text-danger'
-              end %>
-      <td><%= day.start_time.strftime("%-m/%-d") %></td>
-      <td class="<%= css_class %>"><%= %w{日 月 火 水 木 金 土}[day.start_time.wday] %></td>
-      <td><%= b.text_field :title, class: "form-control", placeholder: "レクの内容を又は散髪入力" %></td>
-      <td><%= b.text_field :content_1, class: "form-control", placeholder: "レクの内容又は利用者の誕生日を入力" %></td>
-      <td><%= b.text_field :content_2, class: "form-control", placeholder: "利用者の誕生日を入力"  %></td>
-      <td class="td_content_3"><%= b.text_field :content_3, class: "form-control", placeholder: "利用者の誕生日を入力" %></td>
-    </tr>
-    <% end %>
+      <%= f.fields_for "blogs[]", day do |b| %>
+        <tr>
+          <% css_class = 
+                  case %w{日 月 火 水 木 金 土}[day.start_time.wday]
+                  when '土'
+                    'text-primary'
+                  when '日'
+                    'text-danger'
+                  end %>
+          <td><%= day.start_time.strftime("%-m/%-d") %></td>
+          <td class="<%= css_class %>"><%= %w{日 月 火 水 木 金 土}[day.start_time.wday] %></td>
+          <td><%= b.text_field :title, class: "form-control", placeholder: "レクの内容を又は散髪入力" %></td>
+          <td><%= b.text_field :content_1, class: "form-control", placeholder: "レクの内容又は利用者の誕生日を入力" %></td>
+          <td><%= b.text_field :content_2, class: "form-control", placeholder: "利用者の誕生日を入力"  %></td>
+          <td class="td_content_3"><%= b.text_field :content_3, class: "form-control", placeholder: "利用者の誕生日を入力" %></td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
 <div class="down-submit">
-<%= f.submit 'カレンダー更新', class: "btn btn-primary blog-submit-btn" %>
+  <%= f.submit 'カレンダー更新', class: "btn btn-primary blog-submit-btn" %>
 </div>
 <% end %>
 

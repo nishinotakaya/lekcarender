@@ -5,7 +5,6 @@ class BlogsController < ApplicationController
     @start_date = params.fetch(:start_date, Date.today).to_date
     @blogs =  current_user.blogs.where(start_time: @start_date.beginning_of_month..@start_date.end_of_month)
     @clients = Client.all
-    debugger
   end
 
   def carendar_top
@@ -36,15 +35,15 @@ class BlogsController < ApplicationController
   end
 
   def edit
+    @start_date = params.fetch(:start_date, Date.today).to_date
     @blog = current_user.blogs.find(params[:id])
   end
 
   def update
     @blog = current_user.blogs.find(params[:id])
-    @start_date = @blog.start_time.beginning_of_month
-    @start_date_end = @blog.start_time.end_of_month
+    
     if @blog.update(blog_parameter)
-      redirect_to blogs_path(date), notice: "編集しました"
+      redirect_to blogs_path(@blog.start_time), notice: "編集しました"
     else
       render 'edit'
     end

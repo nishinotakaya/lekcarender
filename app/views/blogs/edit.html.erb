@@ -6,7 +6,6 @@
         <div class="col-lg-6">
           <div class="p-5">
             <div class="text-center">
-            <% debugger %>
               <h1 class="h4 text-gray-900 mb-4">編集</h1>
               <%= link_to '企画書', new_planning_paper_path(id: @blog.id) %>
                 <%= form_with(model: @blog, url: blog_path(@blog), local: true, method: :patch) do |form| %>
