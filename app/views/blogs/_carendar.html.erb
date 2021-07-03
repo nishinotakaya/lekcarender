@@ -1,41 +1,40 @@
-<%= month_calendar events: blogs,  previous_link: events_ajax_previous_link, next_link: events_ajax_next_link do |date, blogs| %>
-      <%= date.day %>
-      <% blogs.each do |blog| %>
-        <% if blog.title.present? %>
-          <div class= "title_content_div">
-            <div><%= link_to blog.title, edit_blog_path(blog, @start_date), class: "carender_lek_class" %></div>
-            <% if blog.content_1.present? %>
-              <div>
-                <%= link_to edit_blog_path(blog), class: "carender_lek_class" do %>
-                <% if blog.content_1.include? ("様") %>
+  <%= month_calendar events: blogs,  previous_link: events_ajax_previous_link, next_link: events_ajax_next_link do |date, blogs| %>
+    <%= date.day %>
+    <% blogs.each do |blog| %>
+      <% if blog.title.present? %>
+        <div class= "title_content_div">
+          <div><%= link_to blog.title, edit_blog_path(blog, @start_date), class: "carender_lek_class" %></div>
+          <% if blog.content_1.present? %>
+            <div>
+              <%= link_to edit_blog_path(blog), class: "carender_lek_class" do %>
+              <% if blog.content_1.include? ("様") %>
+                <img src="https://img.icons8.com/wired/15/000000/birthday-cake.png", class="cake"/>
+              <% end %>  
+                <%= blog.content_1 %>
+              <% end %>
+            </div>
+          <% end %>
+          <% if blog.content_2.present? %>
+            <div>
+              <%= link_to edit_blog_path(blog), class: "carender_lek_class" do %>
+              <% if blog.content_2.include? ("様") %>
+                <img src="https://img.icons8.com/wired/15/000000/birthday-cake.png", class="cake"/>
+              <% end %>  
+                <%= blog.content_2 %>
+              <% end %>
+            </div>
+          <% end %>
+          <% if blog.content_3.present? %>
+            <div>
+              <%= link_to edit_blog_path(blog), class: "carender_lek_class" do %>
+                <% if blog.content_3.include? ("様") %>
                   <img src="https://img.icons8.com/wired/15/000000/birthday-cake.png", class="cake"/>
                 <% end %>  
-                  <%= blog.content_1 %>
-                <% end %>
-              </div>
-            <% end %>
-            <% if blog.content_2.present? %>
-              <div>
-                <%= link_to edit_blog_path(blog), class: "carender_lek_class" do %>
-                <% if blog.content_2.include? ("様") %>
-                  <img src="https://img.icons8.com/wired/15/000000/birthday-cake.png", class="cake"/>
-                <% end %>  
-                  <%= blog.content_2 %>
-                <% end %>
-              </div>
-            <% end %>
-            <% if blog.content_3.present? %>
-              <div>
-                <%= link_to edit_blog_path(blog), class: "carender_lek_class" do %>
-                  <% if blog.content_3.include? ("様") %>
-                    <img src="https://img.icons8.com/wired/15/000000/birthday-cake.png", class="cake"/>
-                  <% end %>  
-                  <%= blog.content_3 %>
-                <% end %>
-              </div>
-            <% end %>
-          </div>
-        <% end %>
-      <% end %>  
-    <% end %>
-  </div>
+                <%= blog.content_3 %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>  
+  <% end %>
