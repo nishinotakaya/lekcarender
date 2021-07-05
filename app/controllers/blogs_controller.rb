@@ -41,7 +41,7 @@ class BlogsController < ApplicationController
   def update
     @blog = Blog.find(params[:id])
     if @blog.update(blog_parameter)
-      redirect_to blogs_path, notice: "編集しました"
+      redirect_to blogs_path(start_date: @blog.start_time), notice: "編集しました"
     else
       render 'edit'
     end
