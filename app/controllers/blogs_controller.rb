@@ -84,8 +84,8 @@ class BlogsController < ApplicationController
     redirect_to all_blogs_edit_blogs_url(date: Date.today.next_month)
   end
 
-   def blogs_month_update
-   end
+  def blogs_month_update
+  end
 
    private
  
