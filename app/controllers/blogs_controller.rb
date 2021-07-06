@@ -66,7 +66,6 @@ class BlogsController < ApplicationController
       all_blogs_parameter.each do |id, item|
         blog = Blog.find(id)
         blog.update_attributes!(item)
-        debugger
       end
     end
     flash[:success] = "レクカレンダーを更新しました"
