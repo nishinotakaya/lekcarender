@@ -22,7 +22,8 @@
     <%= link_to '利用者追加', new_client_path , class: "btn btn-success new_client_btn" %>
   </div>
   <table class="table-clients">
-    <thead class= "thead_pc">
+   <p><%= @clients.count %>人</p>
+    <thead>
       <tr>
         <th><div class="name_h_font_size">ふりがな</div>
         <div class="name">名前</div></th>

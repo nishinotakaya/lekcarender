@@ -194,6 +194,38 @@
     }
   }
 
+  .simple-calendar {
+    th .日 {
+    }
+    .day {
+    }
+  
+    .wday-0 {
+      color: red;
+    }
+    .wday-1 {}
+    .wday-2 {}
+    .wday-3 {}
+    .wday-4 {}
+    .wday-5 {}
+    .wday-6 {
+      color: blue;
+    }
+  
+    .today {}
+    .past {}
+    .future {}
+  
+    .start-date {
+    }
+  
+    .prev-month {}
+    .next-month { }
+    .current-month {}
+  
+    .has-events {}
+  }
+
 }
 
 @media screen and (min-width: 750px) and (max-width: 1600px) {

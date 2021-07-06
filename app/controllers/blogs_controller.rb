@@ -66,10 +66,11 @@ class BlogsController < ApplicationController
       all_blogs_parameter.each do |id, item|
         blog = Blog.find(id)
         blog.update_attributes!(item)
+        debugger
       end
     end
     flash[:success] = "レクカレンダーを更新しました"
-    redirect_to blogs_url(date: Date.today.next_month)
+    redirect_to blogs_url(start_date:  Date.today.next_month)
   end
    
   def blogs_month_update
