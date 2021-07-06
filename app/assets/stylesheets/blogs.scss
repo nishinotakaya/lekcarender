@@ -12,6 +12,12 @@
     text-align: center;
   }
 
+  table.table-striped {
+    th {
+      text-align: center;
+    }
+  }
+
   .carender_data {
     height: 1440px;
   }
@@ -104,6 +110,12 @@
     width: 1300px;
   }
 
+  table.table-striped {
+    th {
+      text-align: center;
+    }
+  }
+
   .h1_title {
     position: relative;
   }
@@ -180,6 +192,38 @@
     .btn {
       width: 600px;
     }
+  }
+
+  .simple-calendar {
+    th {
+    }
+    .day {
+    }
+  
+    .wday-0 {
+      color: red;
+    }
+    .wday-1 {}
+    .wday-2 {}
+    .wday-3 {}
+    .wday-4 {}
+    .wday-5 {}
+    .wday-6 {
+      color: blue;
+    }
+  
+    .today {}
+    .past {}
+    .future {}
+  
+    .start-date {
+    }
+  
+    .prev-month {}
+    .next-month { }
+    .current-month {}
+  
+    .has-events {}
   }
 
 }
@@ -295,6 +339,53 @@
     color: transparent;
   }
 
+  .simple-calendar {
+    th  {
+      font-size: 20px;
+    }
+    .day {
+    }
+
+    .wday-0 {
+      color: red;
+      font-weight: 800;
+    }
+    .wday-1 {
+      font-weight: 800;
+      font-weight: 800;
+    }
+    .wday-2 {
+      font-weight: 800;
+    }
+    .wday-3 {
+      font-weight: 800;
+    }
+    .wday-4 {
+      font-weight: 800;
+    }
+    .wday-5 {
+      font-weight: 800;
+    }
+    .wday-6 {
+      color: blue;
+      font-weight: 800;
+    }
+  
+    .today {}
+    .past {}
+    .future {}
+  
+    .start-date {
+    }
+  
+    .prev-month {}
+    .next-month { }
+    .current-month {}
+  
+    .has-events {}
+  }
+
+
 }
 
   @media screen and (max-width: 550px) {
@@ -363,5 +454,11 @@
       text-decoration: none;
     }
     
+  }
+
+  table.table-striped {
+    th {
+      text-align: center;
+    }
   }
 
