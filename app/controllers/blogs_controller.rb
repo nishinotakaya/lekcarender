@@ -70,7 +70,7 @@ class BlogsController < ApplicationController
       end
     end
     flash[:success] = "レクカレンダーを更新しました"
-    redirect_to blogs_url(start_date:  Date.today.next_month)
+    redirect_to blogs_url
   end
    
   def blogs_month_update
@@ -81,7 +81,7 @@ class BlogsController < ApplicationController
       end
     end
     flash[:success] = "月を移動しました"
-    redirect_to all_blogs_edit_blogs_url(date: Date.today.next_month)
+    redirect_to all_blogs_edit_blogs_url
   end
 
   def blogs_month_update
