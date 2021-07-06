@@ -87,7 +87,6 @@ class BlogsController < ApplicationController
    def blogs_month_update
    end
 
- 
    private
  
    def blog_parameter
