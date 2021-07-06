@@ -100,7 +100,7 @@ class BlogsController < ApplicationController
      params.require(:blog).permit(blogs: [:title, :content_1, :content_2, :content_3, :start_time])[:blogs]
    end
 
-   def current_blog
+  def current_blog
     @current_blog ||= Blog.find_by(id: session[:id])
   end
 

@@ -1,7 +1,6 @@
 <%= form_with(model: client, local: true) do |f| %>
   <% if client.errors.any? %>
     <div id="error_explanation">
-
       <ul>
         <% client.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -28,7 +27,7 @@
 
   <div class="field">
     <%= f.label :誕生日 %>
-<div><%= date_select_ja(f.date_select(:birthday, use_month_numbers: true, start_year: 1910, end_year: Time.now.year, prompt:"--")) %></div>
+    <div><%= date_select_ja(f.date_select(:birthday, use_month_numbers: true, start_year: 1910, end_year: Time.now.year, prompt:"--")) %></div>
   </div>
 
   <div class="field">

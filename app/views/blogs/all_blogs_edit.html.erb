@@ -1,5 +1,5 @@
 <div class ="blog-edit-day">
-<h1>レクカレンダー全体編集</h1>
+  <h1>レクカレンダー全体編集</h1>
   <%= link_to "⇦ ",  all_blogs_edit_blogs_path(date: @first_day.prev_month), class: "btn btn-info" %>
   <%= @first_day.strftime("%-m") %>月
   <%= link_to " ⇨",  all_blogs_edit_blogs_path(date: @first_day.next_month), class: "btn btn-info" %>
@@ -42,28 +42,6 @@
   </tbody>
 </table>
 <div class="down-submit">
-<%= f.submit 'カレンダー更新', class: "btn btn-primary blog-submit-btn" %>
+  <%= f.submit 'カレンダー更新', class: "btn btn-primary blog-submit-btn" %>
 </div>
 <% end %>
-
-<script>
-  var autosaveOn = false;
-function myAutosavedTextbox_onTextChanged()
-{
-    if (!autosaveOn)
-    {
-        autosaveOn = true;
-
-        $('#myAutosavedTextbox').everyTime("300000", function(){
-             $.ajax({
-                 type: "POST",
-                 url: "all_blogs_edit_blogs_url",
-                 data: "blog_id: autosaveOn",
-                 success: function(msg) {
-                     $('#autosavenotify').text(msg);
-                 }
-             });
-        }); //closing tag
-    }
-}
-  </script>
