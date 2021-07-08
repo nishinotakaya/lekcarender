@@ -9,7 +9,14 @@
     <thead>
       <tr>
         <% date_range.slice(0, 7).each do |day| %>
-          <th><%= t('date.abbr_day_names')[day.wday] %></th>
+        <% css_class = 
+              case %w{日 月 火 水 木 金 土}[day.wday]
+              when '土'
+                'text-primary'
+              when '日'
+                'text-danger'
+              end %>
+          <th class="<%= css_class %>"><%= t('date.abbr_day_names')[day.wday] %></th>
         <% end %>
       </tr>
     </thead>
