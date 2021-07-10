@@ -1,0 +1,57 @@
+// Place all the styles related to the lek_urls controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+// Place all the styles related to the blogs controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+@media print {
+
+
+}
+
+@media screen and (min-width: 750px) and (max-width: 2000px) {
+
+  div.lek-url-all {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+
+    textarea {
+      resize: none;
+      width:700px;
+      height:200px;
+    }
+  }
+
+
+  table.lek-table {
+    width: 1400px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border-radius:20px;
+    border-left:2px solid #e95295;
+    border-top:2px solid #e95295;
+    th {
+    border-bottom:2px solid #e95295;
+	  border-right:2px solid #e95295;
+
+    }
+
+    td {
+      border-bottom:2px solid #e95295;
+	    border-right:2px solid #e95295;
+    }
+  }
+
+  div.actions {
+    margin-top: 10px;
+  }
+
+}
+
+@media screen and (max-width: 550px) {
+
+}

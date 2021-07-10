@@ -1,0 +1,16 @@
+<div class ="lek-url-all">
+  <p id="notice"><%= notice %></p>
+
+  <p>
+    <strong>名前</strong>
+    <br><%= @lek_url.name %>
+  </p>
+
+  <p>
+    <strong>レクのURL</strong>
+    <br><%= simple_format(text_url_to_link(h(@lek_url.url)), {}, sanitize: false) %>
+  </p>
+
+  <%= link_to '編集', edit_lek_url_path(@lek_url), class: "btn btn-success" %> |
+  <%= link_to '戻る', lek_urls_path,  class: "btn btn-primary" %>
+</div>

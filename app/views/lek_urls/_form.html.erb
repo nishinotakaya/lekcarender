@@ -1,0 +1,27 @@
+<%= form_with(model: lek_url, local: true) do |form| %>
+  <% if lek_url.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(lek_url.errors.count, "error") %> prohibited this lek_url from being saved:</h2>
+
+      <ul>
+        <% lek_url.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label "レクの名前" %>
+    <br><%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label "レクの詳細(URL)" %>
+    <br><%= form.text_area :url, row: '4'  %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "更新",  class: "btn btn-primary" %>
+  </div>
+<% end %>

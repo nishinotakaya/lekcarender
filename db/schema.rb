@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_28_111347) do
+ActiveRecord::Schema.define(version: 2021_07_10_031739) do
 
   create_table "blogs", force: :cascade do |t|
     t.integer "user_id"
@@ -37,7 +37,15 @@ ActiveRecord::Schema.define(version: 2021_05_28_111347) do
     t.index ["user_id"], name: "index_clients_on_user_id"
   end
 
+  create_table "lek_urls", force: :cascade do |t|
+    t.string "name"
+    t.string "url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "planning_papers", force: :cascade do |t|
+    t.integer "blog_id"
     t.string "plannning_name"
     t.string "plannning_point"
     t.date "plannning_day"
@@ -53,7 +61,6 @@ ActiveRecord::Schema.define(version: 2021_05_28_111347) do
     t.string "planning_person"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "blog_id", null: false
     t.index ["blog_id"], name: "index_planning_papers_on_blog_id"
   end
 
