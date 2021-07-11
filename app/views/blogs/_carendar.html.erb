@@ -1,4 +1,4 @@
-<%= month_calendar events: blogs, attribute: :start_time, end_attribute: :end_time, previous_link: events_ajax_previous_link, next_link: events_ajax_next_link do |date, blogs| %>
+  <%= month_calendar events: blogs, attribute: :start_time, end_attribute: :end_time, previous_link: events_ajax_previous_link, next_link: events_ajax_next_link do |date, blogs| %>
   <%= date.day %>
     <% blogs.each do |blog| %>
       <% if blog.title.present? %>
