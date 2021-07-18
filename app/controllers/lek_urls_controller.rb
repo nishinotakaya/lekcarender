@@ -4,6 +4,7 @@ class LekUrlsController < ApplicationController
   # GET /lek_urls or /lek_urls.json
   def index
     @lek_urls = LekUrl.all
+    @youtube_data = find_videos("介護運動")
   end
 
   # GET /lek_urls/1 or /lek_urls/1.json
@@ -56,6 +57,8 @@ class LekUrlsController < ApplicationController
     end
   end
 
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_lek_url
@@ -66,4 +69,21 @@ class LekUrlsController < ApplicationController
     def lek_url_params
       params.require(:lek_url).permit(:name, :url)
     end
+
+    def find_videos(keyword, after: 1.months.ago, before: Time.now)
+      service = Google::Apis::YoutubeV3::YouTubeService.new
+      service.key = "AIzaSyCO8V-rrEbdMMyXeCSrma650RAwJ_p9XW0"
+      next_page_token = nil
+      opt = {
+        q: keyword,
+        type: 'video',
+        max_results: 3,
+        order: :date,
+        page_token: next_page_token,
+        published_after: after.iso8601,
+        published_before: before.iso8601
+      }
+      service.list_searches(:snippet, opt)
+    end
+  
 end
