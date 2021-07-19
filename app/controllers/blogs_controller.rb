@@ -3,7 +3,7 @@ class BlogsController < ApplicationController
   
   def index
     @start_date = params.fetch(:start_date, Date.today).to_date
-    @blogs =  Blog.where(start_time: @start_date.beginning_of_month..@start_date.end_of_month)  
+    @blogs =  Blog.where(start_time: @start_date.beginning_of_month..@start_date.end_of_month)
     @clients = Client.all
   end
 
@@ -20,26 +20,27 @@ class BlogsController < ApplicationController
   end
 
   def show
-    @blog = Blogs.find(params[:id])
+    @blog = current_user.blogs.find(params[:id])
   end
 
   def create
-    Blog.create(blog_parameter)
+    current_user.blogs.create(blog_parameter)
     redirect_to blogs_path
   end
 
   def destroy
-    @blog = Blog.find(params[:id])
+    @blog = current_user.blogs.find(params[:id])
     @blog.delete
     redirect_to blogs_path, notice:"削除しました"
   end
 
   def edit
-    @blog = Blog.find(params[:id])
+    @start_date = params.fetch(:start_date, Date.today).to_date
+    @blog = current_user.blogs.find(params[:id])
   end
 
   def update
-    @blog = Blog.find(params[:id])
+    @blog = current_user.blogs.find(params[:id])
     if @blog.update(blog_parameter)
       redirect_to blogs_path(start_date: @blog.start_time), notice: "編集しました"
     else
@@ -52,13 +53,13 @@ class BlogsController < ApplicationController
     Date.current.next_month.beginning_of_month : params[:date].to_date
 		@last_day = @first_day.end_of_month
     one_month = [*@first_day..@last_day]
-    @blogs = Blog.where(start_time: @first_day..@last_day).order(:start_time)
+    @blogs = current_user.blogs.where(start_time: @first_day..@last_day).order(:start_time)
     unless one_month.count == @blogs.count || @blogs.present?  
       ActiveRecord::Base.transaction do 
         one_month.each { |day| @blogs.create!(start_time: day) }
       end
     end
-    @blogs = Blog.where(start_time: @first_day..@last_day).order(:start_time)
+    @blogs = current_user.blogs.where(start_time: @first_day..@last_day).order(:start_time)
   end  
  
   def all_blogs_update
@@ -86,19 +87,20 @@ class BlogsController < ApplicationController
   def blogs_month_update
   end
 
-   private
  
-   def blog_parameter
-     params.require(:blog).permit(:title, :content_1, :content_2, :content_3, :start_time)
-   end
+  private
+ 
+  def blog_parameter
+    params.require(:blog).permit(:title, :content_1, :content_2, :content_3, :start_time)
+  end
 
   def blog_destroy_parameter
     params.permit(:title, :content_1, :content_2, :content_3)
   end
  
-   def all_blogs_parameter
-     params.require(:blog).permit(blogs: [:title, :content_1, :content_2, :content_3, :start_time])[:blogs]
-   end
+  def all_blogs_parameter
+    params.require(:blog).permit(blogs: [:title, :content_1, :content_2, :content_3, :start_time])[:blogs]
+  end
 
   def current_blog
     @current_blog ||= Blog.find_by(id: session[:id])
