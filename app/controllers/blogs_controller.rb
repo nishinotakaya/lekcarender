@@ -3,7 +3,7 @@ class BlogsController < ApplicationController
   
   def index
     @start_date = params.fetch(:start_date, Date.today).to_date
-    @blogs =  current_user.blogs.where(start_time: @start_date.beginning_of_month..@start_date.end_of_month)
+    @blogs =  Blog.where(start_time: @start_date.beginning_of_month..@start_date.end_of_month)
     @clients = Client.all
   end
 
