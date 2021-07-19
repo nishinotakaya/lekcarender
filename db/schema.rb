@@ -10,10 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_10_031739) do
+ActiveRecord::Schema.define(version: 2021_07_19_213513) do
 
   create_table "blogs", force: :cascade do |t|
-    t.integer "user_id"
     t.string "title"
     t.text "content"
     t.text "content_1"
@@ -22,6 +21,7 @@ ActiveRecord::Schema.define(version: 2021_07_10_031739) do
     t.date "start_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id", null: false
     t.index ["user_id"], name: "index_blogs_on_user_id"
   end
 
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2021_07_10_031739) do
     t.string "use_day"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id", null: false
+    t.integer "user_id"
     t.string "name_h"
     t.string "sex"
     t.index ["user_id"], name: "index_clients_on_user_id"
@@ -42,26 +42,6 @@ ActiveRecord::Schema.define(version: 2021_07_10_031739) do
     t.string "url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "planning_papers", force: :cascade do |t|
-    t.integer "blog_id"
-    t.string "plannning_name"
-    t.string "plannning_point"
-    t.date "plannning_day"
-    t.string "plannning_day_2"
-    t.string "plannning_day_3"
-    t.string "plannning_place"
-    t.string "plannning_people_count"
-    t.string "plannning_preparation_object"
-    t.datetime "plannning_time"
-    t.string "planning_note"
-    t.string "planning_severe"
-    t.string "planning_palace_picture"
-    t.string "planning_person"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["blog_id"], name: "index_planning_papers_on_blog_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -84,5 +64,4 @@ ActiveRecord::Schema.define(version: 2021_07_10_031739) do
 
   add_foreign_key "blogs", "users"
   add_foreign_key "clients", "users"
-  add_foreign_key "planning_papers", "blogs"
 end
