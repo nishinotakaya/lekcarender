@@ -3,7 +3,7 @@ class BlogsController < ApplicationController
   
   def index
     @start_date = params.fetch(:start_date, Date.today).to_date
-    @blogs =  current_user.blogs.where(start_time: @start_date.beginning_of_month..@start_date.end_of_month)
+    @blogs =  Blog.where(start_time: @start_date.beginning_of_month..@start_date.end_of_month)  
     @clients = Client.all
   end
 
@@ -20,27 +20,26 @@ class BlogsController < ApplicationController
   end
 
   def show
-    @blog = current_user.blogs.find(params[:id])
+    @blog = Blogs.find(params[:id])
   end
 
   def create
-    current_user.blogs.create(blog_parameter)
+    Blog.create(blog_parameter)
     redirect_to blogs_path
   end
 
   def destroy
-    @blog = current_user.blogs.find(params[:id])
+    @blog = Blog.find(params[:id])
     @blog.delete
     redirect_to blogs_path, notice:"削除しました"
   end
 
   def edit
-    @start_date = params.fetch(:start_date, Date.today).to_date
-    @blog = current_user.blogs.find(params[:id])
+    @blog = Blog.find(params[:id])
   end
 
   def update
-    @blog = current_user.blogs.find(params[:id])
+    @blog = Blog.find(params[:id])
     if @blog.update(blog_parameter)
       redirect_to blogs_path(start_date: @blog.start_time), notice: "編集しました"
     else
@@ -53,13 +52,13 @@ class BlogsController < ApplicationController
     Date.current.next_month.beginning_of_month : params[:date].to_date
 		@last_day = @first_day.end_of_month
     one_month = [*@first_day..@last_day]
-    @blogs = current_user.blogs.where(start_time: @first_day..@last_day).order(:start_time)
+    @blogs = Blog.where(start_time: @first_day..@last_day).order(:start_time)
     unless one_month.count == @blogs.count || @blogs.present?  
       ActiveRecord::Base.transaction do 
         one_month.each { |day| @blogs.create!(start_time: day) }
       end
     end
-    @blogs = current_user.blogs.where(start_time: @first_day..@last_day).order(:start_time)
+    @blogs = Blog.where(start_time: @first_day..@last_day).order(:start_time)
   end  
  
   def all_blogs_update
@@ -87,7 +86,6 @@ class BlogsController < ApplicationController
   def blogs_month_update
   end
 
- 
   private
  
   def blog_parameter
