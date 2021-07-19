@@ -86,19 +86,19 @@ class BlogsController < ApplicationController
   def blogs_month_update
   end
 
-  private
+   private
  
-  def blog_parameter
-    params.require(:blog).permit(:title, :content_1, :content_2, :content_3, :start_time)
-  end
+   def blog_parameter
+     params.require(:blog).permit(:title, :content_1, :content_2, :content_3, :start_time)
+   end
 
   def blog_destroy_parameter
     params.permit(:title, :content_1, :content_2, :content_3)
   end
  
-  def all_blogs_parameter
-    params.require(:blog).permit(blogs: [:title, :content_1, :content_2, :content_3, :start_time])[:blogs]
-  end
+   def all_blogs_parameter
+     params.require(:blog).permit(blogs: [:title, :content_1, :content_2, :content_3, :start_time])[:blogs]
+   end
 
   def current_blog
     @current_blog ||= Blog.find_by(id: session[:id])
