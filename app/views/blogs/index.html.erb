@@ -10,7 +10,7 @@
     </div>
     <br>
   <div id="events_calendar">
-    <%= render partial: "carendar", locals: {blogs: @blogs} %>
+    <%= render partial: "carendar", locals: {blogs: @blogs} %> 
   </div>
   </div>
   <% if @start_date.beginning_of_month.wday == 1..5 || @start_date.beginning_of_month.wday == 6 && 30 >= @start_date.end_of_month.day %>

@@ -9,7 +9,7 @@ class PlanningPapersController < ApplicationController
   end
 
   def create
-    @plan = PlanningPaper.create(planinng_parameter)
+    @plan = PlanningPaper.create!(planinng_parameter)
       flash[:success] = "企画書を作成しました！"
       redirect_to blogs_path
   end
