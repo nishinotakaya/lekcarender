@@ -31,10 +31,14 @@
           <th colspan="2">タイムスケジュール</th>
         </tr>
          <tr>
-          <td><%= f.time_field :plannning_time, include_blank: true %>~
+          <td class="url-clone"><%= f.time_field :plannning_time, include_blank: true %>~
           <input type="button" value="追加" id="clickBtn3">
-          <input type="button" value="削除" id="clickBtn4"></td>
-          <td><%= f.text_field  :plannning_name, size: 130 %></td>
+          <%# <input type="button" value="削除" id="clickBtn4"></td> %>
+          <td class="url-clone-2"><%= f.text_field  :plannning_name, size: 130, class: "plan_name_c" %></td>
+        </tr>
+        <tr>
+        <td class = "appends"></td>
+        <td class="appends-2"></td>
         </tr>
         <tr>
           <th>
@@ -77,26 +81,21 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js">
 </script>
 <script>
-getRowData = function() {
-    var sysDate = new Date();
-    return '<tr><td id="aaa"><input include_blank="true" type="time" name="planning_paper[plannning_time]" id="planning_paper_plannning_time">~</td><td>' + 
-    '<input size="130" type="text" name="planning_paper[plannning_name]" id="planning_paper_plannning_name">' + '</td></tr>';
-}
+$(function(){
+  $(document).on("click", '#clickBtn3', function() {
+  var content = $('#clickBtn3').closest('form').find('.url-clone').first().clone().appendTo('.appends').css("display", "table-row");
+  var consttext = $('#clickBtn3').closest('form').find('.url-clone-2').first().clone().appendTo('.appends-2').css("display", "table-row");
+  consttext.find('.plan_name_c').val('');
  
-$(document).ready(function() {
-    $( "#clickBtn3" ).click(function () { 
-        // 最後の行に追加
-        var rowNo = 7;
-         $( '#target tr' ).eq( rowNo ).after( getRowData() );
-    });
-
-
-  $( "#clickBtn4" ).click(function () { 
-      // 最後の行に追加
-       var rowNo = 8;  // 8行目を削除
-    $( '#target tr' ).eq( rowNo ).remove();
-  });
+ // 行削除
+$(document).on("click", '#clickBtn4', function() {
+   var content = $('.appends').parent().parent();
+   var content = $('.appends-2').parent().parent();
+  content.find('#planning_paper_plannning_name').text('');
+ });
+ });
 });
 
-
 </script>
+
+

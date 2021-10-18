@@ -1,11 +1,9 @@
 class Client < ApplicationRecord
 
-  # belongs_to :user
+  belongs_to :user
   
   validates :name, presence: true
   validates :birthday, presence: true
-  validates :use_day, presence: true
-
 
   before_save do
     self.use_day.gsub!(/[\[\]\"]/, "") if attribute_present?("use_day")

@@ -1,7 +1,10 @@
 require_relative 'boot'
 
 require 'rails/all'
+require 'google/apis/youtube_v3' #YoutubeV3を使用するために、呼び出す
 
+youtube = Google::Apis::YoutubeV3::YouTubeService.new
+youtube.key = "AIzaSyCO8V-rrEbdMMyXeCSrma650RAwJ_p9XW0"
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)

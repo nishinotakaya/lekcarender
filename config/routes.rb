@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     sessions:      'users/sessions',
     passwords:     'users/passwords',
-    registrations: 'users/registrations'
+    registrations: 'users/registrations',
+    omniauth_callbacks: "omniauth_callbacks"
 }
   devise_scope :user do
     root :to => "users/sessions#new"

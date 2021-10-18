@@ -9,4 +9,5 @@ module ApplicationHelper
     end
     return text
   end
+
 end

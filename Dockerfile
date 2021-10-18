@@ -11,14 +11,14 @@ RUN apt-get update && apt-get install -y unzip && \
     sh -c 'wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -' && \
     sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list' && \
     apt-get update && apt-get install -y google-chrome-stable
-RUN mkdir /myapp
-WORKDIR /myapp
-COPY Gemfile /myapp/Gemfile
-COPY Gemfile.lock /myapp/Gemfile.lock
+RUN mkdir /app
+WORKDIR /app
+COPY Gemfile /app/Gemfile
+COPY Gemfile.lock /app/Gemfile.lock
 RUN gem install bundler
 RUN gem install rails
 RUN bundle install
-COPY . /myapp
+COPY . /app
 
 # Add a script to be executed every time the container starts.
 COPY entrypoint.sh /usr/bin/
