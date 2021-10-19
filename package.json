@@ -10,10 +10,25 @@
     "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",
-  "devDependencies": {
-    "webpack-dev-server": "^3.11.2",
-    "engines": {
-      "node": "12.18.3"
-    }
-  }
+  "description": "",
+  "main": "babel.config.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nishinotakaya/lekcarender.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nishinotakaya/lekcarender/issues"
+  },
+  "homepage": "https://github.com/nishinotakaya/lekcarender#readme",
+  "devDependencies": {},
+  "keywords": []
 }
