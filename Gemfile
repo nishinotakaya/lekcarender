@@ -33,17 +33,28 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'omniauth-line'
 gem 'dotenv-rails'
 gem 'omniauth', '~> 1.9.1'
+gem 'bootstrap_form'
+gem 'annotate'
+gem 'materialize-sass', '~> 1.0.0'
+gem 'material_icons'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'debase'
   gem 'ruby-debug-ide'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry-rails'
+  gem 'hirb'
+  gem 'hirb-unicode'
 end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
+    # エラー画面をわかりやすく整形してくれる
+  gem 'better_errors'
+  # better_errorsの画面上にirb/pry(PERL)を表示する
+  gem 'binding_of_caller'
 end
 
 group :test do

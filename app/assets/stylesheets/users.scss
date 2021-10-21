@@ -28,35 +28,22 @@ form.user {
 
 }
 
-  .btn--yellow {
-    color: #000;
-    font-weight: 700;
-    font-size: 26px;
-    background-color: #fff100 !important;
-    border-bottom: 5px solid #ccc100 !important;
-  }
-  
-  .btn--yellow:hover {
-    margin-top: 3px;
-    color: #000;
-    background: #fff20a !important;
-    border-bottom: 2px solid #ccc100 !important;
-  }
-
-  .line-img{
-    margin-right: 4px;
-  }
-  
-  .line-img img{
-    width: 17px;
-    height: 17px;
-    margin: 1px 0px 3px -3px;
-  }
-  
-  #line_login{
-    background: #00B900;
-    color: #ffffff;
-  }
+.line-icon {
+  position: relative;
+  padding: .3em .2em .1em 1.5em;
+  background-color: #1dcd00;
+  border-radius: 0.3em;
+  color: #fff;
+  font-size: 16px;
+  // cursor: pointer;
+  // text-decoration: none;
+  // transition: all 0.3s ease 0s;
+}
+.line-title {
+  position: absolute;
+  top: 25%;
+  left: 40%;
+}
   
   
   #line_login .sns_btn_inner{
