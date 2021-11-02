@@ -37,6 +37,8 @@ gem 'bootstrap_form'
 gem 'annotate'
 gem 'materialize-sass', '~> 1.0.0'
 gem 'material_icons'
+gem 'axlsx'
+gem 'zip-zip'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
