@@ -5,31 +5,29 @@
  <%= link_to "利用者一覧メモ用", text_index_clients_path, class: "btn btn--yellow btn--cubic" %> 
 <%
 =end%>
-  <div class="search_name">
     <h2 class="client_all_h2">利用者一覧</h2>
     <%= form_with(scope: :search, url: clients_path, method: :get, local: true) do |f| %>
-    <%= f.label :名前 %>
-    <%= f.text_field :name, value: @search_params[:name] %>
-    <br><%= f.label :利用曜日 , class: "use_day_class" %>
-    <%= f.select :use_day, [[""],["月"],["火"],["水"],["木"],["金"],["土"],["日"]], value: @search_params[:use_day], class: "use_day_class" %>
-    <br><%= f.label :誕生日 , class: "use_day_class" %>
-    <%= f.select :birthday, [[""], ["1月", "-01-"],["2月","-02-"],["3月","-03-" ],["4月","-04-" ],["5月","-05-" ],["6月","-06-" ],["7月","-07-" ],["8月","-08-"], ["9月", "-09-"],["10月","-10-"],["11月","-11-" ],["12月","-12-" ]], value: @search_params[:birthday] %>
+      <%= f.label :名前 %>
+      <%= f.text_field :name, value: @search_params[:name] %>
+      <br><%= f.label :利用曜日 , class: "use_day_class" %>
+      <%= f.select :use_day, [[""],["月"],["火"],["水"],["木"],["金"],["土"],["日"]], value: @search_params[:use_day], class: "use_day_class" %>
+      <br><%= f.label :誕生日 , class: "use_day_class" %>
+      <%= f.select :birthday, [[""], ["1月", "-01-"],["2月","-02-"],["3月","-03-" ],["4月","-04-" ],["5月","-05-" ],["6月","-06-" ],["7月","-07-" ],["8月","-08-"], ["9月", "-09-"],["10月","-10-"],["11月","-11-" ],["12月","-12-" ]], value: @search_params[:birthday] %>
     <br><%= f.submit "検索" ,class: "btn btn-primary name_search_btn" %>
     <% end %>
-  </div>
+    <%= link_to "CSVで出力する", clients_path(format: :csv), class: "btn-circle-border-simple" %>  
   <br><div>
     <%= link_to 'カレンダーに戻る', blogs_path,  class: "btn btn-primary new_client_btn" %>
     <%= link_to '利用者追加', new_client_path , class: "btn btn-success new_client_btn" %>
   </div>
-  <%= link_to "csvで出力する", clients_path(format: :csv), class: "btn btn-primary" %>
   <table class="table-clients">
    <p><%= @clients.count %>人</p>
     <thead>
       <tr>
         <th><div class="name_h_font_size">ふりがな</div>
         <div class="name">名前</div></th>
-        <th class="th_caram">性別</th>
         <th class="th_caram">誕生日</th>
+        <th class="th_caram">性別</th>
         <th  class="th_caram">利用日</th>
         <th colspan="3"></th>
       </tr>
