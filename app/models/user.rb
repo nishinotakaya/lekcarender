@@ -7,6 +7,8 @@ class User < ApplicationRecord
         #  :authentication_keys => [];
         #  :validatable
   
+  validates :email, uniqueness: true
+        
   has_many :blogs, dependent: :destroy
   has_many :clients, dependent: :destroy
   # accepts_nested_attributes_for :blogs
