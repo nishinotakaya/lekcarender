@@ -20,7 +20,6 @@
     <%= link_to 'カレンダーに戻る', blogs_path,  class: "btn btn-primary new_client_btn" %>
     <%= link_to '利用者追加', new_client_path , class: "btn btn-success new_client_btn" %>
   </div>
-  <%= link_to "csvで出力する", clients_path(format: :csv) %>
   <table class="table-clients">
    <p><%= @clients.count %>人</p>
     <thead>
