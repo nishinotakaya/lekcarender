@@ -66,24 +66,43 @@ class ClientsController < ApplicationController
 
   private
   
-    def send_clients_csv(clients)
-      csv_data = CSV.generate(row_sep: "\r\n", encoding:Encoding::CP932)  do |csv|
-        header = %w(名前 性別 誕生日 年齢 利用日)
-        csv << header
-        clients.each do |client|
-          values = [
-            client.name,
-            client.sex,
-            client.birthday.strftime("%Y年 %m月 %d日"),
-            age(client.birthday),
-            client.use_day
-          ]
-          csv << values
-        end
+  def send_clients_csv(clients)
+    csv_data = CSV.generate(row_sep: "\r\n", encoding:Encoding::CP932)  do |csv|
+      header = %w(名前 性別 誕生日(和暦) 誕生日(月日) 年齢 利用日)
+      csv << header
+      clients.each do |client|
+        values = [
+          client.name,
+          client.sex,
+          japanesese_calendar(client.birthday),
+          client.birthday.strftime("%m月 %d日"),
+          age(client.birthday),
+          client.use_day
+        ]
+        csv << values
       end
-      send_data(csv_data, filename: "clients.csv")
     end
+    send_data(csv_data, filename: "clients.csv")
+  end
 
+  def japanesese_calendar(birthday)
+    case birthday.year
+      when 0..1911
+        "明治#{birthday.year - 1867}年"
+      when 1912
+        "明治45/大正元年"
+      when 1913..1925
+        "大正#{birthday.year - 1911}年"
+      when 1926                                                                   
+        "大正15/昭和元年"
+      when 1927..1988
+        "昭和#{birthday.year - 1925}年"
+      when 1989
+        "昭和64/平成元年"
+      else
+        "平成#{birthday.year - 1988}年"
+    end 
+  end
     def age(birthday)
       (Date.today.strftime('%Y%m%d').to_i - birthday.strftime('%Y%m%d').to_i) / 10000
     end
