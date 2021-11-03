@@ -3,8 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     sessions:      'users/sessions',
     passwords:     'users/passwords',
-    registrations: 'users/registrations',
-    omniauth_callbacks: "omniauth_callbacks"
+    registrations: 'users/registrations'
 }
   devise_scope :user do
     root :to => "users/sessions#new"
@@ -20,7 +19,6 @@ Rails.application.routes.draw do
     patch 'blogs_month_update', on: :collection
   end
 
-  
   resources :planning_papers
 
   post "/search-birthday" => "clients#search-birthday"
