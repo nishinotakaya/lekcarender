@@ -6,6 +6,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"> </script>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <% if user_signed_in? %>
       <%= render 'layouts/header' %>

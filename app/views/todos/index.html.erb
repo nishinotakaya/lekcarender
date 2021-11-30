@@ -1,0 +1,82 @@
+<div class="container w-75">
+  <h1 class="text-center text-info my-4">TODOリスト！！！！
+  </h1>
+  <form id="form" class="mb-4">
+    <input type="text" id="input" class="form-control" placeholder="Todoを入力">
+  </form>
+  <ul class="list-group text-secondary" id="ul">
+</div> 
+<script>
+  
+const form = document.getElementById("form");
+const input = document.getElementById("input");
+const ul = document.getElementById("ul");
+const addButton = document.createElement('input');
+
+const todos = JSON.parse(localStorage.getItem("todos"));
+
+if (todos) {
+  todos.forEach(todo => {
+    add(todo);
+  })
+}
+
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
+  add();
+});
+
+function add(todo) {
+  let todoText = input.value;
+
+  if (todo) {
+    todoText = todo.text;
+  }
+
+  
+  if (todoText) {
+  const li = document.createElement("li");
+  li.innerText = todoText;
+  li.classList.add("list-group-item");
+  if (todo && todo.completed) {
+    li.classList.add("text-decoration-line-through");
+  }
+
+  li.addEventListener("contextmenu", function
+  (event){
+    event.preventDefault();
+    li.remove();
+    saveData();
+  });
+  //右クリックされたら削除
+
+  li.addEventListener("click", function () {
+    li.classList.toggle("text-decoration-line-through");
+    saveData();
+  })
+
+  //text-decoration-line-throughはうち消す線
+
+  ul.appendChild(li);
+  //appendChildは子供
+  input.value="";
+  saveData();
+  }
+}
+
+function saveData() {
+  const lists = document.querySelectorAll("li");
+  const todos = [];
+
+  lists.forEach((li) => {
+    todos.push({
+      text: li.innerText,
+      completed: li.classList.contains("text-decoration-line-through"),
+    });
+  });
+
+  localStorage.setItem("todos", JSON.stringify(todos));
+}
+
+ 
+ </script>

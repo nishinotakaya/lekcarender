@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     patch 'all_blogs_update', on: :collection
     patch 'blogs_month_update', on: :collection
   end
-
+  resources :todos, only: [:index]
   
   resources :planning_papers
 
