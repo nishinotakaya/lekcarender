@@ -5,7 +5,7 @@ class ClientsController < ApplicationController
   # GET /clients or /clients.json
   def index
     @search_params = client_search_params
-    @clients = Client.search(@search_params).order(:name_h)
+    @clients = current_user.clients.where(user_id: current_user.id).search(@search_params).order(:name_h)
     respond_to do |format|
       format.html
       format.csv do |csv|
@@ -24,7 +24,7 @@ class ClientsController < ApplicationController
 
   # GET /clients/new
   def new
-    @client = Client.new
+    @client = current_user.clients.new
   end
 
   # GET /clients/1/edit
@@ -33,7 +33,7 @@ class ClientsController < ApplicationController
 
   # POST /clients or /clients.json
   def create
-    @client = Client.new(client_params)
+    @client = current_user.clients.new(client_params)
     respond_to do |format|
       if @client.save
         format.html { redirect_to @client, notice: "Client was successfully created." }
@@ -66,49 +66,50 @@ class ClientsController < ApplicationController
 
   private
   
-  def send_clients_csv(clients)
-    csv_data = CSV.generate(row_sep: "\r\n", encoding:Encoding::CP932)  do |csv|
-      header = %w(名前 性別 誕生日(和暦) 誕生日(月日) 年齢 利用日)
-      csv << header
-      clients.each do |client|
-        values = [
-          client.name,
-          client.sex,
-          japanesese_calendar(client.birthday),
-          client.birthday.strftime("%m月 %d日"),
-          age(client.birthday),
-          client.use_day
-        ]
-        csv << values
+    def send_clients_csv(clients)
+      csv_data = CSV.generate(row_sep: "\r\n", encoding:Encoding::CP932)  do |csv|
+        header = %w(名前 性別 誕生日(和暦) 誕生日(月日) 年齢 利用日)
+        csv << header
+        clients.each do |client|
+          values = [
+            client.name,
+            client.sex,
+            japanesese_calendar(client.birthday),
+            client.birthday.strftime("%m月 %d日"),
+            age(client.birthday),
+            client.use_day
+          ]
+          csv << values
+        end
       end
+      send_data(csv_data, filename: "clients.csv")
     end
-    send_data(csv_data, filename: "clients.csv")
-  end
 
-  def japanesese_calendar(birthday)
-    case birthday.year
-      when 0..1911
-        "明治#{birthday.year - 1867}年"
-      when 1912
-        "明治45/大正元年"
-      when 1913..1925
-        "大正#{birthday.year - 1911}年"
-      when 1926                                                                   
-        "大正15/昭和元年"
-      when 1927..1988
-        "昭和#{birthday.year - 1925}年"
-      when 1989
-        "昭和64/平成元年"
-      else
-        "平成#{birthday.year - 1988}年"
-    end 
-  end
+    def japanesese_calendar(birthday)
+      case birthday.year
+        when 0..1911
+          "明治#{birthday.year - 1867}年"
+        when 1912
+          "明治45/大正元年"
+        when 1913..1925
+          "大正#{birthday.year - 1911}年"
+        when 1926                                                                   
+          "大正15/昭和元年"
+        when 1927..1988
+          "昭和#{birthday.year - 1925}年"
+        when 1989
+          "昭和64/平成元年"
+        else
+          "平成#{birthday.year - 1988}年"
+      end 
+    end
+
     def age(birthday)
       (Date.today.strftime('%Y%m%d').to_i - birthday.strftime('%Y%m%d').to_i) / 10000
     end
     # Use callbacks to share common setup or constraints between actions.
     def set_client
-      @client = Client.find(params[:id])
+      @client = current_user.clients.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
