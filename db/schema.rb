@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_18_115348) do
+ActiveRecord::Schema.define(version: 2021_11_29_122159) do
 
   create_table "blogs", force: :cascade do |t|
     t.string "title"
@@ -40,6 +40,14 @@ ActiveRecord::Schema.define(version: 2021_10_18_115348) do
   create_table "lek_urls", force: :cascade do |t|
     t.string "name"
     t.string "url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.text "body"
+    t.string "youtube_url"
+  end
+
+  create_table "todos", force: :cascade do |t|
+    t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

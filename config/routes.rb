@@ -19,6 +19,9 @@ Rails.application.routes.draw do
     patch 'blogs_month_update', on: :collection
   end
 
+
+  resources :todos, only: [:index]
+  
   resources :planning_papers
 
   post "/search-birthday" => "clients#search-birthday"
