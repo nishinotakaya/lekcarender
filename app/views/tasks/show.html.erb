@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">分類</th>
+      <th scope="col">会計</th>
+      <th scope="col">担当者</th>
+      <th scope="col">インシデント</th>
+      <th scope="col">件名</th>
+      <th scope="col">ステータス</th>
+      <th scope="col">EDI</th>
+      <th scope="col">初回出荷</th>
+      <th scope="col">初回入荷</th>
+      <th scope="col">初回倉庫終了</th>
+      <th scope="col">統合インスタンス</th>
+      <th scope="col">拠点インスタンス</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @task.classification %></td>
+      <td><%= @task.total %></td>
+      <td><%= @task.manager %></td>
+      <td><%= @task.inc %></td>
+      <td><%= @task.title %></td>
+      <td><%= @task.st %></td>
+      <td><%= @task.edi %></td>
+      <td><%= @task.firstshipping %></td>
+      <td><%= @task.firststock %></td>
+      <td><%= @task.finishwarehouse %></td>
+      <td><%= @task.integrationinstance %></td>
+      <td><%= @task.hubinstance %></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+<%= link_to '編集', edit_task_path(@task) %> |
+<%= link_to '戻る', tasks_path %>

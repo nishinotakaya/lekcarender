@@ -1,0 +1,84 @@
+
+<%= form_with(model: task, local: true , class: "form-horizontal") do |form|  %>
+  <% if task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+      <ul>
+        <% task.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :classification %>
+    <%= form.text_field :classification %>
+  </div>
+
+  <div class="field">
+    <%= form.label :total %>
+    <%= form.text_field :total %>
+  </div>
+
+  <div class="field">
+    <%= form.label :manager %>
+    <%= form.text_field :manager %>
+  </div>
+
+  <div class="field">
+    <%= form.label :inc %>
+    <%= form.text_field :inc %>
+  </div>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_area :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :st %>
+    <%= form.text_field :st %>
+  </div>
+
+  <div class="field">
+    <%= form.label :edi %>
+    <%= form.text_field :edi %>
+  </div>
+
+  <div class="field">
+    <%= form.label :firstshipping %>
+    <%= form.text_field :firstshipping %>
+  </div>
+
+  <div class="field">
+    <%= form.label :firststock %>
+    <%= form.text_field :firststock %>
+  </div>
+
+  <div class="field">
+    <%= form.label :finishwarehouse %>
+    <%= form.text_field :finishwarehouse %>
+  </div>
+
+  <div class="field">
+    <%= form.label :integrationinstance %>
+    <%= form.text_field :integrationinstance %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hubinstance %>
+    <%= form.text_field :hubinstance %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+</div>
+<% end %>   

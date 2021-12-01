@@ -1,0 +1,31 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  classification: MyString
+  total: MyString
+  manager: MyString
+  ivc: MyString
+  title: MyString
+  st: MyString
+  edi: MyString
+  firstshipping: MyString
+  firststock: MyString
+  finishwarehouse: MyString
+  integrationinstance: MyString
+  hubinstance: MyString
+  user: one
+
+two:
+  classification: MyString
+  total: MyString
+  manager: MyString
+  ivc: MyString
+  title: MyString
+  st: MyString
+  edi: MyString
+  firstshipping: MyString
+  firststock: MyString
+  finishwarehouse: MyString
+  integrationinstance: MyString
+  hubinstance: MyString
+  user: two

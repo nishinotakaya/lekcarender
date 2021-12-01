@@ -1,0 +1,67 @@
+require "application_system_test_case"
+
+class TasksTest < ApplicationSystemTestCase
+  setup do
+    @task = tasks(:one)
+  end
+
+  test "visiting the index" do
+    visit tasks_url
+    assert_selector "h1", text: "Tasks"
+  end
+
+  test "creating a Task" do
+    visit tasks_url
+    click_on "New Task"
+
+    fill_in "Classification", with: @task.classification
+    fill_in "Edi", with: @task.edi
+    fill_in "Finishwarehouse", with: @task.finishwarehouse
+    fill_in "Firstshipping", with: @task.firstshipping
+    fill_in "Firststock", with: @task.firststock
+    fill_in "Hubinstance", with: @task.hubinstance
+    fill_in "Integrationinstance", with: @task.integrationinstance
+    fill_in "Ivc", with: @task.ivc
+    fill_in "Manager", with: @task.manager
+    fill_in "St", with: @task.st
+    fill_in "Title", with: @task.title
+    fill_in "Total", with: @task.total
+    fill_in "User", with: @task.user_id
+    click_on "Create Task"
+
+    assert_text "Task was successfully created"
+    click_on "Back"
+  end
+
+  test "updating a Task" do
+    visit tasks_url
+    click_on "Edit", match: :first
+
+    fill_in "Classification", with: @task.classification
+    fill_in "Edi", with: @task.edi
+    fill_in "Finishwarehouse", with: @task.finishwarehouse
+    fill_in "Firstshipping", with: @task.firstshipping
+    fill_in "Firststock", with: @task.firststock
+    fill_in "Hubinstance", with: @task.hubinstance
+    fill_in "Integrationinstance", with: @task.integrationinstance
+    fill_in "Ivc", with: @task.ivc
+    fill_in "Manager", with: @task.manager
+    fill_in "St", with: @task.st
+    fill_in "Title", with: @task.title
+    fill_in "Total", with: @task.total
+    fill_in "User", with: @task.user_id
+    click_on "Update Task"
+
+    assert_text "Task was successfully updated"
+    click_on "Back"
+  end
+
+  test "destroying a Task" do
+    visit tasks_url
+    page.accept_confirm do
+      click_on "Destroy", match: :first
+    end
+
+    assert_text "Task was successfully destroyed"
+  end
+end

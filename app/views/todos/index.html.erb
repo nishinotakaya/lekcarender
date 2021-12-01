@@ -1,82 +1,161 @@
-<div class="container w-75">
-  <h1 class="text-center text-info my-4">TODOリスト！！！！
+<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+<div class="h-100 w-full flex items-center justify-center bg-teal-lightest font-sans mt-20">
+  <div class="bg-white rounded shadow p-6 m-4 w-full lg:w-3/4 lg:max-w-lg">
+  <div class="mb-4">
+  <h1 class="text-3xl md:text-4xl text-indigo-600 font-medium mb-2">
+ -Todoリスト
   </h1>
-  <form id="form" class="mb-4">
-    <input type="text" id="input" class="form-control" placeholder="Todoを入力">
-  </form>
-  <ul class="list-group text-secondary" id="ul">
-</div> 
+  <div class="flex mt-4">
+    <input class="shadow appearance-none border rounded w-full py-2 px-3 mr-4 text-grey-darker" name="text" id="text" placeholder="Add Todo" />
+    <input type="hidden" id="saveIndex" />
+  </div>
+  </div>
+<div id="listBox"></div>
+  <button class="p-2 lg:px-4 md:mx-2 text-center border border-solid border-indigo-600 rounded text-white bg-indigo-600 transition-colors duration-300 mt-1 md:mt-0 md:ml-1" id="add-task-btn">Add</button>
+  <button class="p-2 lg:px-4 md:mx-2 text-center border border-solid border-indigo-600 rounded bg-indigo-600 text-white transition-colors duration-300 mt-1 md:mt-0 md:ml-1" style="display: none" id="save-todo-btn">Edit Todo</button>
+</div>
+
 <script>
-  
-const form = document.getElementById("form");
-const input = document.getElementById("input");
-const ul = document.getElementById("ul");
-const addButton = document.createElement('input');
 
-const todos = JSON.parse(localStorage.getItem("todos"));
+ const text = document.getElementById("text");
+ const addTaskButton = document.getElementById("add-task-btn");
+ const saveTaskButton = document.getElementById("save-todo-btn");
+ const listBox = document.getElementById("listBox");
+ const saveInd = document.getElementById("saveIndex");
 
-if (todos) {
-  todos.forEach(todo => {
-    add(todo);
-  })
-}
-
-form.addEventListener("submit", function (event) {
-  event.preventDefault();
-  add();
+addTaskButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  let todo = localStorage.getItem("todo");
+    if (todo === null) {
+    todoArray = [];
+    } else {
+    todoArray = JSON.parse(todo);
+    }
+    todoArray.push(text.value);
+    text.value = "";
+    localStorage.setItem("todo", JSON.stringify(todoArray));
+    displayTodo();
 });
 
-function add(todo) {
-  let todoText = input.value;
-
-  if (todo) {
-    todoText = todo.text;
+  function displayTodo() {
+    let todo = localStorage.getItem("todo");
+    if (todo === null) {
+    todoArray = [];
+    } else {
+    todoArray = JSON.parse(todo);
+    }
+    let htmlCode = "";
+    todoArray.forEach((list, ind) => {
+    htmlCode += `<div class='flex mb-4 items-center'>
+    <input type="checkbox" name="finish" value="1">
+    <p class='w-full text-grey-darkest'>${list}</p>
+    <button onclick='edit(${ind})' class='flex-no-shrink p-2 ml-4 mr-2 border-2 rounded text-white text-grey bg-green-600'>Edit</button>
+    <button onclick='deleteTodo(${ind})' class='flex-no-shrink p-2 ml-2 border-2 rounded text-white bg-red-500'>Delete</button>
+    </div>`;
+    });
+    listBox.innerHTML = htmlCode;
   }
+
+    
+  function deleteTodo(ind) {
+    let todo = localStorage.getItem("todo");
+    todoArray = JSON.parse(todo);
+    todoArray.splice(ind, 1);
+    localStorage.setItem("todo", JSON.stringify(todoArray));
+    displayTodo();
+  }
+
+  function edit(ind) {
+    saveInd.value = ind;
+    let todo = localStorage.getItem("todo");
+    todoArray = JSON.parse(todo);
+    text.value = todoArray[ind];
+    addTaskButton.style.display = "none";
+    saveTaskButton.style.display = "block";
+  }
+
+saveTaskButton.addEventListener("click", () => {
+  let todo = localStorage.getItem("todo");
+  todoArray = JSON.parse(todo);
+  let id = saveInd.value;
+  todoArray[id] = text.value;
+  addTaskButton.style.display = "block";
+  saveTaskButton.style.display = "none";
+  text.value = "";
+  localStorage.setItem("todo", JSON.stringify(todoArray));
+  displayTodo();
+});
 
   
-  if (todoText) {
-  const li = document.createElement("li");
-  li.innerText = todoText;
-  li.classList.add("list-group-item");
-  if (todo && todo.completed) {
-    li.classList.add("text-decoration-line-through");
-  }
+// const form = document.getElementById("form");
+// const input = document.getElementById("input");
+// const ul = document.getElementById("ul");
+// const addButton = document.createElement('input');
 
-  li.addEventListener("contextmenu", function
-  (event){
-    event.preventDefault();
-    li.remove();
-    saveData();
-  });
-  //右クリックされたら削除
+// const todos = JSON.parse(localStorage.getItem("todos"));
 
-  li.addEventListener("click", function () {
-    li.classList.toggle("text-decoration-line-through");
-    saveData();
-  })
+// if (todos) {
+//   todos.forEach(todo => {
+//     add(todo);
+//   })
+// }
 
-  //text-decoration-line-throughはうち消す線
+// form.addEventListener("submit", function (event) {
+//   event.preventDefault();
+//   add();
+// });
 
-  ul.appendChild(li);
-  //appendChildは子供
-  input.value="";
-  saveData();
-  }
-}
+// function add(todo) {
+//   let todoText = input.value;
 
-function saveData() {
-  const lists = document.querySelectorAll("li");
-  const todos = [];
+//   if (todo) {
+//     todoText = todo.text;
+//   }
 
-  lists.forEach((li) => {
-    todos.push({
-      text: li.innerText,
-      completed: li.classList.contains("text-decoration-line-through"),
-    });
-  });
+  
+//   if (todoText) {
+//   const li = document.createElement("li");
+//   li.innerText = todoText;
+//   li.classList.add("list-group-item");
+//   if (todo && todo.completed) {
+//     li.classList.add("text-decoration-line-through");
+//   }
 
-  localStorage.setItem("todos", JSON.stringify(todos));
-}
+//   li.addEventListener("contextmenu", function
+//   (event){
+//     event.preventDefault();
+//     li.remove();
+//     saveData();
+//   });
+//   //右クリックされたら削除
+
+//   li.addEventListener("click", function () {
+//     li.classList.toggle("text-decoration-line-through");
+//     saveData();
+//   })
+
+//   //text-decoration-line-throughはうち消す線
+
+//   ul.appendChild(li);
+//   //appendChildは子供
+//   input.value="";
+//   saveData();
+//   }
+// }
+
+// function saveData() {
+//   const lists = document.querySelectorAll("li");
+//   const todos = [];
+
+//   lists.forEach((li) => {
+//     todos.push({
+//       text: li.innerText,
+//       completed: li.classList.contains("text-decoration-line-through"),
+//     });
+//   });
+
+//   localStorage.setItem("todos", JSON.stringify(todos));
+// }
 
  
  </script>
