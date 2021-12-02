@@ -24,6 +24,10 @@
   @import "material_icons";
   @import "tasks";
 
+  div.container {
+    text-align: center;
+  }
+  
   header.navbar-inverse{
     background-color: #CFF;
     width: auto !important;
