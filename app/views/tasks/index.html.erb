@@ -1,15 +1,16 @@
+<div class= task-all>
 <p id="notice"><%= notice %></p>
-
+<%= link_to 'カレンダーに戻る', blogs_path,  class: "btn btn-primary new_client_btn" %>
 <%= link_to "CSVで出力する", tasks_path(format: :csv), class: "btn-circle-border-simple" %>  
-<h1>Tasks</h1>
-<table class="table">
+<table class="table-task">
+<h1>タスク管理</h1>
   <thead class="thead-dark">
     <tr>
       <th scope="col">分類</th>
       <th scope="col">会計</th>
       <th scope="col">担当者</th>
       <th scope="col">インシデント</th>
-      <th scope="col">件名</th>
+      <th class = "task-title-w" scope="col">件名</th>
       <th scope="col">ステータス</th>
       <th scope="col">EDI</th>
       <th scope="col">初回出荷</th>
@@ -30,7 +31,7 @@
         <td><%= task.total %></td>
         <td><%= task.manager %></td>
         <td><%= task.inc %></td>
-        <td><%= task.title %></td>
+        <td><%= task.title.truncate(50) %></td>
         <td><%= task.st %></td>
         <td><%= task.edi %></td>
         <td><%= task.firstshipping %></td>
@@ -47,5 +48,4 @@
 </table>
 
 <br>
-
-<%= link_to 'New Task', new_task_path %>
+<%= link_to 'タスク追加', new_task_path %>

@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_task, only: %i[ show edit update destroy ]
-
+  require 'csv'
   # GET /tasks or /tasks.json
   def index
     @tasks = Task.where(user_id: current_user.id)
