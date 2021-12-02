@@ -3,7 +3,7 @@ class TasksController < ApplicationController
 
   # GET /tasks or /tasks.json
   def index
-    @tasks = current_user.tasks
+    @tasks = Task.where(user_id: current_user.id)
     respond_to do |format|
       format.html
       format.csv do |csv|

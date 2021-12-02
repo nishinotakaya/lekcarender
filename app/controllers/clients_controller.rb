@@ -14,10 +14,6 @@ class ClientsController < ApplicationController
     end  
   end
 
-  # def text_index
-  #   @clients = Client.all
-  # end  
-
   # GET /clients/1 or /clients/1.json
   def show
   end
