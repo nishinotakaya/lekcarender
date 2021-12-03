@@ -13,11 +13,11 @@
 
 
 user = User.create!(name: "User Name", id: 5)
-user.tasks.create!(total: "16 国分北海道")
-user.tasks.create!(total: "21 国分東北")
-user.tasks.create!(total: "0A 国分関信越")
-user.tasks.create!(total: "0K 国分首都圏")
-user.tasks.create!(total: "08 FS事業部")
+user.tasks.create!(total: "16: 国分北海道")
+user.tasks.create!(total: "21: 国分東北")
+user.tasks.create!(total: "0A: 国分関信越")
+user.tasks.create!(total: "0K: 国分首都圏")
+user.tasks.create!(total: "08: FS事業部")
 user.tasks.create!(total: "51: 国分中部")
 user.tasks.create!(total: "4F: 国分西日本")
 user.tasks.create!(total: "6B: 国分九州")
