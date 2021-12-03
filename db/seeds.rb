@@ -12,7 +12,7 @@
 #             )
 
 
-user = User.create!(name: "User Name")
+user = User.create!(name: "User Name", id: 5)
 user.tasks.create!(total: "16 国分北海道")
 user.tasks.create!(total: "21 国分東北")
 user.tasks.create!(total: "0A 国分関信越")
@@ -33,7 +33,7 @@ user.tasks.create!(total: "0V: ナックス")
 user.tasks.create!(total: "07: 流通事業部")
 
 
-user_a = User.create!(name: "User Name2", email: "takaya@email.com")
+user_a = User.create!(name: "User Name2", email: "takaya@email.com", id: 6)
 user_a.tasks.create!(classification: "機能強化")
 user_a.tasks.create!(classification: "業務改善")
 user_a.tasks.create!(classification: "改廃案件")
