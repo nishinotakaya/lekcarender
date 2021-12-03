@@ -6,7 +6,7 @@
     <tr><th>担当者</th><td><%= @task.manager %></td></tr>
     <tr><th>インシデント</th><br><td><%= @task.inc %></td></tr>
     <tr><th>件名</th><td class= "title"><%= @task.title %></td></tr>
-    <tr><th>内容</th><td><%=html_safe_newline(@task.contents) %></td></tr>
+    <tr><th>内容</th><td><%= html_safe_newline(@task.contents) %></td></tr>
     <tr><th>コピー元倉庫</th> <td><%= @task.copywarehouse %></td></tr>
     <tr><th>初回出荷</th><td><%= @task.firstshipping %></td></tr>
     <tr><th>初回入荷</th><td><%= @task.firststock %></td></tr>
