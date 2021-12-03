@@ -32,8 +32,8 @@
           <td><%= task.manager %></td>
           <td><%= task.inc %></td>
           <td><%= task.title %></td>
-          <%# <td><%= task.contents %></td>
-          <%# <td><%= task.copywarehouse %></td> %> %>
+          <td><%= task.contents.truncate(50) if task.contents.present? %></td>
+          <td><%= task.copywarehouse %></td>
           <td><%= task.firstshipping %></td>
           <td><%= task.firststock %></td>
           <td><%= task.finishwarehouse %></td>
