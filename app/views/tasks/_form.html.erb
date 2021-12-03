@@ -34,17 +34,17 @@
 
   <div class="field">
     <%= form.label "件名" %>
-    <%= form.text_area :title , size: "30x20", class: "form-control" %>
+    <%= form.text_field :title , class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label "ステータス" %>
-    <%= form.text_field :st, class: "form-control" %>
+    <%= form.label "内容" %>
+    <%= form.text_area :contents, size: "30x20", class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label "EDI" %>
-    <%= form.text_field :edi, class: "form-control" %>
+    <%= form.label "コピー元倉庫" %>
+    <%= form.text_field :copywarehouse, class: "form-control" %>
   </div>
 
   <div class="field">

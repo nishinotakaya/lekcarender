@@ -6,12 +6,12 @@
     <tr><th>担当者</th><td><%= @task.manager %></td></tr>
     <tr><th>インシデント</th><br><td><%= @task.inc %></td></tr>
     <tr><th>件名</th><td class= "title"><%= @task.title %></td></tr>
-    <tr><th>ステータス</th><td><%= @task.st %></td></tr>
-    <tr><th>EDI</th> <td><%= @task.edi %></td></tr>
+    <tr><th>内容</th><td><%=html_safe_newline(@task.contents) %></td></tr>
+    <tr><th>コピー元倉庫</th> <td><%= @task.copywarehouse %></td></tr>
     <tr><th>初回出荷</th><td><%= @task.firstshipping %></td></tr>
     <tr><th>初回入荷</th><td><%= @task.firststock %></td></tr>
-    <tr><th>初回倉庫終了</th><td><%= @task.firststock %></td></tr>
-    <tr><th>統合インスタンス</th><td><%= @task.finishwarehouse %></td></tr>
+    <tr><th>初回倉庫終了</th><td><%= @task.finishwarehouse %></td></tr>
+    <tr><th>統合インスタンス</th><td><%= @task.integrationinstance %></td></tr>
     <tr><th>拠点インスタンス</th><td><%= @task.hubinstance %></td></tr>
 </table>
   <%= link_to '編集', edit_task_path(@task) %> |

@@ -70,13 +70,13 @@ class TasksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def task_params
-      params.require(:task).permit(:classification, :total, :manager, :inc, :title, :st, :edi, :firstshipping, :firststock, :finishwarehouse, :integrationinstance, :hubinstance, :user_id).merge(user_id: current_user.id)
+      params.require(:task).permit(:classification, :total, :manager, :inc, :title, :contents, :copywarehouse, :firstshipping, :firststock, :finishwarehouse, :integrationinstance, :hubinstance, :user_id).merge(user_id: current_user.id)
     end
 
 
     def send_tasks_csv(tasks)
       csv_data = CSV.generate(row_sep: "\r\n", encoding:Encoding::CP932)  do |csv|
-        header = %w(分類 会計 担当者 インシデント 件名 ステータス EDI 初回出荷 初回入荷 初回終了 統合インスタンス 拠点インスタンス)
+        header = %w(分類 会計 担当者 インシデント 件名 内容 コピー元倉庫 初回出荷 初回入荷 初回終了 統合インスタンス 拠点インスタンス)
         csv << header
         tasks.each do |task|
           values = [
@@ -85,8 +85,8 @@ class TasksController < ApplicationController
             task.manager,
             task.inc,
             task.title,
-            task.st,
-            task.edi,
+            task.contents,
+            task.copywarehouse,
             task.firstshipping,
             task.firststock,
             task.finishwarehouse,
