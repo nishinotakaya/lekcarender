@@ -1,7 +1,20 @@
 <div class= "task-all">
   <p id="notice"><%= notice %></p>
+  <div class= "search_task">
+    <%= form_with(scope: :search_task, url: tasks_path, method: :get, local: true, class: "form-task" ) do |f| %>
+      <%= f.label "インシデント" %>
+      <%= f.text_field :inc, value: @search_task_params[:inc], class: "form-control" %>
+      <%= f.label "件名" %>
+      <%= f.text_field :title, value: @search_task_params[:title], class: "form-control" %>
+      <%= f.label "会計" , class: "use_day_class" %>
+      <br><%= f.collection_select(:total, @tasks_select_total, :total, :total, {prompt: ""}) %>
+      <br><%= f.label "分類" , class: "use_day_class" %>
+      <br><%= f.collection_select(:classification,  @tasks_select_classifcation, :classification, :classification,  {prompt: ""}) %>
+      <br><%= f.submit "検索" ,class: "btn btn-primary name_search_btn" %>
+    <% end %>
+  </div>  
   <%= link_to 'カレンダーに戻る', blogs_path,  class: "btn btn-primary" %>
-  <%= link_to "CSV出力", tasks_path(format: :csv), class: "btn btn-info" %>  
+  <%= link_to "CSV出力", tasks_path(format: :csv), class: "btn btn-info" %>
   <table class="table-task">
   <h1>タスク管理</h1>
     <thead class="thead-dark">
@@ -10,7 +23,7 @@
         <th scope="col">会計</th>
         <th scope="col">担当者</th>
         <th scope="col">インシデント</th>
-        <th class = "task-title-w" scope="col">件名</th>
+        <th class="task-title-w" scope="col">件名</th>
         <th scope="col">内容</th>
         <th scope="col">コピー元倉庫</th>
         <th scope="col">初回出荷</th>

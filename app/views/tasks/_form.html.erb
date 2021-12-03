@@ -14,12 +14,11 @@
 
   <div class="mb-3">
     <%= form.label "分類", class: "form-label" %>
-    <%= form.text_field :classification, class: "form-control" %>
-  </div>
+<br><%= form.collection_select(:classification,  @tasks_select_classifcation, :classification, :classification,  {prompt: ""}) %>  </div>
 
   <div class="field">
     <%= form.label "会計" %>
-    <%= form.text_field :total, class: "form-control"%>
+<br><%= form.collection_select(:total, @tasks_select_total, :total, :total, {prompt: ""}) %>
   </div>
 
   <div class="field">

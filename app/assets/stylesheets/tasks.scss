@@ -40,3 +40,14 @@ table.task-table-show th,
   div.task-all {
     text-align: center;
   }
+
+  div.search_task {
+    text-align: left;
+    margin-left: 120px;
+  }
+
+  form.form-task {
+    .form-control {
+      width: 40%;
+    }
+  }

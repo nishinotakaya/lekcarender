@@ -1,9 +1,12 @@
 class TasksController < ApplicationController
   before_action :set_task, only: %i[ show edit update destroy ]
+  before_action :set_select, only: %i[ edit index new ]
+  before_action :authenticate_user!
   require 'csv'
   # GET /tasks or /tasks.json
   def index
-    @tasks = Task.where(user_id: current_user.id)
+    @search_task_params = task_search_params
+    @tasks = Task.where(user_id: current_user.id).search_task(@search_task_params)
     respond_to do |format|
       format.html
       format.csv do |csv|
@@ -64,6 +67,11 @@ class TasksController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def set_select
+      @tasks_select_total = Task.where(user_id: 2).select(:total)
+      @tasks_select_classifcation = Task.where(user_id: 3).select(:classification)
+    end  
+
     def set_task
       @task = current_user.tasks.find(params[:id])
     end
@@ -97,5 +105,9 @@ class TasksController < ApplicationController
         end
       end
       send_data(csv_data, filename: "tasks.csv")
+    end
+
+    def task_search_params
+      params.fetch(:search_task, {}).permit(:inc, :title, :total, :classification).merge(user_id: params[:user_id])
     end
 end
