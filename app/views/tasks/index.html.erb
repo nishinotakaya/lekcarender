@@ -7,7 +7,7 @@
       <%= f.label "件名" %>
       <%= f.text_field :title, value: @search_task_params[:title], class: "form-control" %>
       <%= f.label "会計" , class: "use_day_class" %>
-      <br><%= f.collection_select(:total, @tasks_select_total, :total, :total, {prompt: ""}) %>
+      <br><%= f.collection_select(:total,  @tasks_select_total, :total, :total, {prompt: ""}) %>
       <br><%= f.label "分類" , class: "use_day_class" %>
       <br><%= f.collection_select(:classification,  @tasks_select_classifcation, :classification, :classification,  {prompt: ""}) %>
       <br><%= f.submit "検索" ,class: "btn btn-primary name_search_btn" %>

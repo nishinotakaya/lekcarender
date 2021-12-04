@@ -68,8 +68,8 @@ class TasksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_select
-      @tasks_select_total = Task.where(user_id: 5)
-      @tasks_select_classifcation = Task.where(user_id: 6)
+      @tasks_select_total = Task.where(user_id: 100)
+      @tasks_select_classifcation = Task.where(user_id: 200)
     end  
 
     def set_task
