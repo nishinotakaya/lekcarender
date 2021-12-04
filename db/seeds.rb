@@ -12,7 +12,8 @@ User.create!(name: "A",
             )
 
 
-user = User.create!(id: 100, name: "User Name")
+#会計初期値
+user = User.create!(id: 100, name: "User Name", email: "total@emaoil.com")
 user.tasks.create!(total: "16: 国分北海道", classification: "")
 user.tasks.create!(total: "21: 国分東北",classification: "")
 user.tasks.create!(total: "0A: 国分関信越",classification: "")
@@ -33,7 +34,8 @@ user.tasks.create!(total: "0V: ナックス",classification: "")
 user.tasks.create!(total: "07: 流通事業部",classification: "")
 
 
-user_a = User.create!(id: 200, name: "User Name2", email: "takaya@email.com")
+#分類初期値
+user_a = User.create!(id: 200, name: "User Name2", email: "classification@email.com")
 user_a.tasks.create!(classification: "機能強化", total: "")
 user_a.tasks.create!(classification: "業務改善", total: "")
 user_a.tasks.create!(classification: "改廃案件", total: "")
