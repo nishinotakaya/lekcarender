@@ -42,5 +42,4 @@ user_a.tasks.create!(classification: "改廃案件", total: "")
 user_a.tasks.create!(classification: "物流協業", total: "")
 user_a.tasks.create!(classification: "内部改廃", total: "")
 
-
 puts "all_user"
