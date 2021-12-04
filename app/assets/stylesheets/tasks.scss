@@ -4,7 +4,7 @@
 table.task-table-show th,
   table.task-table-show td{
     text-align: center;
-    width: 700px;
+    width: 100%;
     height: auto;
     display:block;
   }
@@ -22,7 +22,7 @@ table.task-table-show th,
   
 
   table.table-task {
-    width: 1700px;
+    width: 100%;
     margin: auto;
     text-align: center;
     .task-title-w {
