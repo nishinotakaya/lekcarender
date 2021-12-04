@@ -54,9 +54,9 @@ ActiveRecord::Schema.define(version: 2021_12_03_123511) do
     t.string "title"
     t.string "st"
     t.string "edi"
-    t.string "firstshipping"
-    t.string "firststock"
-    t.string "finishwarehouse"
+    t.date "firstshipping"
+    t.date "firststock"
+    t.date "finishwarehouse"
     t.string "integrationinstance"
     t.string "hubinstance"
     t.integer "user_id", null: false

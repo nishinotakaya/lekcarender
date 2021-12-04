@@ -13,7 +13,7 @@
       <br><%= f.submit "検索" ,class: "btn btn-primary name_search_btn" %>
     <% end %>
   </div>  
-  <%= link_to 'カレンダーに戻る', blogs_path,  class: "btn btn-primary" %>
+  <%= link_to 'カレンダーに戻る', blogs_path,class: "btn btn-primary" %>
   <%= link_to "CSV出力", tasks_path(format: :csv), class: "btn btn-info" %>
   <table class="table-task">
   <h1>タスク管理</h1>
@@ -47,9 +47,9 @@
           <td><%= task.title %></td>
           <td><%= task.contents.truncate(50) if task.contents.present? %></td>
           <td><%= task.copywarehouse %></td>
-          <td><%= task.firstshipping %></td>
-          <td><%= task.firststock %></td>
-          <td><%= task.finishwarehouse %></td>
+          <td><%= l(task.firstshipping, format: :long) %></td>
+          <td><%= l(task.firststock, format: :long) %></td>
+          <td><%= l(task.finishwarehouse, format: :long) %></td>
           <td><%= task.integrationinstance %></td>
           <td><%= task.hubinstance %></td>
           <td><%= link_to '詳細', task %></td>
