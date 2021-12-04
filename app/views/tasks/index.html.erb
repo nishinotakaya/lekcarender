@@ -47,9 +47,9 @@
           <td><%= task.title %></td>
           <td><%= task.contents.truncate(50) if task.contents.present? %></td>
           <td><%= task.copywarehouse %></td>
-          <td><%= l(task.firstshipping, format: :long) %></td>
-          <td><%= l(task.firststock, format: :long) %></td>
-          <td><%= l(task.finishwarehouse, format: :long) %></td>
+          <td><%= l(task.firstshipping, format: :long) if task.firstshipping.present? %></td>
+          <td><%= l(task.firststock, format: :long) if task.firststock.present? %></td>
+          <td><%= l(task.finishwarehouse, format: :long) if task.finishwarehouse.present? %></td>
           <td><%= task.integrationinstance %></td>
           <td><%= task.hubinstance %></td>
           <td><%= link_to '詳細', task %></td>
