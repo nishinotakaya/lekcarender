@@ -56,6 +56,22 @@ class TasksController < ApplicationController
     end
   end
 
+  def soko_create
+    @soko_total = Task.where(user_id: 100)
+  end
+  
+  def soko_create_submit
+    @soko_total = Task.where(user_id: 100)
+    @soko_total.create(task_total_params)
+    redirect_to tasks_url
+  end  
+
+  def soko_delete_submit
+    @soko_total = Task.find(params[:id])
+    @soko_total.destroy
+    redirect_to soko_create_tasks_url
+  end  
+
   # DELETE /tasks/1 or /tasks/1.json
   def destroy
     @task.destroy
@@ -81,6 +97,9 @@ class TasksController < ApplicationController
       params.require(:task).permit(:classification, :total, :manager, :inc, :title, :contents, :copywarehouse, :firstshipping, :firststock, :finishwarehouse, :integrationinstance, :hubinstance, :user_id).merge(user_id: current_user.id)
     end
 
+    def task_total_params
+      params.require(:task).permit(:total).merge(user_id: 100)
+    end
 
     def send_tasks_csv(tasks)
       csv_data = CSV.generate(row_sep: "\r\n", encoding:Encoding::CP932, force_quotes: true)  do |csv|

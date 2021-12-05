@@ -1,6 +1,5 @@
 class LekUrlsController < ApplicationController
   before_action :set_lek_url, only: %i[ show edit update destroy ]
-
   # GET /lek_urls or /lek_urls.json
   def index
     @lek_urls = LekUrl.all
@@ -23,10 +22,6 @@ class LekUrlsController < ApplicationController
   # POST /lek_urls or /lek_urls.json
   def create
     @lek_url = LekUrl.new(lek_url_params)
-
-    url = params[:lek_url][:youtube_url]
-    url = url.last(11)
-    @lek_url.youtube_url = url
     respond_to do |format|
       if @lek_url.save
         format.html { redirect_to @lek_url, notice: "レクを追加しました" }
@@ -60,33 +55,18 @@ class LekUrlsController < ApplicationController
     end
   end
 
+  # Use callbacks to share common setup or constraints between actions.
+  def set_lek_url
+    @lek_url = LekUrl.find(params[:id])
+  end
 
+  # Only allow a list of trusted parameters through.
+  def lek_url_params
+    params.require(:lek_url).permit(:name, :url)
+  end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_lek_url
-      @lek_url = LekUrl.find(params[:id])
-    end
-
-    # Only allow a list of trusted parameters through.
-    def lek_url_params
-      params.require(:lek_url).permit(:name, :url, :body, :youtube_url)
-    end
-
-    # def find_videos(keyword, after: 1.months.ago, before: Time.now)
-    #   service = Google::Apis::YoutubeV3::YouTubeService.new
-    #   service.key = "AIzaSyCO8V-rrEbdMMyXeCSrma650RAwJ_p9XW0"
-    #   next_page_token = nil
-    #   opt = {
-    #     q: keyword,
-    #     type: 'video',
-    #     max_results: 3,
-    #     order: :date,
-    #     page_token: next_page_token,
-    #     published_after: after.iso8601,
-    #     published_before: before.iso8601
-    #   }
-    #   service.list_searches(:snippet, opt)
-    # end
+  def search_params
+    params.require(:q).permit(:name)
+  end
   
 end

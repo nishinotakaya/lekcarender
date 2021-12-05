@@ -1,0 +1,21 @@
+  <%= form_with model: @soko_total, url:soko_create_submit_tasks_path(@soko_total), methd: :post do |f| %>
+    <div class="field">
+      <%= f.label "会計" %><br />
+      <%= f.text_field :total, autofocus: true, autocomplete: "email", class: "form-control" %>
+    </div> 
+    <div class="field">
+      <%= f.submit "追加", class: "btn btn-primary" %>
+  <% end %>
+
+  <table>
+  <tr>
+  <th>会計</th>
+  <th></th>
+  </tr>
+    <% @soko_total.map do |a| %>
+    <tr> 
+      <td><%= a.total %></td>
+      <td><%= link_to '削除', soko_delete_submit_task_path(a), method: :delete, data: { confirm: '削除しますか?' }, class: "btn btn-danger" %></td>
+    </tr>
+    <% end %>
+  </table>

@@ -3,7 +3,8 @@
   <div class= "search_task">
     <%= form_with(scope: :search_task, url: tasks_path, method: :get, local: true, class: "form-task" ) do |f| %>
       <div class ="task_select_search">
-        <%= f.collection_select(:total,  @tasks_select_total, :total, :total, {prompt: "会計を選択"}, onchange: "this.form.submit()") %>
+        <%= link_to '会計コード追加', soko_create_tasks_path %>
+        <br><%= f.collection_select(:total,  @tasks_select_total, :total, :total, {prompt: "会計を選択"}, onchange: "this.form.submit()") %>
         <%= f.collection_select(:classification,  @tasks_select_classifcation, :classification, :classification,  {prompt: "分類を選択"}, onchange: "this.form.submit()") %>
       </div>
       <%= f.label "インシデント" %>
@@ -12,7 +13,7 @@
       <%= f.text_field :title, value: @search_task_params[:title], class: "form-control" %>
       <br><%= f.submit "検索" ,class: "btn btn-primary name_search_btn" %>
     <% end %>
-  </div>  
+  </div> 
   <%= link_to 'カレンダーに戻る', blogs_path,class: "btn btn-primary" %>
   <%= link_to "CSV出力", tasks_path(format: :csv), class: "btn btn-info" %>
   <table class="table-task">

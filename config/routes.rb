@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
-  resources :tasks
-  resources :lek_urls
+  resources :tasks do
+    get 'soko_create', on: :collection
+    post 'soko_create_submit', on: :collection
+    delete 'soko_delete_submit', on: :member
+  end
+  resources :lek_urls do
+  end  
   devise_for :users, controllers: {
     sessions:      'users/sessions',
     passwords:     'users/passwords',
