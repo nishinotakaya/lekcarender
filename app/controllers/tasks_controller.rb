@@ -103,7 +103,7 @@ class TasksController < ApplicationController
 
     def send_tasks_csv(tasks)
       csv_data = CSV.generate(row_sep: "\r\n", encoding:Encoding::CP932, force_quotes: true)  do |csv|
-        header = %w(分類 会計 担当者 インシデント 件名 内容 コピー元倉庫 初回出荷 初回入荷 初回終了 統合インスタンス 拠点インスタンス)
+        header = %w(分類 会計 担当者 インシデント 件名 内容 倉庫コード コピー元倉庫 初回出荷 初回入荷 初回終了 統合インスタンス 拠点インスタンス)
         csv << header
         tasks.each do |task|
           values = [
@@ -113,6 +113,7 @@ class TasksController < ApplicationController
             task.inc,
             task.title,
             task.contents,
+            task.warehousecode,
             task.copywarehouse,
             task.firstshipping,
             task.firststock,
