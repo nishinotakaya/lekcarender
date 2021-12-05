@@ -57,7 +57,7 @@ class TasksController < ApplicationController
   end
 
   def soko_create
-    @soko_total = Task.where(user_id: 100)
+    @soko_total = Task.where(user_id: 100).order(:total)
   end
   
   def soko_create_submit
@@ -84,8 +84,8 @@ class TasksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_select
-      @tasks_select_total = Task.where(user_id: 100)
-      @tasks_select_classifcation = Task.where(user_id: 200)
+      @tasks_select_total = Task.where(user_id: 100).order(:total)
+      @tasks_select_classifcation = Task.where(user_id: 200).order(:classification)
     end  
 
     def set_task
