@@ -1,4 +1,5 @@
- <%= form_with model: @soko_total, url:classification_create_submit_tasks_path(@soko_total), methd: :post do |f| %>
+<div class = "task-all">
+  <%= form_with model: @soko_total, url:classification_create_submit_tasks_path(@soko_total), methd: :post, class: "form-horizontal"  do |f| %>
     <div class="field">
       <%= f.label "分類" %><br />
       <%= f.text_field :classification, autofocus: true, autocomplete: "email", class: "form-control" %>
@@ -8,11 +9,11 @@
     </div>  
   <% end %>
 
-  <table>
-  <tr>
-    <th>分類</th>
-    <th></th>
-  </tr>
+  <table class= "task-create">
+    <tr>
+      <th>分類</th>
+      <th></th>
+    </tr>
     <% @soko_total.map do |a| %>
     <tr> 
       <td><%= a.classification %></td>
@@ -20,3 +21,4 @@
     </tr>
     <% end %>
   </table>
+</div>
