@@ -5,6 +5,7 @@ class BlogsController < ApplicationController
     @start_date = params.fetch(:start_date, Date.today).to_date
     @blogs =  current_user.blogs.where(start_time: @start_date.beginning_of_month..@start_date.end_of_month)
     @clients = Client.all
+    @tasks = Task.all  
   end
 
   def new

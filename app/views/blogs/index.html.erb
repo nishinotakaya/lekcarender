@@ -32,4 +32,10 @@
       <% end %>
     <% end %>
   </div>
+  <% @tasks.map do |a| %>
+    <% if a.firstshipping.present? && @start_date.month ==  a.firstshipping.month %>
+      初回出荷
+      <%= a.firstshipping %>
+    <% end %>  
+  <% end %>
 </div>
