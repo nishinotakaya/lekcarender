@@ -34,8 +34,6 @@
         <th scope="col">統合インスタンス</th>
         <th scope="col">拠点インスタンス</th>
         <th></th>
-        <th></th>
-        <th></th>
       </tr>
     </thead>
 
@@ -47,7 +45,7 @@
           <td><%= task.manager %></td>
           <td><%= task.inc %></td>
           <td><%= task.title %></td>
-          <td><%= task.contents.truncate(50) if task.contents.present? %></td>
+          <td><%= task.contents.truncate(30) if task.contents.present? %></td>
           <td><%= task.warehousecode %></td>
           <td><%= task.copywarehouse %></td>
           <td><%= l(task.firstshipping, format: :long) if task.firstshipping.present? %></td>
@@ -55,9 +53,9 @@
           <td><%= l(task.finishwarehouse, format: :long) if task.finishwarehouse.present? %></td>
           <td><%= task.integrationinstance %></td>
           <td><%= task.hubinstance %></td>
-          <td><%= link_to '詳細', task %></td>
-          <td><%= link_to '編集', edit_task_path(task) %></td>
-          <td><%= link_to '削除', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td class="task_btn"><%= link_to '詳細', task, class: "task_btn" %>
+          <%= link_to '編集', edit_task_path(task), class: "task_btn" %>
+          <%= link_to '削除', task, method: :delete, data: { confirm: 'Are you sure?' }, class: "task_btn" %></td>
         </tr>
       <% end %>
     </tbody>

@@ -31,7 +31,7 @@ table.task-table-show th,
     }
     td, th {
       border: 2px #ff0000 solid;
-      width: 600px;
+      width: 400px;
       font-size: 15px;
       font-weight: 700;
     }
@@ -53,5 +53,13 @@ table.task-table-show th,
     div.task_select_search {
       margin-top: 55px;
       margin-bottom: 20px;
+    }
+  }
+  td.task_btn {
+    font-weight: 700;
+    width: 2% !important;
+    .task_btn {
+      font-weight: 700;
+      font-size: 17px;
     }
   }

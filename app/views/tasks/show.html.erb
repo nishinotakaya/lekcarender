@@ -12,8 +12,8 @@
   <tr><th>初回出荷</th><td><%= l(@task.firstshipping, format: :long) if @task.firstshipping.present? %></td></tr>
   <tr><th>初回入荷</th><td><%= l(@task.firststock, format: :long) if @task.firststock.present? %></td></tr>
   <tr><th>初回倉庫終了</th><td><%= l(@task.finishwarehouse, format: :long) if @task.finishwarehouse.present? %></td></tr>
-  <tr><th>統合インスタンス</th><td><%= @task.integrationinstance %></td></tr>
-  <tr><th>拠点インスタンス</th><td><%= @task.hubinstance %></td></tr>
+  <tr><th>統合インスタンス</th><td><%= safe_join(@task.integrationinstance.split("\n"),tag(:br)) %></td></tr>
+  <tr><th>拠点インスタンス</th><td><%= safe_join(@task.hubinstance.split("\n"),tag(:br)) %></td></tr>
 </table>
   <%= link_to '編集', edit_task_path(@task) %> |
   <%= link_to '戻る', tasks_path %>
