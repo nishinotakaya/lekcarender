@@ -27,29 +27,7 @@
   div.container {
     text-align: center;
   }
-  
-  header.navbar-inverse{
-    background-color: #CFF;
-    width: auto !important;
-    height: 70px;
-    ul.nav{
-      li{
-        position: absolute;
-        right: 0;
-        top: 16px;
-        float: left;
-        min-width: 160px;
-        text-align: left; // Ensures proper alignment if parent has it changed (e.g., modal footer)
-        list-style: none;
-        background-clip: padding-box;
-      }
-    }
-  }
 
-  
-  * {
-    box-sizing: border-box;
- }
  
  body {
     margin: 0;
@@ -61,18 +39,31 @@
  header {
   width: 100%;
   padding: 30px 4% 10px;
-  background-color: #fff;
+  background:#333;
   position: fixed;
   top: 0;
   display: flex;
   align-items: center;
+  .btn {
+    color:white !important;
+    font-weight: 700;
+  }
+  h1 {
+    margin: 0; padding: 0;
+    font-size: 40px;
+    .btn{
+      font-size: 25px;
+    }
+  }
 }
 
 h1 {
   margin: 0; padding: 0;
   font-size: 40px;
   .btn{
-    font-size: 20px;
+    font-size: 25px;
+    color:white !important;
+    font-weight: 1000;
   }
 }
 
