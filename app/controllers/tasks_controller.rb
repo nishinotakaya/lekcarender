@@ -81,6 +81,23 @@ class TasksController < ApplicationController
     end
   end
 
+  def classification_create
+    @soko_total = Task.where(user_id: 200).order(:total)
+  end
+
+  def classification_create_submit
+    @soko_total = Task.where(user_id: 200)
+    @soko_total.create(task_classification_params)
+    redirect_to request.referer
+  end  
+
+  def classification_delete_submit
+    @soko_total = Task.find(params[:id])
+    @soko_total.destroy
+    redirect_to  request.referer
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_select
@@ -99,6 +116,10 @@ class TasksController < ApplicationController
 
     def task_total_params
       params.require(:task).permit(:total).merge(user_id: 100)
+    end
+
+    def task_classification_params
+      params.require(:task).permit(:classification).merge(user_id: 200)
     end
 
     def send_tasks_csv(tasks)

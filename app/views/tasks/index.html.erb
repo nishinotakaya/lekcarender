@@ -5,7 +5,8 @@
       <div class ="task_select_search">
         <%= link_to '会計コード追加', soko_create_tasks_path %>
         <br><%= f.collection_select(:total,  @tasks_select_total, :total, :total, {prompt: "会計を選択"}, onchange: "this.form.submit()") %>
-        <%= f.collection_select(:classification,  @tasks_select_classifcation, :classification, :classification,  {prompt: "分類を選択"}, onchange: "this.form.submit()") %>
+        <br><%= link_to '分類の追加', classification_create_tasks_path %>
+        <br><%= f.collection_select(:classification,  @tasks_select_classifcation, :classification, :classification,  {prompt: "分類を選択"}, onchange: "this.form.submit()") %>
       </div>
       <%= f.label "インシデント" %>
       <%= f.text_field :inc, value: @search_task_params[:inc], class: "form-control" %>

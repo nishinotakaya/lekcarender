@@ -3,6 +3,9 @@ Rails.application.routes.draw do
     get 'soko_create', on: :collection
     post 'soko_create_submit', on: :collection
     delete 'soko_delete_submit', on: :member
+    get 'classification_create', on: :collection
+    post 'classification_create_submit', on: :collection
+    delete 'classification_delete_submit', on: :member
   end
   resources :lek_urls do
   end  
