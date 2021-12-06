@@ -7,14 +7,6 @@ class BlogsController < ApplicationController
     @clients = Client.all
   end
 
-  def carendar_top
-    @blog = Blog.where(id: 1)
-    @first_day = params[:date].nil? ? 
-    Date.current.beginning_of_month : params[:date].to_date
-    @last_day = @first_day.end_of_month
-    @blogs = Blog.where(start_time: @first_day..@last_day).group(:start_time)
-  end
-
   def new
     @blog = Blog.new
   end
@@ -50,7 +42,7 @@ class BlogsController < ApplicationController
 
   def all_blogs_edit
     @first_day =  params[:date].nil? ?
-    Date.current.next_month.beginning_of_month : params[:date].to_date
+    Date.current.beginning_of_month : params[:date].to_date
 		@last_day = @first_day.end_of_month
     one_month = [*@first_day..@last_day]
     @blogs = current_user.blogs.where(start_time: @first_day..@last_day).order(:start_time)

@@ -1,7 +1,13 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container">
-    <nav>
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
+<header>
+    <h1>
+      <%= link_to 'カレンダー', blogs_path,  class: "btn" %>
+    </h1>
+    <nav class="pc-nav">
+        <ul>
+            <li><%= link_to 'Todoリスト' , todos_path , class: "btn" %></li>
+            <li><%= link_to 'タスク一覧', tasks_path, class: "btn" %></li>
+            <li> <%= link_to '参考URL(Boxなど)', lek_urls_path, class: "btn" %></li>
+            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn" %></li>
+        </ul>
     </nav>
-  </div>
 </header>

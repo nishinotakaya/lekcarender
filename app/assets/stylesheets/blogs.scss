@@ -10,6 +10,7 @@
     font-size: 30px;
     font-weight: 600;
     text-align: center;
+    margin-top: 150px;
   }
 
   table.table-striped {
@@ -100,10 +101,19 @@
 }
 
 @media screen and (min-width: 1601px) and (max-width: 2000px) {
+
+  .blog-edit-day {
+    position: relative;
+    top: 40px;
+    width: 500px;
+    text-align: left !important;
+  }
+  
   .carender_all {
     padding-left: 16px;
     padding-right: 16px;
     text-align: center;
+    margin-top: 150px;
   }
 
   .table-striped {
@@ -237,6 +247,7 @@
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    margin-top: 200px;
   }
 
   .modal-dialog-center {
@@ -391,6 +402,7 @@
   @media screen and (max-width: 550px) {
 
     .blog-edit-day {
+      width: 300px;
       margin-left: auto;
       margin-right: auto;
       text-align: center;

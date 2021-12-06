@@ -10,7 +10,7 @@ class TasksController < ApplicationController
     respond_to do |format|
       format.html
       format.csv do |csv|
-        send_tasks_csv(@tasks)
+        send_data @tasks.export , filename: "task.csv"
       end
     end  
   end
