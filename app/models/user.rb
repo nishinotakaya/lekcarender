@@ -6,7 +6,7 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: %i[line]
         #  :authentication_keys => [];
         #  :validatable
-  
+  has_rich_text :content
   validates :email, uniqueness: true
         
   has_many :blogs, dependent: :destroy

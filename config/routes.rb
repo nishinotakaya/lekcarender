@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :languages
   resources :tasks do
     get 'soko_create', on: :collection
     post 'soko_create_submit', on: :collection
