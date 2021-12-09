@@ -1,4 +1,3 @@
 class Language < ApplicationRecord
-
   has_rich_text :content
 end
