@@ -13,8 +13,12 @@
  *= require simple_calendar
   *= require rails_bootstrap_forms
  */
-
  // Custom bootstrap variables must be set or imported *before* bootstrap.
+ /*
+ *= require_tree .
+ *= require_self
+ */
+
   @import "bootstrap";
   @import "blogs";
   @import "clients";
@@ -23,6 +27,7 @@
   @import "lek_urls";
   @import "material_icons";
   @import "tasks";
+  @import "actiontext";
 
   div.container {
     text-align: center;
@@ -90,4 +95,10 @@ nav {
 form.form-horizontal .form-control {
   width: 50%;
   margin: auto;
+}
+
+trix-editor {
+  min-height: 20em;
+  max-height: 20em;
+  overflow-y: auto;
 }

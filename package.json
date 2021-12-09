@@ -33,6 +33,7 @@
   "homepage": "https://github.com/nishinotakaya/lekcarender#readme",
   "keywords": [],
   "devDependencies": {
-    "firebase": "^9.6.0"
+    "firebase": "^9.6.0",
+    "webpack-dev-server": "^4.6.0"
   }
 }

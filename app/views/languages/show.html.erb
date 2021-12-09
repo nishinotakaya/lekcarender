@@ -10,5 +10,10 @@
   <%= @language.meaning %>
 </p>
 
+<p>
+  <strong>Meaning:</strong>
+  <%= @language.content %>
+</p>
+
 <%= link_to 'Edit', edit_language_path(@language) %> |
 <%= link_to 'Back', languages_path %>

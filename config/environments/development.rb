@@ -64,4 +64,5 @@ Rails.application.configure do
    config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
    # 認証メール内URL（例２）
    config.action_mailer.default_url_options = { protocol: 'https', host: '192.168.99.100' }
+   config.assets.digest = false
 end
