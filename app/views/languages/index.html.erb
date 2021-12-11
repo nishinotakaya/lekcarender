@@ -2,7 +2,7 @@
 <div class= "container">
   <h1>システム概要一覧</h1>
   <%= form_with(scope: :search_language, url: languages_path, method: :get, local: true ) do |f| %>
-    <%= f.label "タイトル" %>
+    <%= f.label "システム名" %>
     <%= f.text_field :title, value: @search_language_params[:title], class: "form-control" %>
     <%= f.label "件名" %>
     <%= f.text_field :meaning, value: @search_language_params[:meaning], class: "form-control" %>
@@ -13,8 +13,8 @@
 <table>
   <thead>
     <tr>
-      <th>タイトル</th>
-      <th>件名</th>
+      <th>システム名</th>
+      <th>種類</th>
       <th>詳細||画像</th>
       <th></th>
     </tr>

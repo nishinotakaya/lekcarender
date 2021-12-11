@@ -2,20 +2,20 @@
   <p id="notice"><%= notice %></p>
 
   <p>
-    <strong>Title:</strong>
+    <strong>システム名</strong>
     <%= @language.title %>
   </p>
 
   <p>
-    <strong>Meaning:</strong>
+    <strong>種類</strong>
     <%= @language.meaning %>
   </p>
 
   <p>
-    <strong>Meaning:</strong>
+    <strong>内容||画像</strong>
     <%= @language.content %>
   </p>
 
-  <%= link_to 'Edit', edit_language_path(@language) %> |
-  <%= link_to 'Back', languages_path %>
+  <%= link_to '編集', edit_language_path(@language) %> |
+  <%= link_to '戻る', languages_path %>
 </div>
