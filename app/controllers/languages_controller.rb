@@ -4,7 +4,7 @@ class LanguagesController < ApplicationController
   # GET /languages or /languages.json
   def index
     @search_language_params = search_language_params
-    @languages = Language.where(user_id: current_user.id).search_language(@search_language_params)
+    @languages = Language.where(user_id: current_user.id).page(params[:page]).per(5).search_language(@search_language_params)
   end
 
   # GET /languages/1 or /languages/1.json

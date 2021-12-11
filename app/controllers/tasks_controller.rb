@@ -2,15 +2,15 @@ class TasksController < ApplicationController
   before_action :set_task, only: %i[ show edit update destroy ]
   before_action :set_select, only: %i[ edit index new ]
   before_action :authenticate_user!
-  require 'csv'
+  # require 'csv'
   # GET /tasks or /tasks.json
   def index
     @search_task_params = task_search_params
-    @tasks = Task.where(user_id: current_user.id).page(params[:page]).per(10).search_task(@search_task_params).order(:classification)
+    @tasks = Task.where(user_id: current_user.id).page(params[:page]).per(10).search_task(@search_task_params)
     respond_to do |format|
       format.html
       format.csv do |csv|
-        send_data @tasks.export , filename: "task.csv"
+        send_tasks_csv(@tasks)        
       end
     end  
   end
@@ -99,6 +99,32 @@ class TasksController < ApplicationController
 
 
   private
+
+  def send_tasks_csv(tasks)
+    csv_data = CSV.generate(row_sep: "\r\n", encoding:Encoding::CP932)  do |csv|
+      header = %w(名前 性別 誕生日(和暦) 誕生日(月日) 年齢 利用日)
+      csv << header
+      tasks.each do |task|
+        values = [
+          task.classification,
+          task.total,
+          task.manager,
+          task.inc,
+          task.title,
+          task.contents,
+          task.warehousecode,
+          task.copywarehouse,
+          task.firstshipping,
+          task.firststock,
+          task.finishwarehouse,
+          task.integrationinstance,
+          task.hubinstance
+        ]
+        csv << values
+      end
+    end
+    send_data(csv_data, filename: "task.csv")
+  end
     # Use callbacks to share common setup or constraints between actions.
     def set_select
       @tasks_select_total = Task.where(user_id: 100).order(:total)
