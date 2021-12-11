@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_many :blogs, dependent: :destroy
   has_many :clients, dependent: :destroy
   has_many :tasks, dependent: :destroy
+  has_many :languages, dependent: :destroy
   # accepts_nested_attributes_for :blogs
   def social_profile(provider)
     social_profiles.select { |sp| sp.provider == provider.to_s }.first

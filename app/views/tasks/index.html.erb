@@ -4,9 +4,9 @@
     <%= form_with(scope: :search_task, url: tasks_path, method: :get, local: true, class: "form-task" ) do |f| %>
       <div class ="task_select_search">
         <%= link_to '会計コード追加', soko_create_tasks_path %>
-        <br><%= f.collection_select(:total,  @tasks_select_total, :total, :total, {prompt: "会計を選択"}, onchange: "this.form.submit()") %>
+        <br><%= f.collection_select(:total,  @tasks_select_total, :total, :total, {prompt: "会計を選択"}) %>
         <br><%= link_to '分類の追加', classification_create_tasks_path %>
-        <br><%= f.collection_select(:classification,  @tasks_select_classifcation, :classification, :classification,  {prompt: "分類を選択"}, onchange: "this.form.submit()") %>
+        <br><%= f.collection_select(:classification,  @tasks_select_classifcation, :classification, :classification,  {prompt: "分類を選択"}) %>
       </div>
       <%= f.label "インシデント" %>
       <%= f.text_field :inc, value: @search_task_params[:inc], class: "form-control" %>
@@ -17,6 +17,8 @@
   </div> 
   <%= link_to 'カレンダーに戻る', blogs_path,class: "btn btn-primary" %>
   <%= link_to "CSV出力", tasks_path(format: :csv), class: "btn btn-info" %>
+  <%= link_to 'タスク追加', new_task_path, class: "btn btn-success" %>
+
   <table class="table-task">
   <h1>タスク管理</h1>
     <thead class="thead-dark">
@@ -61,7 +63,7 @@
       <% end %>
     </tbody>
   </table>
-
+<%= paginate @tasks %>
   <br>
   <%= link_to 'タスク追加', new_task_path, class: "btn btn-success" %>
 </div>

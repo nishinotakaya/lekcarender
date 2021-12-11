@@ -1,13 +1,22 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Languages</h1>
-
+<div class= "container">
+  <h1>システム概要一覧</h1>
+  <%= form_with(scope: :search_language, url: languages_path, method: :get, local: true ) do |f| %>
+    <%= f.label "タイトル" %>
+    <%= f.text_field :title, value: @search_language_params[:title], class: "form-control" %>
+    <%= f.label "件名" %>
+    <%= f.text_field :meaning, value: @search_language_params[:meaning], class: "form-control" %>
+    <br><%= f.submit "検索" ,class: "btn btn-primary name_search_btn" %>
+  <% end %>
+</div>
+<%= link_to 'システム概要追加', new_language_path %>
 <table>
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Meaning</th>
-      <th colspan="3"></th>
+      <th>タイトル</th>
+      <th>件名</th>
+      <th>詳細||画像</th>
+      <th></th>
     </tr>
   </thead>
 
@@ -16,10 +25,10 @@
       <tr>
         <td><%= language.title %></td>
         <td><%= language.meaning %></td>
-         <td><%= language.content %></td>
-        <td><%= link_to 'Show', language %></td>
-        <td><%= link_to 'Edit', edit_language_path(language) %></td>
-        <td><%= link_to 'Destroy', language, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= language.content %></td>
+        <td><%= link_to '詳細', language %>
+        <%= link_to '編集', edit_language_path(language) %>
+        <%= link_to '削除', language, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -27,4 +36,4 @@
 
 <br>
 
-<%= link_to 'New Language', new_language_path %>
+<%= link_to 'システム概要追加', new_language_path %>

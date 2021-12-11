@@ -2,7 +2,6 @@
   <% if language.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(language.errors.count, "error") %> prohibited this language from being saved:</h2>
-
       <ul>
         <% language.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -12,17 +11,17 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.label "タイトル" %>
+    <br><%= form.text_field :title %>
   </div>
 
   <div class="field">
-    <%= form.label :meaning %>
-    <%= form.text_field :meaning %>
+    <%= form.label "件名" %>
+    <br><%= form.text_field :meaning %>
   </div>
 
   <div class="field">
-    <%= form.label :content %>
+    <%= form.label "詳細||画像" %>
     <%= form.rich_text_area :content %>
   </div>
 

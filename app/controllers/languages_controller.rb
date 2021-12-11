@@ -3,7 +3,8 @@ class LanguagesController < ApplicationController
 
   # GET /languages or /languages.json
   def index
-    @languages = Language.all
+    @search_language_params = search_language_params
+    @languages = Language.where(user_id: current_user.id).search_language(@search_language_params).order(:classification)
   end
 
   # GET /languages/1 or /languages/1.json
@@ -64,6 +65,10 @@ class LanguagesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def language_params
-      params.require(:language).permit(:title, :meaning, :content)
+      params.require(:language).permit(:title, :meaning, :content).merge(user_id: current_user.id)
+    end
+
+    def search_language_params
+      params.fetch(:search_language, {}).permit(:title, :meaning).merge(user_id: params[:user_id])
     end
 end

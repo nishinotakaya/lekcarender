@@ -6,7 +6,7 @@ class TasksController < ApplicationController
   # GET /tasks or /tasks.json
   def index
     @search_task_params = task_search_params
-    @tasks = Task.where(user_id: current_user.id).search_task(@search_task_params).order(:classification)
+    @tasks = Task.where(user_id: current_user.id).page(params[:page]).per(10).search_task(@search_task_params).order(:classification)
     respond_to do |format|
       format.html
       format.csv do |csv|
@@ -120,32 +120,6 @@ class TasksController < ApplicationController
 
     def task_classification_params
       params.require(:task).permit(:classification).merge(user_id: 200)
-    end
-
-    def send_tasks_csv(tasks)
-      csv_data = CSV.generate(row_sep: "\r\n", encoding:Encoding::CP932, force_quotes: true)  do |csv|
-        header = %w(分類 会計 担当者 インシデント 件名 内容 倉庫コード コピー元倉庫 初回出荷 初回入荷 初回終了 統合インスタンス 拠点インスタンス)
-        csv << header
-        tasks.each do |task|
-          values = [
-            task.classification,
-            task.total,
-            task.manager,
-            task.inc,
-            task.title,
-            task.contents,
-            task.warehousecode,
-            task.copywarehouse,
-            task.firstshipping,
-            task.firststock,
-            task.finishwarehouse,
-            task.integrationinstance,
-            task.hubinstance
-          ]
-          csv << values
-        end
-      end
-      send_data(csv_data, filename: "tasks.csv")
     end
 
     def task_search_params

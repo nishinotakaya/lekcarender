@@ -3,8 +3,8 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 table.task-table-show th,
   table.task-table-show td{
-    text-align: center;
-    width: 1000px;
+    margin: auto !important;
+    width: 1000px !important;
     height: auto;
     display:block;
   }
@@ -15,27 +15,21 @@ table.task-table-show th,
     text-align: center;
   }
 
-  div.task_show {
-    text-align: center;
-  }
+  // div.task_show {
+  //   text-align: center;
+  // }
 
   
 
-  table.table-task {
-    width: 100%;
-    margin: auto;
-    text-align: center;
-    .task-title-w {
-      width: 1000px;
-      height: auto;
-    }
-    td, th {
-      border: 2px #ff0000 solid;
-      width: 550px;
-      font-size: 15px;
-      font-weight: 700;
-    }
-  }
+  // table.table-task {
+ 
+  //   td, th {
+  //     border: 2px #ff0000 solid;
+  //     width: 550px;
+  //     font-size: 15px;
+  //     font-weight: 700;
+  //   }
+  // }
 
   div.task-all {
     text-align: center;

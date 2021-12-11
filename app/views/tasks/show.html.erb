@@ -1,20 +1,20 @@
 <p id="notice"><%= notice %></p>
-<div class= "task-all">
-<table align="center"border="2" class="task-table-show">
-  <tr><th>分類</th> <td><%= @task.classification %></td></tr>
-  <tr><th>会計</th> <td><%= @task.total %></td></tr>
-  <tr><th>担当者</th><td><%= @task.manager %></td></tr>
-  <tr><th>インシデント</th><br><td><%= @task.inc %></td></tr>
-  <tr><th>件名</th><td class= "title"><%= @task.title %></td></tr>
-  <tr><th>内容</th><td><%= safe_join(@task.contents.split("\n"),tag(:br)) %></td></tr>
-  <tr><th>倉庫コード</th> <td><%= @task.warehousecode %></td></tr>
-  <tr><th>コピー元倉庫</th> <td><%= @task.copywarehouse %></td></tr>
-  <tr><th>初回出荷</th><td><%= l(@task.firstshipping, format: :long) if @task.firstshipping.present? %></td></tr>
-  <tr><th>初回入荷</th><td><%= l(@task.firststock, format: :long) if @task.firststock.present? %></td></tr>
-  <tr><th>初回倉庫終了</th><td><%= l(@task.finishwarehouse, format: :long) if @task.finishwarehouse.present? %></td></tr>
-  <tr><th>統合インスタンス</th><td><%= safe_join(@task.integrationinstance.split("\n"),tag(:br)) %></td></tr>
-  <tr><th>拠点インスタンス</th><td><%= safe_join(@task.hubinstance.split("\n"),tag(:br)) %></td></tr>
-</table>
+<div class= "container">
+  <table class="task-table-show">
+    <tr><th>分類</th> <td><%= @task.classification %></td></tr>
+    <tr><th>会計</th> <td><%= @task.total %></td></tr>
+    <tr><th>担当者</th><td><%= @task.manager %></td></tr>
+    <tr><th>インシデント</th><br><td><%= @task.inc %></td></tr>
+    <tr><th>件名</th><td class= "title"><%= @task.title %></td></tr>
+    <tr><th>内容</th><td><%= safe_join(@task.contents.split("\n"),tag(:br)) %></td></tr>
+    <tr><th>倉庫コード</th> <td><%= @task.warehousecode %></td></tr>
+    <tr><th>コピー元倉庫</th> <td><%= @task.copywarehouse %></td></tr>
+    <tr><th>初回出荷</th><td><%= l(@task.firstshipping, format: :long) if @task.firstshipping.present? %></td></tr>
+    <tr><th>初回入荷</th><td><%= l(@task.firststock, format: :long) if @task.firststock.present? %></td></tr>
+    <tr><th>初回倉庫終了</th><td><%= l(@task.finishwarehouse, format: :long) if @task.finishwarehouse.present? %></td></tr>
+    <tr><th>統合インスタンス</th><td><%= safe_join(@task.integrationinstance.split("\n"),tag(:br)) %></td></tr>
+    <tr><th>拠点インスタンス</th><td><%= safe_join(@task.hubinstance.split("\n"),tag(:br)) %></td></tr>
+  </table>
   <%= link_to '編集', edit_task_path(@task) %> |
   <%= link_to '戻る', tasks_path %>
 </div>

@@ -5,7 +5,7 @@
  <%= link_to "利用者一覧メモ用", text_index_clients_path, class: "btn btn--yellow btn--cubic" %> 
 <%
 =end%>
-    <h2 class="client_all_h2">利用者一覧</h2>
+  <h2 class="client_all_h2">利用者一覧</h2>
     <%= form_with(scope: :search, url: clients_path, method: :get, local: true) do |f| %>
       <%= f.label :名前 %>
       <%= f.text_field :name, value: @search_params[:name] %>
