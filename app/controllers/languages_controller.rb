@@ -1,6 +1,6 @@
 class LanguagesController < ApplicationController
   before_action :set_language, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_user!
   # GET /languages or /languages.json
   def index
     @search_language_params = search_language_params
