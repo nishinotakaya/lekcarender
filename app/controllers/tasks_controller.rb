@@ -6,7 +6,7 @@ class TasksController < ApplicationController
   # GET /tasks or /tasks.json
   def index
     @search_task_params = task_search_params
-    @tasks = Task.where(user_id: current_user.id).page(params[:page]).per(5).search_task(@search_task_params).order(:classification)
+    @tasks = Task.where(user_id: current_user.id).page(params[:page]).per(10).search_task(@search_task_params).order(:classification)
     respond_to do |format|
       format.html
       format.csv do |csv|
