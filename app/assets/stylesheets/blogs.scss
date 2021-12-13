@@ -100,7 +100,7 @@
   }
 }
 
-@media screen and (min-width: 1601px) and (max-width: 2000px) {
+@media screen and (min-width: 750px) and (max-width: 2000px) {
 
   .blog-edit-day {
     position: relative;
@@ -116,11 +116,8 @@
     margin-top: 150px;
   }
 
-  .table-striped {
-    width: 1300px;
-  }
-
   table.table-striped {
+    width: 100%;
     th {
       text-align: center;
     }
@@ -238,166 +235,166 @@
 
 }
 
-@media screen and (min-width: 750px) and (max-width: 1600px) {
-  .carender_all {
-    width: 1320px;
-    height: 900px;
-    padding-left: 16px;
-    padding-right: 16px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    margin-top: 200px;
-  }
+// @media screen and (min-width: 750px) and (max-width: 1600px) {
+//   .carender_all {
+//     width: 1320px;
+//     height: 900px;
+//     padding-left: 16px;
+//     padding-right: 16px;
+//     margin-left: auto;
+//     margin-right: auto;
+//     text-align: center;
+//     margin-top: 200px;
+//   }
 
-  .modal-dialog-center {
-    padding-top: 10%;
-  }
+//   .modal-dialog-center {
+//     padding-top: 10%;
+//   }
 
-  .label-basic-info {
-    margin-top: 5px;
-  }
+//   .label-basic-info {
+//     margin-top: 5px;
+//   }
 
-  .btn-basic-info {
-    margin: 15px 0;
-    width: 30%;
-  }
+//   .btn-basic-info {
+//     margin: 15px 0;
+//     width: 30%;
+//   }
 
-  .edit_carendar_link_prace {
-    margin-left: auto;
-    margin-right: auto;
-  }
+//   .edit_carendar_link_prace {
+//     margin-left: auto;
+//     margin-right: auto;
+//   }
 
-  .h1_title {
-  }
+//   .h1_title {
+//   }
 
-  .simple-calendar .day {
-    height: 110px;
-  }
+//   .simple-calendar .day {
+//     height: 110px;
+//   }
 
-  .calendar-heading {
-    font-size: 30px;
-    font-weight: 600;
-    margin-left: auto;
-    margin-right: auto;
-  }
+//   .calendar-heading {
+//     font-size: 30px;
+//     font-weight: 600;
+//     margin-left: auto;
+//     margin-right: auto;
+//   }
 
-  .title_content_div {
-    height: 100px;
-    width: 180px;
-    position: relative;
-  }
+//   .title_content_div {
+//     height: 100px;
+//     width: 180px;
+//     position: relative;
+//   }
 
-  .blog_delete {
-    display: inline;
-  }
+//   .blog_delete {
+//     display: inline;
+//   }
 
-  .simple-calendar .day {
-    height: 150px;
-    width: 180px;
-  }
+//   .simple-calendar .day {
+//     height: 150px;
+//     width: 180px;
+//   }
 
-  #text_preparation_space {
-    height: 80px;
-    width: 1300px;
-    font-size: 20px;
-  }
+//   #text_preparation_space {
+//     height: 80px;
+//     width: 1300px;
+//     font-size: 20px;
+//   }
 
-  .carender_lek_class {
-    font-size: 20px;
-    font-weight: 700;
-    text-decoration: none;
-  }
+//   .carender_lek_class {
+//     font-size: 20px;
+//     font-weight: 700;
+//     text-decoration: none;
+//   }
 
-  //編集
-  .edit_carender {
-    position: relative;
-    top: 100px;
-    text-align: center;
-    display: block;
-  }
+//   //編集
+//   .edit_carender {
+//     position: relative;
+//     top: 100px;
+//     text-align: center;
+//     display: block;
+//   }
 
-  .text-center {
-    position: relative;
-    left: 350px;
-  }
+//   .text-center {
+//     position: relative;
+//     left: 350px;
+//   }
 
-  .content {
-    margin-top: 10px;
-  }
+//   .content {
+//     margin-top: 10px;
+//   }
 
-  .submit {
-    margin-top: 10px;
-  }
+//   .submit {
+//     margin-top: 10px;
+//   }
 
-  .carender_birthday {
-    position: relative;
-    display: inline-block;
-    text-align: center;
-  }
+//   .carender_birthday {
+//     position: relative;
+//     display: inline-block;
+//     text-align: center;
+//   }
 
-  .client_show {
-    padding-left: 16px;
-    padding-right: 16px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 150px;
-    font-size: 26px;
-    text-align: center;
-  }
+//   .client_show {
+//     padding-left: 16px;
+//     padding-right: 16px;
+//     margin-left: auto;
+//     margin-right: auto;
+//     margin-top: 150px;
+//     font-size: 26px;
+//     text-align: center;
+//   }
 
-  .form-control::placeholder {
-    color: transparent;
-  }
+//   .form-control::placeholder {
+//     color: transparent;
+//   }
 
-  .simple-calendar {
-    th  {
-      font-size: 20px;
-    }
-    .day {
-    }
+//   .simple-calendar {
+//     th  {
+//       font-size: 20px;
+//     }
+//     .day {
+//     }
 
-    .wday-0 {
-      color: red;
-      font-weight: 800;
-    }
-    .wday-1 {
-      font-weight: 800;
-      font-weight: 800;
-    }
-    .wday-2 {
-      font-weight: 800;
-    }
-    .wday-3 {
-      font-weight: 800;
-    }
-    .wday-4 {
-      font-weight: 800;
-    }
-    .wday-5 {
-      font-weight: 800;
-    }
-    .wday-6 {
-      color: blue;
-      font-weight: 800;
-    }
+//     .wday-0 {
+//       color: red;
+//       font-weight: 800;
+//     }
+//     .wday-1 {
+//       font-weight: 800;
+//       font-weight: 800;
+//     }
+//     .wday-2 {
+//       font-weight: 800;
+//     }
+//     .wday-3 {
+//       font-weight: 800;
+//     }
+//     .wday-4 {
+//       font-weight: 800;
+//     }
+//     .wday-5 {
+//       font-weight: 800;
+//     }
+//     .wday-6 {
+//       color: blue;
+//       font-weight: 800;
+//     }
   
-    .today {}
-    .past {}
-    .future {}
+//     .today {}
+//     .past {}
+//     .future {}
   
-    .start-date {
-    }
+//     .start-date {
+//     }
   
-    .prev-month {}
-    .next-month { }
-    .current-month {}
+//     .prev-month {}
+//     .next-month { }
+//     .current-month {}
   
-    .has-events {}
-  }
+//     .has-events {}
+//   }
 
 
-}
+// }
 
   @media screen and (max-width: 550px) {
 
