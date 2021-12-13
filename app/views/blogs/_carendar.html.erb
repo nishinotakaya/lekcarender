@@ -10,7 +10,7 @@
               <% if blog.content_1.include? ("様") %>
                 <img src="https://img.icons8.com/wired/15/000000/birthday-cake.png", class="cake"/>
               <% end %>  
-                <%= blog.content_1.truncate(20) if blog.content_1.present? %>
+                <%= blog.content_1 %>
               <% end %>
             </div>
           <% end %>
@@ -20,7 +20,7 @@
               <% if blog.content_2.include? ("様") %>
                 <img src="https://img.icons8.com/wired/15/000000/birthday-cake.png", class="cake"/>
               <% end %>  
-                <%= blog.content_2.truncate(20) if blog.content_2.present?  %>
+                <%= blog.content_2 %>
               <% end %>
             </div>
           <% end %>
@@ -30,7 +30,7 @@
                 <% if blog.content_3.include? ("様") %>
                   <img src="https://img.icons8.com/wired/15/000000/birthday-cake.png", class="cake"/>
                 <% end %>  
-                <%= blog.content_3.truncate(20) if blog.content_3.present?  %>
+                <%= blog.content_3 %>
               <% end %>
             </div>
           <% end %>
