@@ -41,6 +41,7 @@ gem 'axlsx'
 gem 'zip-zip'
 gem 'mini_magick'
 gem 'kaminari'
+gem 'active_decorator'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -83,4 +84,3 @@ group :production do
 end
 
 gem 'seed_dump'
-gem 'active_decorator'
