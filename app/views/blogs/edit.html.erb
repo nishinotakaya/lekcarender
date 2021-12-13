@@ -2,40 +2,33 @@
   <div class="card o-hidden border-0 shadow-lg my-5">
     <div class="card-body p-1">
     <!-- Nested Row within Card Body -->
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="p-5">
-            <div class="text-center">
-              <h1 class="h4 text-gray-900 mb-4">編集</h1>
-              <%= link_to '企画書', new_planning_paper_path(id: @blog.id) %>
-                <%= form_with(model: @blog, url: blog_path(@blog), local: true, method: :patch) do |form| %>
-                  <div class="title">
-                    <%= form.label :レクリエーション %>
-                    <br><%= form.text_field :title %>
-                  </div>
-
-                  <div class="content">
-                    <%= form.label :誕生日利用者 %>
-                    <br><%= form.text_field :content_1 %>
-                  </div>
-
-                  <div class="content">
-                    <%= form.label :誕生日利用者 %>
-                    <br><%= form.text_field :content_2 %>
-                  </div>
-
-                  <div class="content">
-                    <%= form.label :誕生日利用者 %>
-                    <br><%= form.text_field :content_3 %>
-                  </div>
-                  <div class="submit">
-                    <%= form.submit "更新" ,class: "btn btn-primary" %>
-                  </div>
-                <% end %>
-            </div>
-          </div>
+    <div class="text-center">
+      <h1 class="h4 text-gray-900 mb-4">編集</h1>
+      <%= link_to '企画書', new_planning_paper_path(id: @blog.id) %>
+      <%= form_with(model: @blog, url: blog_path(@blog), local: true, method: :patch) do |form| %>
+        <div class="title">
+          <%= form.label :レクリエーション %>
+          <br><%= form.text_field :title %>
         </div>
-      </div>
+
+        <div class="content">
+          <%= form.label :誕生日利用者 %>
+          <br><%= form.text_field :content_1 %>
+        </div>
+
+        <div class="content">
+          <%= form.label :誕生日利用者 %>
+          <br><%= form.text_field :content_2 %>
+        </div>
+
+        <div class="content">
+          <%= form.label :誕生日利用者 %>
+          <br><%= form.text_field :content_3 %>
+        </div>
+        <div class="submit">
+          <%= form.submit "更新" ,class: "btn btn-primary" %>
+        </div>
+      <% end %>  
     </div>
   </div>
 </div>
