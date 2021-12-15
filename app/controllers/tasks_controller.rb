@@ -137,7 +137,7 @@ class TasksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def task_params
-      params.require(:task).permit(:classification, :total, :manager, :inc, :title, :contents, :copywarehouse, :warehousecode, :firstshipping, :firststock, :finishwarehouse, :integrationinstance, :hubinstance, :user_id).merge(user_id: current_user.id)
+      params.require(:task).permit(:classification, :total, :manager, :inc, :title, :contents, :copywarehouse, :warehousecode, :firstshipping, :finishwarehouse, :integrationinstance, :hubinstance, :user_id).merge(user_id: current_user.id)
     end
 
     def task_total_params

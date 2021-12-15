@@ -31,8 +31,7 @@
         <th scope="col">内容</th>
         <th>倉庫コード</th>
         <th scope="col">コピー元倉庫</th>
-        <th scope="col">初回出荷</th>
-        <th scope="col">初回入荷</th>
+        <th scope="col">初回稼働日</th>
         <th scope="col">初回倉庫終了</th>
         <th scope="col">統合インスタンス</th>
         <th scope="col">拠点インスタンス</th>
@@ -52,7 +51,6 @@
           <td><%= task.warehousecode %></td>
           <td><%= task.copywarehouse %></td>
           <td><%= l(task.firstshipping, format: :long) if task.firstshipping.present? %></td>
-          <td><%= l(task.firststock, format: :long) if task.firststock.present? %></td>
           <td><%= l(task.finishwarehouse, format: :long) if task.finishwarehouse.present? %></td>
           <td><%= safe_join(task.integrationinstance.split("\n"),tag(:br)) %></td>
           <td><%= safe_join(task.hubinstance.split("\n"),tag(:br)) %></td>
