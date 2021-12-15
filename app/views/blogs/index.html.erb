@@ -16,7 +16,7 @@
       <%= a.title %>
       <%= a.warehousecode %>
       初回稼働日
-      <%= a.firstshipping %></div>
+      <%=  l(a.firstshipping, format: :long) if a.firstshipping.present? %></div>
     <% end %>
   <% end %>
 </div>
