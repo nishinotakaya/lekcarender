@@ -12,11 +12,11 @@
   </div>
   <% @tasks.map do |a| %>
     <% if a.firstshipping.present? && @start_date.month ==  a.firstshipping.month %>
-      <%= a.inc %>
+      <div><%= a.inc %>
       <%= a.title %>
       <%= a.warehousecode %>
       初回稼働日
-      <%= a.firstshipping %>
+      <%= a.firstshipping %></div>
     <% end %>
   <% end %>
 </div>
